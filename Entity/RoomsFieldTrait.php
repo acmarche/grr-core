@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Grr\Core\Entity\RoomInterface;
 use Doctrine\Common\Collections\Collection;
 
-trait RoomFieldTrait
+trait RoomsFieldTrait
 {
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Entity\RoomInterface", mappedBy="area")
