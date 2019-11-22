@@ -8,7 +8,7 @@ use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 
 /**
  * Pour l'activer dans config/services.yaml :
- * App\Doctrine\TablePrefix:
+ * Grr\Core\Doctrine\TablePrefix:
  *  arguments:
  *    $prefix: '%env(string:DATABASE_PREFIX)%'
  *  tags:
