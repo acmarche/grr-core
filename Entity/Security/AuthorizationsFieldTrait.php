@@ -10,7 +10,6 @@
 
 namespace Grr\Core\Entity\Security;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 trait AuthorizationsFieldTrait
@@ -18,7 +17,7 @@ trait AuthorizationsFieldTrait
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\AuthorizationInterface", mappedBy="area", orphanRemoval=true)
      *
-     * @var Grr\Core\Entity\Security\AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
+     * @var AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $authorizations;
 
