@@ -16,9 +16,9 @@ use Doctrine\Common\Collections\Collection;
 trait EntryTypesFieldTrait
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Grr\Core\Entity\EntryType")
+     * @ORM\ManyToMany(targetEntity="Grr\Core\Entity\EntryTypeInterface")
      *
-     * @var Grr\Core\Entity\EntryTypeInterface[]|\Doctrine\Common\Collections\Collection
+     * @var EntryTypeInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $entryTypes;
 

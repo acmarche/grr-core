@@ -21,6 +21,7 @@ trait EntryTrait
     use NameEntityTrait;
     use TimestampableEntityTrait;
     use RoomFieldTrait;
+    use PeriodicityFieldTrait;
 
     /**
      * @var \DateTimeInterface
@@ -109,8 +110,8 @@ trait EntryTrait
     private $jours;
 
     /**
-     * @var EntryType|null
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\EntryType", inversedBy="entries")
+     * @var EntryTypeInterface|null
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\EntryTypeInterface", inversedBy="entries")
      * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
      */
     private $type;
@@ -141,16 +142,6 @@ trait EntryTrait
      */
     private $cellules;
 
-    /**
-     * @Assert\Type("Grr\Core\Entity\PeriodicityInterface")
-     * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\PeriodicityInterface", inversedBy="entries", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     *
-     * @var Grr\Core\Entity\PeriodicityInterface|null
-     */
-    private $periodicity;
-
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -173,7 +164,7 @@ trait EntryTrait
     }
 
     /**
-     * @return Entry
+     * @return EntryInterface
      */
     public function setCellules(int $cellules): self
     {
@@ -197,7 +188,7 @@ trait EntryTrait
     }
 
     /**
-     * @return Entry
+     * @return EntryInterface
      */
     public function setDuration(?DurationModel $duration): self
     {
@@ -385,15 +376,4 @@ trait EntryTrait
         return $this;
     }
 
-    public function getPeriodicity(): ?PeriodicityInterface
-    {
-        return $this->periodicity;
-    }
-
-    public function setPeriodicity(?PeriodicityInterface $periodicity): self
-    {
-        $this->periodicity = $periodicity;
-
-        return $this;
-    }
 }

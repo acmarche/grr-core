@@ -2,12 +2,11 @@
 
 namespace Grr\Core\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Entity\Security\AuthorizationInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Entity\Security\AuthorizationsFieldTrait;
 
 /**
@@ -158,7 +157,7 @@ trait RoomTrait
      * Override pour mappedBy
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
-     * @var Grr\Core\Entity\Security\Authorization[]|\Doctrine\Common\Collections\Collection
+     * @var AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $authorizations;
 

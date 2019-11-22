@@ -11,7 +11,6 @@
 namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Grr\Core\Entity\RoomInterface;
 use Doctrine\Common\Collections\Collection;
 
 trait RoomsFieldTrait

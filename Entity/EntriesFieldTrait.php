@@ -10,15 +10,15 @@
 
 namespace Grr\Core\Entity;
 
-
 use Doctrine\Common\Collections\Collection;
+use Grr\Core\Entity\EntryInterface;
 
 trait EntriesFieldTrait
 {
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="room", cascade={"remove"})
      *
-     * @var Grr\Core\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
+     * @var EntryInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $entries;
 

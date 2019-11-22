@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\Collection;
 trait AuthorizationsFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\Authorization", mappedBy="area", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\AuthorizationInterface", mappedBy="area", orphanRemoval=true)
      *
      * @var Grr\Core\Entity\Security\AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
      */

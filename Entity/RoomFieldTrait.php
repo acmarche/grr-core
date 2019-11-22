@@ -10,7 +10,6 @@
 
 namespace Grr\Core\Entity;
 
-
 trait RoomFieldTrait
 {
     /**
