@@ -7,7 +7,6 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Doctrine\Traits\TimestampableEntityTrait;
 use Grr\Core\Model\DurationModel;
 use Grr\Core\Model\TimeSlot;
-use Grr\Core\Validator\Entry as AppAssertEntry;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Entry.
  */
-class EntryTrait
+trait EntryTrait
 {
     use IdEntityTrait;
     use NameEntityTrait;

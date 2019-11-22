@@ -3,14 +3,13 @@
 namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 
 /**
  */
-class EntryTypeTrait
+trait EntryTypeTrait
 {
     use IdEntityTrait;
     use NameEntityTrait;
