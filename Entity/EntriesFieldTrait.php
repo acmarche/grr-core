@@ -16,9 +16,9 @@ use Doctrine\Common\Collections\Collection;
 trait EntriesFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Entry", mappedBy="room", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="room", cascade={"remove"})
      *
-     * @var Grr\Core\Entity\Entry[]|\Doctrine\Common\Collections\Collection
+     * @var Grr\Core\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $entries;
 

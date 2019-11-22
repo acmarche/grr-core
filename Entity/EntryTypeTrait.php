@@ -2,26 +2,19 @@
 
 namespace Grr\Core\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use Grr\Core\Doctrine\Traits\IdEntityTrait;
-use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Grr\Core\Doctrine\Traits\IdEntityTrait;
+use Grr\Core\Doctrine\Traits\NameEntityTrait;
 
 /**
- * @ORM\Table(name="entry_type", uniqueConstraints={
- *     @ORM\UniqueConstraint(columns={"letter"})
- * })
- * @ORM\Entity(repositoryClass="Grr\Core\Repository\EntryTypeRepository")
- * @UniqueEntity(fields={"letter"}, message="entry_type.constraint.already_use")
- * @ApiResource
  */
-class EntryType
+class EntryTypeTrait
 {
     use IdEntityTrait;
     use NameEntityTrait;
+    use EntriesFieldTrait;
 
     /**
      * @var int
@@ -52,9 +45,8 @@ class EntryType
     private $disponible;
 
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Entry", mappedBy="type")
-     *
-     * @var Grr\Core\Entity\Entry[]|\Doctrine\Common\Collections\Collection
+     * Override mappedBy
+     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="type")
      */
     private $entries;
 
@@ -118,34 +110,4 @@ class EntryType
         return $this;
     }
 
-    /**
-     * @return Collection|Entry[]
-     */
-    public function getEntries(): Collection
-    {
-        return $this->entries;
-    }
-
-    public function addEntry(Entry $entry): self
-    {
-        if (!$this->entries->contains($entry)) {
-            $this->entries[] = $entry;
-            $entry->setType($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEntry(Entry $entry): self
-    {
-        if ($this->entries->contains($entry)) {
-            $this->entries->removeElement($entry);
-            // set the owning side to null (unless already changed)
-            if ($entry->getType() === $this) {
-                $entry->setType(null);
-            }
-        }
-
-        return $this;
-    }
 }

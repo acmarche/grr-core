@@ -2,26 +2,18 @@
 
 namespace Grr\Core\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Periodicity\PeriodicityConstant;
-use Grr\Core\Validator\Periodicity as AppAssertPeriodicity;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="periodicity")
- * @ORM\Entity(repositoryClass="Grr\Core\Repository\PeriodicityRepository")
  *
- * @AppAssertPeriodicity\Periodicity
- * @AppAssertPeriodicity\PeriodicityEveryDay
- * @AppAssertPeriodicity\PeriodicityEveryMonth
- * @AppAssertPeriodicity\PeriodicityEveryYear
- * @AppAssertPeriodicity\PeriodicityEveryWeek
  */
-class Periodicity
+trait PeriodicityTrait
 {
     use IdEntityTrait;
+    use EntriesFieldTrait;
 
     /**
      * @ORM\Column(type="date")
@@ -59,9 +51,8 @@ class Periodicity
     private $weekDays;
 
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Entry", mappedBy="periodicity")
-     *
-     * @var Grr\Core\Entity\Entry[]|\Doctrine\Common\Collections\Collection
+     * Override mappedBy
+     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="periodicity")
      */
     private $entries;
 
@@ -72,7 +63,7 @@ class Periodicity
      */
     private $entryReference;
 
-    public function __construct(?Entry $entry = null)
+    public function __construct(?EntryInterface $entry = null)
     {
         $this->type = 0;
         $this->weekDays = [];
@@ -80,12 +71,12 @@ class Periodicity
         $this->entryReference = $entry;
     }
 
-    public function getEntryReference(): ?Entry
+    public function getEntryReference(): ?EntryInterface
     {
         return $this->entryReference;
     }
 
-    public function setEntryReference(?Entry $entry_reference): void
+    public function setEntryReference(?EntryInterface $entry_reference): void
     {
         $this->entryReference = $entry_reference;
     }
@@ -138,34 +129,4 @@ class Periodicity
         return $this;
     }
 
-    /**
-     * @return Collection|Entry[]
-     */
-    public function getEntries(): Collection
-    {
-        return $this->entries;
-    }
-
-    public function addEntry(Entry $entry): self
-    {
-        if (!$this->entries->contains($entry)) {
-            $this->entries[] = $entry;
-            $entry->setPeriodicity($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEntry(Entry $entry): self
-    {
-        if ($this->entries->contains($entry)) {
-            $this->entries->removeElement($entry);
-            // set the owning side to null (unless already changed)
-            if ($entry->getPeriodicity() === $this) {
-                $entry->setPeriodicity(null);
-            }
-        }
-
-        return $this;
-    }
 }

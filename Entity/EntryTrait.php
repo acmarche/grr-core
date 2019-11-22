@@ -2,7 +2,6 @@
 
 namespace Grr\Core\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Doctrine\Traits\TimestampableEntityTrait;
@@ -16,18 +15,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Entry.
- *
- * @ORM\Table(name="entry")
- * @ORM\Entity(repositoryClass="Grr\Core\Repository\EntryRepository")
- * @AppAssertEntry\BusyRoom
- * @AppAssertEntry\AreaTimeSlot
- * @ApiResource
  */
-class Entry
+class EntryTrait
 {
     use IdEntityTrait;
     use NameEntityTrait;
     use TimestampableEntityTrait;
+    use RoomFieldTrait;
 
     /**
      * @var \DateTimeInterface
@@ -123,16 +117,9 @@ class Entry
     private $type;
 
     /**
-     * @var Room
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\Room", inversedBy="entries")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $room;
-
-    /**
      * Util lors de l'ajout d'un Entry.
      *
-     * @var Area|null
+     * @var AreaInterface|null
      */
     private $area;
 
@@ -156,12 +143,12 @@ class Entry
     private $cellules;
 
     /**
-     * @Assert\Type("Grr\Core\Entity\Periodicity")
+     * @Assert\Type("Grr\Core\Entity\PeriodicityInterface")
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\Periodicity", inversedBy="entries", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\PeriodicityInterface", inversedBy="entries", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      *
-     * @var Grr\Core\Entity\Periodicity|null
+     * @var Grr\Core\Entity\PeriodicityInterface|null
      */
     private $periodicity;
 
@@ -173,7 +160,6 @@ class Entry
         $this->private = false;
         $this->moderate = false;
         $this->jours = false;
-        $this->beneficiaire = 'jf';
         $this->optionReservation = 0;
     }
 
@@ -221,12 +207,12 @@ class Entry
         return $this;
     }
 
-    public function getArea(): ?Area
+    public function getArea(): ?AreaInterface
     {
         return $this->area;
     }
 
-    public function setArea(?Area $area): void
+    public function setArea(?AreaInterface $area): void
     {
         $this->area = $area;
     }
@@ -388,36 +374,24 @@ class Entry
         return $this;
     }
 
-    public function getType(): ?EntryType
+    public function getType(): ?EntryTypeInterface
     {
         return $this->type;
     }
 
-    public function setType(?EntryType $type): self
+    public function setType(?EntryTypeInterface $type): self
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function getRoom(): ?Room
-    {
-        return $this->room;
-    }
-
-    public function setRoom(?Room $room): self
-    {
-        $this->room = $room;
-
-        return $this;
-    }
-
-    public function getPeriodicity(): ?Periodicity
+    public function getPeriodicity(): ?PeriodicityInterface
     {
         return $this->periodicity;
     }
 
-    public function setPeriodicity(?Periodicity $periodicity): self
+    public function setPeriodicity(?PeriodicityInterface $periodicity): self
     {
         $this->periodicity = $periodicity;
 
