@@ -40,7 +40,7 @@ class Month extends Carbon
         return $this->carbon;
     }
 
-    public static function init(int $year, int $month, string $language): Grr\Core\Model\Month
+    public static function init(int $year, int $month, string $language): self
     {
         Assert::greaterThan($year, 1970);
         Assert::greaterThan($month, 0);

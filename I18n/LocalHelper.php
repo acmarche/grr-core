@@ -2,6 +2,7 @@
 
 namespace Grr\Core\I18n;
 
+use Grr\Core\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
@@ -35,7 +36,7 @@ class LocalHelper
     public function setDefaultLocal(): void
     {
         /**
-         * @var User
+         * @var UserInterface
          */
         $user = $this->security->getUser();
         /*
