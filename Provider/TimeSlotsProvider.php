@@ -5,6 +5,10 @@ namespace Grr\Core\Provider;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Carbon\CarbonPeriod;
+use Grr\Core\Entity\AreaInterface;
+use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Factory\CarbonFactory;
+use Grr\Core\Model\TimeSlot;
 
 class TimeSlotsProvider
 {
@@ -23,7 +27,7 @@ class TimeSlotsProvider
      *
      * @return TimeSlot[]
      */
-    public function getTimeSlotsModelByAreaAndDaySelected(Area $area, CarbonInterface $daySelected): array
+    public function getTimeSlotsModelByAreaAndDaySelected(AreaInterface $area, CarbonInterface $daySelected): array
     {
         $hourBegin = $area->getStartTime();
         $hourEnd = $area->getEndTime();
@@ -74,7 +78,7 @@ class TimeSlotsProvider
     /**
      * Obtient les tranches horaires de l'entrée basée sur la résolution de l'Area.
      */
-    public function getTimeSlotsOfEntry(Entry $entry): CarbonPeriod
+    public function getTimeSlotsOfEntry(EntryInterface $entry): CarbonPeriod
     {
         $area = $entry->getRoom()->getArea();
         $entryHourBegin = $entry->getStartTime();
