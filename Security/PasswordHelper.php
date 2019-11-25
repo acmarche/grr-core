@@ -10,9 +10,8 @@
 
 namespace Grr\Core\Security;
 
-use Grr\GrrBundle\Entity\Security\User;
+use Grr\Core\Entity\Security\UserInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class PasswordHelper
 {
@@ -26,7 +25,7 @@ class PasswordHelper
         $this->userPasswordEncoder = $userPasswordEncoder;
     }
 
-    public function encodePassword(User $user, string $clearPassword): string
+    public function encodePassword(UserInterface $user, string $clearPassword): string
     {
         return $this->userPasswordEncoder->encodePassword($user, $clearPassword);
     }
