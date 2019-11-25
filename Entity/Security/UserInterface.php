@@ -10,7 +10,7 @@
 
 namespace Grr\Core\Entity\Security;
 
-interface UserInterface extends \Symfony\Component\Security\Core\User\UserInterface
+interface UserInterface
 {
 
 }
