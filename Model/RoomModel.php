@@ -2,14 +2,15 @@
 
 namespace Grr\Core\Model;
 
-use Grr\Core\Entity\Entry;
-use Grr\Core\Entity\Room;
+
 use Doctrine\Common\Collections\ArrayCollection;
+use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Entity\RoomInterface;
 
 class RoomModel
 {
     /**
-     * @var Room
+     * @var RoomInterface
      */
     protected $room;
 
@@ -18,18 +19,18 @@ class RoomModel
      */
     protected $data_days;
     /**
-     * @var ArrayCollection|Entry[]
+     * @var ArrayCollection|EntryInterface[]
      */
     private $entries;
 
-    public function __construct(Room $room)
+    public function __construct(RoomInterface $room)
     {
         $this->room = $room;
         $this->data_days = new ArrayCollection();
         $this->entries = new ArrayCollection();
     }
 
-    public function getRoom(): Room
+    public function getRoom(): RoomInterface
     {
         return $this->room;
     }
