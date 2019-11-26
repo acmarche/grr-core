@@ -9,6 +9,8 @@
 namespace Grr\Core\Helper;
 
 use Grr\Core\Entity\AreaInterface;
+use Grr\Core\Model\Month;
+use Grr\Core\Provider\DateProvider;
 use Twig\Environment;
 
 class MonthHelperDataDisplay
@@ -28,7 +30,7 @@ class MonthHelperDataDisplay
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function generateHtmlMonth(MonthInterface $month, AreaInterface $area): string
+    public function generateHtmlMonth(Month $month, AreaInterface $area): string
     {
         $weeks = $month->groupDataDaysByWeeks();
 

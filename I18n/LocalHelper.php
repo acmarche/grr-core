@@ -42,7 +42,7 @@ class LocalHelper
         /*
          * Parameter from symfony config/translation.yaml
          * */
-        $this->defaultLocale = $this->parameterBag->get('locale');
+        $this->defaultLocale = $this->parameterBag->get('kernel.default_locale');
         /**
          * Navigator.
          */

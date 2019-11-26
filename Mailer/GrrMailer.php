@@ -10,7 +10,9 @@
 
 namespace Grr\Core\Mailer;
 
+use Grr\GrrBundle\Mailer\EmailFactory;
 use Knp\Message\Pdf;
+use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
@@ -70,7 +72,7 @@ class GrrMailer
         $pdf = $this->pdf->getOutputFromHtml($html);
 
         $message = (EmailFactory::createNewTemplated())
-            ->to(new NamedAddress('jf@marche.be', 'zeze'))
+            ->to(new Address('jf@marche.be', 'zeze'))
             ->subject('Your weekly report on the Space Bar!')
             ->htmlTemplate('email/welcome2.html.twig')
             ->context(
@@ -94,4 +96,26 @@ class GrrMailer
             var_dump($e->getMessage());
         }
     }
+
+    public function t()
+    {
+        $email = (new NotificationEmail())
+            ->from('fabien@marche.be')
+            ->to('jf@marche.be')
+            ->cc('jfsenechal@gmail.com')
+            ->subject('My first notification email via Symfony')
+            ->markdown(
+                <<<EOF
+There is a **problem** on your website, you should investigate it right now.
+Or just wait, the problem might solves itself automatically, we never know.
+EOF
+            )
+            ->action('More info2?', 'https://example.com/');
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            dump($e->getMessage());
+        }
+    }
+
 }

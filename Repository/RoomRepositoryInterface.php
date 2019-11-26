@@ -6,5 +6,5 @@ use Doctrine\ORM\QueryBuilder;
 
 interface RoomRepositoryInterface
 {
-    public function getQueryBuilder(): QueryBuilder;
+
 }
