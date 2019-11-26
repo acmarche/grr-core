@@ -2,25 +2,25 @@
 
 namespace Grr\Core\Model;
 
-use Grr\Core\Entity\Area;
-use Grr\Core\Entity\Room;
-use Grr\Core\Entity\Security\User;
 use Doctrine\Common\Collections\ArrayCollection;
+use Grr\Core\Entity\AreaInterface;
+use Grr\Core\Entity\RoomInterface;
+use Grr\Core\Entity\Security\UserInterface;
 
 class AuthorizationModel
 {
     /**
-     * @var Area|null
+     * @var AreaInterface|null
      */
     protected $area;
 
     /**
-     * @var Room[]|array|ArrayCollection
+     * @var RoomInterface[]|array|ArrayCollection
      */
     protected $rooms;
 
     /**
-     * @var User[]|array
+     * @var UserInterface[]|array
      */
     protected $users;
 
@@ -35,18 +35,18 @@ class AuthorizationModel
         $this->rooms = new ArrayCollection();
     }
 
-    public function getArea(): ?Area
+    public function getArea(): ?AreaInterface
     {
         return $this->area;
     }
 
-    public function setArea(?Area $area): void
+    public function setArea(?AreaInterface $area): void
     {
         $this->area = $area;
     }
 
     /**
-     * @return Grr\Core\Entity\Room[]
+     * @return RoomInterface[]
      */
     public function getRooms(): ArrayCollection
     {
@@ -54,14 +54,14 @@ class AuthorizationModel
     }
 
     /**
-     * @param Room[]|array $rooms
+     * @param RoomInterface[]|array $rooms
      */
     public function setRooms(array $rooms): void
     {
         $this->rooms = $rooms;
     }
 
-    public function addRoom(Room $room): self
+    public function addRoom(RoomInterface $room): self
     {
         if (!$this->rooms->contains($room)) {
             $this->rooms[] = $room;
@@ -70,7 +70,7 @@ class AuthorizationModel
         return $this;
     }
 
-    public function removeRoom(Room $room): self
+    public function removeRoom(RoomInterface $room): self
     {
         if ($this->rooms->contains($room)) {
             $this->rooms->removeElement($room);
@@ -90,7 +90,7 @@ class AuthorizationModel
     }
 
     /**
-     * @return Grr\Core\Entity\Security\User[]
+     * @return UserInterface[]
      */
     public function getUsers(): array
     {
@@ -98,8 +98,8 @@ class AuthorizationModel
     }
 
     /**
-     * @param User[]|array
-     * @param Grr\Core\Entity\Security\User[] $users
+     * @param UserInterface[]|array
+     * @param UserInterface[] $users
      */
     public function setUsers(array $users): void
     {

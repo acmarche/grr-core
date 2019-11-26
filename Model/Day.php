@@ -8,15 +8,15 @@
 
 namespace Grr\Core\Model;
 
-use Grr\Core\Entity\Entry;
 use Carbon\CarbonImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Grr\Core\Entity\EntryInterface;
 
 class Day extends CarbonImmutable
 {
     /**
-     * @var ArrayCollection|Entry[]
+     * @var ArrayCollection|EntryInterface[]
      */
     protected $entries;
 
@@ -27,7 +27,7 @@ class Day extends CarbonImmutable
     }
 
     /**
-     * @return Collection|Entry[]
+     * @return Collection|EntryInterface[]
      */
     public function getEntries(): Collection
     {
@@ -35,7 +35,7 @@ class Day extends CarbonImmutable
     }
 
     /**
-     * @param Entry[]|ArrayCollection $entries
+     * @param EntryInterface[]|ArrayCollection $entries
      *
      * @return Day
      */
@@ -46,7 +46,7 @@ class Day extends CarbonImmutable
         return $this;
     }
 
-    public function addEntry(Entry $entry): self
+    public function addEntry(EntryInterface $entry): self
     {
         if (!$this->entries->contains($entry)) {
             $this->entries[] = $entry;
