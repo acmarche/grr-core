@@ -4,12 +4,12 @@ namespace Grr\Core\Tests\Factory;
 
 use DateTime;
 use DateTimeInterface;
-use Grr\Core\Area\AreaFactory;
-use Grr\Core\Entry\EntryFactory;
+use Grr\GrrBundle\Area\AreaFactory;
+use Grr\GrrBundle\Entry\EntryFactory;
 use Grr\Core\Factory\DurationFactory;
 use Grr\Core\Model\DurationModel;
-use Grr\Core\Periodicity\PeriodicityFactory;
-use Grr\Core\Room\RoomFactory;
+use Grr\GrrBundle\Periodicity\PeriodicityFactory;
+use Grr\GrrBundle\Room\RoomFactory;
 use Grr\Core\Tests\BaseTesting;
 
 class DurationFactoryTest extends BaseTesting

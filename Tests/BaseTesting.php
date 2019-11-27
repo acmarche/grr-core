@@ -12,12 +12,6 @@ namespace Grr\Core\Tests;
 
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use DateTime;
-use Grr\Core\Entity\Area;
-use Grr\Core\Entity\Entry;
-use Grr\Core\Entity\EntryType;
-use Grr\Core\Entity\Periodicity;
-use Grr\Core\Entity\Room;
-use Grr\Core\Entity\Security\User;
 use Grr\Core\Faker\CarbonProvider;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Fidry\AliceDataFixtures\LoaderInterface;
@@ -91,50 +85,6 @@ class BaseTesting extends WebTestCase
                 'PHP_AUTH_PW' => $password,
             ]
         );
-    }
-
-    protected function getArea(string $name): ?object
-    {
-        return $this->entityManager
-            ->getRepository(Area::class)
-            ->findOneBy(['name' => $name]);
-    }
-
-    protected function getRoom(string $roomName): ?object
-    {
-        return $this->entityManager
-            ->getRepository(Room::class)
-            ->findOneBy(['name' => $roomName]);
-    }
-
-    protected function getPeriodicity(int $type, string $endTime): ?object
-    {
-        $dateTime = DateTime::createFromFormat('Y-m-d', $endTime);
-
-        return $this->entityManager
-            ->getRepository(Periodicity::class)
-            ->findOneBy(['type' => $type, 'endTime' => $dateTime]);
-    }
-
-    protected function getEntry(string $name): ?object
-    {
-        return $this->entityManager
-            ->getRepository(Entry::class)
-            ->findOneBy(['name' => $name]);
-    }
-
-    protected function getUser(string $email): ?object
-    {
-        return $this->entityManager
-            ->getRepository(User::class)
-            ->findOneBy(['email' => $email]);
-    }
-
-    protected function getTypeEntry(string $name): ?object
-    {
-        return $this->entityManager
-            ->getRepository(EntryType::class)
-            ->findOneBy(['name' => $name]);
     }
 
     /**

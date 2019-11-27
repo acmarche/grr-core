@@ -10,8 +10,8 @@
 
 namespace Grr\Core\Tests\Service;
 
-use Grr\Core\Entity\Entry;
-use Grr\Core\Entity\Room;
+use Grr\GrrBundle\Entity\Entry;
+use Grr\GrrBundle\Entity\Room;
 use Grr\Core\Entry\EntryLocationService;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\Factory\DayFactory;
@@ -19,7 +19,7 @@ use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Model\Month;
 use Grr\Core\Model\Week;
 use Grr\Core\Provider\TimeSlotsProvider;
-use Grr\Core\Service\BindDataManager;
+use Grr\GrrBundle\Service\BindDataManager;
 use Grr\Core\Tests\BaseTesting;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;

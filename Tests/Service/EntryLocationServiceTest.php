@@ -11,9 +11,9 @@
 namespace Grr\Core\Tests\Service;
 
 use DateTime;
-use Grr\Core\Entity\Area;
-use Grr\Core\Entity\Entry;
-use Grr\Core\Entity\Room;
+use Grr\GrrBundle\Entity\Area;
+use Grr\GrrBundle\Entity\Entry;
+use Grr\GrrBundle\Entity\Room;
 use Grr\Core\Entry\EntryLocationService;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\I18n\LocalHelper;

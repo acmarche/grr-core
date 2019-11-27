@@ -10,9 +10,9 @@
 
 namespace Grr\Core\Tests\Provider;
 
-use Grr\Core\Entity\Area;
-use Grr\Core\Entity\Entry;
-use Grr\Core\Entity\Room;
+use Grr\GrrBundle\Entity\Area;
+use Grr\GrrBundle\Entity\Entry;
+use Grr\GrrBundle\Entity\Room;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Provider\TimeSlotsProvider;
