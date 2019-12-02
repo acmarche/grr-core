@@ -42,7 +42,7 @@ trait EntryTypeTrait
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $disponible;
+    private $available;
 
     /**
      * Override mappedBy
@@ -54,7 +54,7 @@ trait EntryTypeTrait
     {
         $this->entries = new ArrayCollection();
         $this->orderDisplay = 0;
-        $this->disponible = 2;
+        $this->available = 2;
     }
 
     public function __toString(): string
@@ -94,18 +94,6 @@ trait EntryTypeTrait
     public function setLetter(string $letter): self
     {
         $this->letter = $letter;
-
-        return $this;
-    }
-
-    public function getDisponible(): ?int
-    {
-        return $this->disponible;
-    }
-
-    public function setDisponible(int $disponible): self
-    {
-        $this->disponible = $disponible;
 
         return $this;
     }
