@@ -17,6 +17,7 @@ trait EntryTypesFieldTrait
 {
     /**
      * @ORM\ManyToMany(targetEntity="Grr\Core\Entity\EntryTypeInterface")
+     * @ORM\JoinTable(name="area_entry_type")
      *
      * @var EntryTypeInterface[]|\Doctrine\Common\Collections\Collection
      */
