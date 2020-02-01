@@ -5,12 +5,12 @@ namespace Grr\Core\Entity\Security;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Grr\Core\Doctrine\Traits\TimestampableEntityTrait;
-use Grr\Core\Entity\AreaInterface;
-use Grr\Core\Entity\RoomInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
+use Grr\Core\Entity\AreaInterface;
+use Grr\Core\Entity\RoomInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  *
@@ -18,7 +18,7 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 trait UserTrait
 {
     use IdEntityTrait;
-    use TimestampableEntityTrait;
+    use TimestampableTrait;
     use NameEntityTrait;
 
     /**
@@ -98,7 +98,7 @@ trait UserTrait
 
     public function __toString(): string
     {
-        return mb_strtoupper($this->name).' '.$this->first_name;
+        return mb_strtoupper($this->name) . ' ' . $this->first_name;
     }
 
     public function getUsername(): ?string

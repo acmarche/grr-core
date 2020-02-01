@@ -2,14 +2,14 @@
 
 namespace Grr\Core\Entity;
 
-use Grr\Core\Doctrine\Traits\IdEntityTrait;
-use Grr\Core\Doctrine\Traits\NameEntityTrait;
-use Grr\Core\Doctrine\Traits\TimestampableEntityTrait;
-use Grr\Core\Model\DurationModel;
-use Grr\Core\Model\TimeSlot;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Doctrine\Traits\IdEntityTrait;
+use Grr\Core\Doctrine\Traits\NameEntityTrait;
+use Grr\Core\Model\DurationModel;
+use Grr\Core\Model\TimeSlot;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -19,7 +19,7 @@ trait EntryTrait
 {
     use IdEntityTrait;
     use NameEntityTrait;
-    use TimestampableEntityTrait;
+    use TimestampableTrait;
     use RoomFieldTrait;
     use PeriodicityFieldTrait;
 

@@ -5,9 +5,9 @@ namespace Grr\Core\Entity\Security;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
-use Grr\Core\Doctrine\Traits\TimestampableEntityTrait;
 use Grr\Core\Entity\AreaInterface;
 use Grr\Core\Entity\RoomInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 
 /**
  *
@@ -15,7 +15,7 @@ use Grr\Core\Entity\RoomInterface;
 trait AuthorizationTrait
 {
     use IdEntityTrait;
-    use TimestampableEntityTrait;
+    use TimestampableTrait;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\Security\UserInterface", inversedBy="authorizations")
