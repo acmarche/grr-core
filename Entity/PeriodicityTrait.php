@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Periodicity\PeriodicityConstant;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  *
@@ -17,7 +18,7 @@ trait PeriodicityTrait
 
     /**
      * @ORM\Column(type="date")
-     *
+     * @Assert\Type("DateTime")
      * @var \DateTimeInterface
      */
     private $endTime;

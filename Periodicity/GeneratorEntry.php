@@ -2,13 +2,13 @@
 
 namespace Grr\Core\Periodicity;
 
-use Grr\Core\Entity\Entry;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
+use Grr\Core\Entity\EntryInterface;
 
 class GeneratorEntry
 {
-    public function generateEntry(Entry $entry, CarbonInterface $day): Entry
+    public function generateEntry(EntryInterface $entry, CarbonInterface $day): EntryInterface
     {
         $newEntry = clone $entry;
 

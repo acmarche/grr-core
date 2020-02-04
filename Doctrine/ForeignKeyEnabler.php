@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
  *
  * @see https://tomnewby.net/
  */
-class ForeignKeyEnabler implements EventSubscriber
+class ForeignKeyEnabler //implements EventSubscriber
 {
     /** @var EntityManagerInterface */
     private $manager;

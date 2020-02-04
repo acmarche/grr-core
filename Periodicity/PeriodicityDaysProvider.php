@@ -2,14 +2,14 @@
 
 namespace Grr\Core\Periodicity;
 
-use DateTimeInterface;
-use DateTime;
-use Grr\Core\Entity\Entry;
-use Grr\Core\Entity\Periodicity;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Carbon\CarbonInterval;
 use Carbon\CarbonPeriod;
+use DateTime;
+use DateTimeInterface;
+use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Entity\PeriodicityInterface;
 
 class PeriodicityDaysProvider
 {
@@ -25,7 +25,7 @@ class PeriodicityDaysProvider
     /**
      * @return array|CarbonPeriod
      */
-    public function getDaysByEntry(Entry $entry)
+    public function getDaysByEntry(EntryInterface $entry)
     {
         $periodicity = $entry->getPeriodicity();
 
@@ -40,7 +40,7 @@ class PeriodicityDaysProvider
      * @return \Carbon\CarbonPeriod|mixed[]
      */
     public function getDaysByPeriodicity(
-        Periodicity $periodicity,
+        PeriodicityInterface $periodicity,
         DateTimeInterface $startTime
     ) {
         $typePeriodicity = $periodicity->getType();
@@ -127,7 +127,7 @@ class PeriodicityDaysProvider
      * toutes les 1,2,3,4,5 semaines
      * lundi, mardi, mercredi...
      */
-    protected function forEveryWeek(Periodicity $periodicity): CarbonPeriod
+    protected function forEveryWeek(PeriodicityInterface $periodicity): CarbonPeriod
     {
         /**
          * monday, tuesday, wednesday.

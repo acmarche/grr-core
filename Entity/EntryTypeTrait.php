@@ -98,4 +98,20 @@ trait EntryTypeTrait
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getAvailable(): int
+    {
+        return $this->available;
+    }
+
+    /**
+     * @param int $available
+     */
+    public function setAvailable(int $available): void
+    {
+        $this->available = $available;
+    }
+
 }

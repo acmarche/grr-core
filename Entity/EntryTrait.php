@@ -26,7 +26,7 @@ trait EntryTrait
     /**
      * @var \DateTimeInterface
      *
-     * @Assert\DateTime
+     * @Assert\Type("DateTime")
      * @Assert\LessThan(propertyPath="endTime", message="entry.constraint.start_smaller_end")
      * @ORM\Column(type="datetime", nullable=false)
      */
@@ -34,7 +34,7 @@ trait EntryTrait
 
     /**
      * @var \DateTimeInterface
-     * @Assert\DateTime
+     * @Assert\Type("DateTime")
      * @ORM\Column(type="datetime", nullable=false)
      */
     private $endTime;
@@ -144,8 +144,6 @@ trait EntryTrait
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
         $this->locations = new ArrayCollection();
         $this->private = false;
         $this->moderate = false;
