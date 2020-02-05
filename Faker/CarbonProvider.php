@@ -10,9 +10,9 @@
 
 namespace Grr\Core\Faker;
 
-use DateTime;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
+use DateTime;
 use Faker\Provider\Base as BaseProvider;
 
 /**

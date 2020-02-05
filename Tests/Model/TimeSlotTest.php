@@ -2,9 +2,9 @@
 
 namespace Grr\Core\Tests\Model;
 
+use Carbon\Carbon;
 use Grr\Core\Model\TimeSlot;
 use Grr\Core\Tests\BaseTesting;
-use Carbon\Carbon;
 
 class TimeSlotTest extends BaseTesting
 {

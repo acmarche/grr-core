@@ -2,9 +2,9 @@
 
 namespace Grr\Core\Factory;
 
+use Carbon\CarbonInterface;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Model\Day;
-use Carbon\CarbonInterface;
 
 class DayFactory
 {

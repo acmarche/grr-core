@@ -4,13 +4,13 @@ namespace Grr\Core\Tests\Factory;
 
 use DateTime;
 use DateTimeInterface;
-use Grr\GrrBundle\Area\AreaFactory;
-use Grr\GrrBundle\Entry\EntryFactory;
 use Grr\Core\Factory\DurationFactory;
 use Grr\Core\Model\DurationModel;
+use Grr\Core\Tests\BaseTesting;
+use Grr\GrrBundle\Area\AreaFactory;
+use Grr\GrrBundle\Entry\EntryFactory;
 use Grr\GrrBundle\Periodicity\PeriodicityFactory;
 use Grr\GrrBundle\Room\RoomFactory;
-use Grr\Core\Tests\BaseTesting;
 
 class DurationFactoryTest extends BaseTesting
 {
@@ -85,10 +85,6 @@ class DurationFactoryTest extends BaseTesting
 
     /**
      * @dataProvider getDataForMinutes
-     *
-     * @param \DateTimeInterface $start
-     * @param \DateTimeInterface $end
-     * @param float              $result
      */
     public function testUnitInMinutes(DateTimeInterface $start, DateTimeInterface $end, float $result): void
     {
@@ -101,10 +97,6 @@ class DurationFactoryTest extends BaseTesting
 
     /**
      * @dataProvider getDataForHours
-     *
-     * @param \DateTimeInterface $start
-     * @param \DateTimeInterface $end
-     * @param float              $result
      */
     public function testUnitInHours(DateTimeInterface $start, DateTimeInterface $end, float $result): void
     {
@@ -117,10 +109,6 @@ class DurationFactoryTest extends BaseTesting
 
     /**
      * @dataProvider getDataForDays
-     *
-     * @param \DateTimeInterface $start
-     * @param \DateTimeInterface $end
-     * @param float              $result
      */
     public function testUnitInDays(DateTimeInterface $start, DateTimeInterface $end, float $result): void
     {
@@ -133,10 +121,6 @@ class DurationFactoryTest extends BaseTesting
 
     /**
      * @dataProvider getDataForWeeks
-     *
-     * @param \DateTimeInterface $start
-     * @param \DateTimeInterface $end
-     * @param float              $result
      */
     public function testUnitInWeeks(DateTimeInterface $start, DateTimeInterface $end, float $result): void
     {

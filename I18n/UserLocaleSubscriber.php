@@ -53,7 +53,6 @@ class UserLocaleSubscriber implements EventSubscriberInterface
             $this->session->set('_locale', $user->getLocale());
         }
         $requestContext->getParameter('_locale');
-
     }
 
     public function onKernelRequest(RequestEvent $event)
@@ -65,6 +64,4 @@ class UserLocaleSubscriber implements EventSubscriberInterface
         // some logic to determine the $locale
         $request->setLocale($locale);
     }
-
-
 }

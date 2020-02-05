@@ -17,7 +17,6 @@ use PHPUnit\Framework\TestCase;
 
 class TTest extends TestCase
 {
-
     public function testValidatorUser(): void
     {
         $factory = new DurationFactory();

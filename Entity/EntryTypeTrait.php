@@ -6,10 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
-use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- */
 trait EntryTypeTrait
 {
     use IdEntityTrait;
@@ -45,7 +42,8 @@ trait EntryTypeTrait
     private $available;
 
     /**
-     * Override mappedBy
+     * Override mappedBy.
+     *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
      */
     private $entries;
@@ -98,20 +96,13 @@ trait EntryTypeTrait
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getAvailable(): int
     {
         return $this->available;
     }
 
-    /**
-     * @param int $available
-     */
     public function setAvailable(int $available): void
     {
         $this->available = $available;
     }
-
 }

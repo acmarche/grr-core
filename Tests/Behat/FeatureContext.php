@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of GrrSf application
+ * This file is part of GrrSf application.
+ *
  * @author jfsenechal <jfsenechal@gmail.com>
  * @date 21/10/19
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 namespace Grr\Core\Tests\Behat;
 
+use Behat\MinkExtension\Context\RawMinkContext;
+use Carbon\Carbon;
 use Exception;
 use Grr\Core\Repository\AreaRepository;
 use Grr\Core\Repository\EntryRepository;
-use Behat\MinkExtension\Context\RawMinkContext;
-use Carbon\Carbon;
 
 class FeatureContext extends RawMinkContext
 {
@@ -46,7 +46,8 @@ class FeatureContext extends RawMinkContext
     }
 
     /**
-     * iven I am logged in as user :username
+     * iven I am logged in as user :username.
+     *
      * @Given /^I am logged in as user "([^"]*)"$/
      */
     public function iAmLoggedInAsUser(string $username): void
@@ -117,7 +118,6 @@ class FeatureContext extends RawMinkContext
 
     /**
      * @Given /^I fill the entry startTime with this month and day (\d+) and year (\d+) at time (\d+):(\d+)$/
-     *
      */
     public function iFillDateBeginEntryWithThisMonth(int $day, int $year, int $hour, int $minute): void
     {
@@ -131,22 +131,22 @@ class FeatureContext extends RawMinkContext
 
     /**
      * Clicks link semaine
-     * Example: When I follow this week
-     * @Then /^I follow this week$/
+     * Example: When I follow this week.
      *
+     * @Then /^I follow this week$/
      */
     public function clickLinkWeek(): void
     {
-        $link = "s".Carbon::today()->week;
+        $link = 's'.Carbon::today()->week;
         $link = $this->fixStepArgument($link);
         $this->getSession()->getPage()->clickLink($link);
     }
 
     /**
      * Clicks link day
-     * Example: When I follow this day
-     * @Then /^I follow this day$/
+     * Example: When I follow this day.
      *
+     * @Then /^I follow this day$/
      */
     public function clickLinkDay(): void
     {
@@ -157,6 +157,7 @@ class FeatureContext extends RawMinkContext
 
     /**
      * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
+     *
      * @throws \Exception
      */
     public function iShouldSeeTextSoManyTimes($sText, $iExpected): void
@@ -206,5 +207,4 @@ class FeatureContext extends RawMinkContext
     {
         return str_replace('\\"', '"', $argument);
     }
-
 }

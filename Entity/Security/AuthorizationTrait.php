@@ -10,9 +10,6 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 
-/**
- *
- */
 trait AuthorizationTrait
 {
     use IdEntityTrait;

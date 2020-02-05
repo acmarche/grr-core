@@ -10,17 +10,17 @@
 
 namespace Grr\Core\Tests\Service;
 
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use DateTime;
-use Grr\GrrBundle\Entity\Area;
-use Grr\GrrBundle\Entity\Entry;
-use Grr\GrrBundle\Entity\Room;
 use Grr\Core\Entry\EntryLocationService;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Provider\TimeSlotsProvider;
 use Grr\Core\Tests\BaseTesting;
-use Carbon\Carbon;
-use Carbon\CarbonPeriod;
+use Grr\GrrBundle\Entity\Area;
+use Grr\GrrBundle\Entity\Entry;
+use Grr\GrrBundle\Entity\Room;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
@@ -112,10 +112,6 @@ class EntryLocationServiceTest extends BaseTesting
 
     /**
      * @dataProvider getDataMultipleDays
-     *
-     * @param \DateTime $dateStart
-     * @param \DateTime $dateEnd
-     * @param array     $countLocations
      */
     public function testMultipleDaysSetLocations(
         DateTime $dateStart,

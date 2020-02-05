@@ -2,9 +2,9 @@
 
 namespace Grr\Core\Provider;
 
-use Grr\Core\I18n\LocalHelper;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
+use Grr\Core\I18n\LocalHelper;
 
 class DateProvider
 {

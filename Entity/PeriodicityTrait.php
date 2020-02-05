@@ -9,9 +9,6 @@ use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Periodicity\PeriodicityConstant;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- *
- */
 trait PeriodicityTrait
 {
     use IdEntityTrait;
@@ -20,6 +17,7 @@ trait PeriodicityTrait
     /**
      * @ORM\Column(type="date")
      * @Assert\Type("DateTime")
+     *
      * @var \DateTimeInterface
      */
     private $endTime;
@@ -53,7 +51,8 @@ trait PeriodicityTrait
     private $weekDays;
 
     /**
-     * Override mappedBy
+     * Override mappedBy.
+     *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
      */
     private $entries;
@@ -130,5 +129,4 @@ trait PeriodicityTrait
 
         return $this;
     }
-
 }

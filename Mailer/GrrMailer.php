@@ -14,11 +14,11 @@ use Grr\GrrBundle\Mailer\EmailFactory;
 use Knp\Snappy\Pdf;
 use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
+use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
 class GrrMailer
@@ -66,7 +66,6 @@ class GrrMailer
         $html = $this->twig->render(
             'pdf/test.html.twig',
             [
-
             ]
         );
         $pdf = $this->pdf->getOutputFromHtml($html);
@@ -85,7 +84,6 @@ class GrrMailer
         $this->send($message);
 
         return $message;
-
     }
 
     public function send(Email $email): void
@@ -117,5 +115,4 @@ EOF
             dump($e->getMessage());
         }
     }
-
 }

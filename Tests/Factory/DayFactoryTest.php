@@ -10,13 +10,13 @@
 
 namespace Grr\Core\Tests\Factory;
 
+use Carbon\Carbon;
+use Doctrine\Common\Collections\ArrayCollection;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\Factory\DayFactory;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Model\Day;
 use Grr\Core\Tests\BaseTesting;
-use Carbon\Carbon;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;

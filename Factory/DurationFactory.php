@@ -8,11 +8,11 @@
 
 namespace Grr\Core\Factory;
 
+use Carbon\Carbon;
 use DateTimeInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Model\DurationModel;
 use Grr\Core\Service\TimeService;
-use Carbon\Carbon;
 
 class DurationFactory
 {

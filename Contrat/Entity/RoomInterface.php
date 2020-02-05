@@ -1,19 +1,18 @@
 <?php
 /**
- * This file is part of sf5 application
+ * This file is part of sf5 application.
+ *
  * @author jfsenechal <jfsenechal@gmail.com>
  * @date 21/11/19
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 namespace Grr\Core\Contrat\Entity;
 
-
 interface RoomInterface
 {
     public function getArea();
-    public function setArea(AreaInterface $area);
 
+    public function setArea(AreaInterface $area);
 }

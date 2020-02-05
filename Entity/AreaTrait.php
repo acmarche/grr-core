@@ -4,9 +4,9 @@ namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Grr\Core\Entity\Security\AuthorizationsFieldTrait;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
+use Grr\Core\Entity\Security\AuthorizationsFieldTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -275,6 +275,4 @@ trait AreaTrait
 
         return $this;
     }
-
-
 }

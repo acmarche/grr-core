@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Grr\Core\Periodicity;
-
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -24,7 +22,6 @@ class Weekly
 
         $this->entry_start = Carbon::instance($startTime);
         $this->periodicity_end = Carbon::instance($periodicity->getEndTime());
-
 
         if (PeriodicityConstant::EVERY_WEEK === $typePeriodicity) {
             return $this->forEveryWeek($periodicity);
@@ -84,5 +81,4 @@ class Weekly
 
         return $period;
     }
-
 }

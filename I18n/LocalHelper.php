@@ -47,10 +47,10 @@ class LocalHelper
          * Navigator.
          */
         $master = $this->requestStack->getMasterRequest();
-        if ($master !== null) {
+        if (null !== $master) {
             $this->defaultLocale = $master->getLocale();
         }
-        /**
+        /*
          * user preference
          */
         if ($user) {
@@ -62,11 +62,11 @@ class LocalHelper
 
     public function getDefaultLocal(): string
     {
-        if ($this->defaultLocale === '' || $this->defaultLocale === null) {
+        if ('' === $this->defaultLocale || null === $this->defaultLocale) {
             $this->setDefaultLocal();
         }
 
-        if ($this->defaultLocale !== '' && $this->defaultLocale !== null) {
+        if ('' !== $this->defaultLocale && null !== $this->defaultLocale) {
             return $this->defaultLocale;
         }
 

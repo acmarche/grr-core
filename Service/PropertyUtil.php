@@ -10,10 +10,10 @@
 
 namespace Grr\Core\Service;
 
-use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor;
 use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 class PropertyUtil
 {

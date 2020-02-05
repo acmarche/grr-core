@@ -10,14 +10,14 @@
 
 namespace Grr\Core\Tests\Provider;
 
-use Grr\GrrBundle\Entity\Area;
-use Grr\GrrBundle\Entity\Entry;
-use Grr\GrrBundle\Entity\Room;
+use Carbon\Carbon;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Provider\TimeSlotsProvider;
 use Grr\Core\Tests\BaseTesting;
-use Carbon\Carbon;
+use Grr\GrrBundle\Entity\Area;
+use Grr\GrrBundle\Entity\Entry;
+use Grr\GrrBundle\Entity\Room;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;

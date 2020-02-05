@@ -376,5 +376,4 @@ trait EntryTrait
 
         return $this;
     }
-
 }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Grr\Core\Tests\Behat;
 
-use RuntimeException;
-use Grr\Core\Repository\EntryRepository;
 use Behat\Behat\Context\Context;
+use Grr\Core\Repository\EntryRepository;
+use RuntimeException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -36,7 +36,7 @@ final class SymfonyContext implements Context
     }
 
     /**
-     * When a demo scenario sends a request to :path
+     * When a demo scenario sends a request to :path.
      */
     public function aDemoScenarioSendsARequestTo(string $path): void
     {
@@ -44,11 +44,11 @@ final class SymfonyContext implements Context
     }
 
     /**
-     * Then the response should be received
+     * Then the response should be received.
      */
     public function theResponseShouldBeReceived(): void
     {
-        if ($this->response === null) {
+        if (null === $this->response) {
             throw new RuntimeException('No response received');
         }
 
@@ -56,7 +56,7 @@ final class SymfonyContext implements Context
     }
 
     /**
-     * Then I should see :arg1
+     * Then I should see :arg1.
      */
     public function iShouldSee($arg1): void
     {
@@ -70,7 +70,7 @@ final class SymfonyContext implements Context
     }
 
     /**
-     * When /^i am login with user "([^"]*)" and password "([^"]*)"$/
+     * When /^i am login with user "([^"]*)" and password "([^"]*)"$/.
      */
     public function iAmLoginWithUserAndPassword($arg1, $arg2): void
     {
@@ -78,6 +78,4 @@ final class SymfonyContext implements Context
             throw new RuntimeException('No user received');
         }
     }
-
-
 }

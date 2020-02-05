@@ -35,10 +35,6 @@ class ResultBind
 
     /**
      * 2019-12-02 => 2019-12-03, 2019-12-04, 2019-12-05.
-     *
-     * @param int $day
-     *
-     * @return int
      */
     public static function getCountEntriesFoMonthWithRoom(int $day): int
     {
@@ -50,10 +46,6 @@ class ResultBind
     /**
      * 2019-12-02 => 2019-12-03, 2019-12-04, 2019-12-05
      * 2019-12-03 => 2019-12-04, 2019-12-05, 2019-12-06.
-     *
-     * @param int $day
-     *
-     * @return int
      */
     public static function getCountEntriesFoMonthWithOutRoom(int $day): int
     {
@@ -98,11 +90,6 @@ class ResultBind
     /**
      * 2019-12-02 => 2019-12-03, 2019-12-04, 2019-12-05
      * 2019-12-03 => 2019-12-04, 2019-12-05, 2019-12-06.
-     *
-     * @param int    $day
-     * @param string $room
-     *
-     * @return int
      */
     public static function getCountEntriesForWeekWithOutMonth(int $day, string $room): int
     {

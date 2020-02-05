@@ -1,19 +1,17 @@
 <?php
 /**
- * This file is part of GrrSf application
+ * This file is part of GrrSf application.
+ *
  * @author jfsenechal <jfsenechal@gmail.com>
  * @date 30/10/19
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 namespace Grr\Core\Tests\Behat;
 
 use Behat\Behat\Context\Context;
-use Doctrine\Bundle\DoctrineBundle\Registry;
 use Fidry\AliceDataFixtures\LoaderInterface;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class DatabaseContext implements Context
@@ -57,6 +55,5 @@ class DatabaseContext implements Context
      */
     public function rollbackPostgreSqlTransaction(): void
     {
-
     }
 }

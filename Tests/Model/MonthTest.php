@@ -46,7 +46,7 @@ class MonthTest extends BaseTesting
     /**
      * @return string[]
      */
-    protected function getDays() : array
+    protected function getDays(): array
     {
         return [
             '2019-09-30',

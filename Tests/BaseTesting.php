@@ -10,12 +10,11 @@
 
 namespace Grr\Core\Tests;
 
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
-use DateTime;
-use Grr\Core\Faker\CarbonProvider;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Fidry\AliceDataFixtures\LoaderInterface;
+use Grr\Core\Faker\CarbonProvider;
 use Nelmio\Alice\Loader\NativeLoader;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class BaseTesting extends WebTestCase

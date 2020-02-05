@@ -46,6 +46,7 @@ interface EntryRepositoryInterface
      * Retourne l'entry de base de la repetition.
      *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getBaseEntryForPeriodicity(PeriodicityInterface $periodicity);

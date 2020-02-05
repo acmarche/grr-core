@@ -2,6 +2,6 @@
 
 namespace Grr\Core\Contrat\Repository;
 
-
-interface PeriodicityRepositoryInterface {
+interface PeriodicityRepositoryInterface
+{
 }

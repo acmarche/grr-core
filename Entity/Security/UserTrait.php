@@ -13,9 +13,6 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- *
- */
 trait UserTrait
 {
     use IdEntityTrait;
@@ -99,7 +96,7 @@ trait UserTrait
 
     public function __toString(): string
     {
-        return mb_strtoupper($this->name) . ' ' . $this->first_name;
+        return mb_strtoupper($this->name).' '.$this->first_name;
     }
 
     public function getUsername(): ?string
