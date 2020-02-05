@@ -11,7 +11,7 @@
 namespace Grr\Core\Router;
 
 use Carbon\Carbon;
-use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 class FrontRouterHelper

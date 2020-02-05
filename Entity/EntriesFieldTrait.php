@@ -11,12 +11,12 @@
 namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
 
 trait EntriesFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="room", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="room", cascade={"remove"})
      *
      * @var EntryInterface[]|\Doctrine\Common\Collections\Collection
      */

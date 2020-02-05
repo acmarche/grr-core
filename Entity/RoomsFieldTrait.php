@@ -12,11 +12,12 @@ namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Grr\Core\Contrat\Entity\RoomInterface;
 
 trait RoomsFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\RoomInterface", mappedBy="area")
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", mappedBy="area")
      * @var ArrayCollection
      */
     private $rooms;

@@ -46,7 +46,7 @@ trait EntryTypeTrait
 
     /**
      * Override mappedBy
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="type")
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
      */
     private $entries;
 

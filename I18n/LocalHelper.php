@@ -2,7 +2,7 @@
 
 namespace Grr\Core\I18n;
 
-use Grr\Core\Entity\Security\UserInterface;
+use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;

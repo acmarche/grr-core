@@ -10,11 +10,13 @@
 
 namespace Grr\Core\Entity;
 
+use Grr\Core\Contrat\Entity\RoomInterface;
+
 trait RoomFieldTrait
 {
     /**
      * @var RoomInterface
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\RoomInterface", inversedBy="entries")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", inversedBy="entries")
      * @ORM\JoinColumn(nullable=false)
      */
     private $room;

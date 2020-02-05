@@ -10,7 +10,7 @@
 
 namespace Grr\Core\Security;
 
-use Grr\Core\Entity\Security\UserInterface;
+use Grr\Core\Contrat\UserInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class PasswordHelper

@@ -4,6 +4,7 @@ namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Periodicity\PeriodicityConstant;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -53,14 +54,14 @@ trait PeriodicityTrait
 
     /**
      * Override mappedBy
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\EntryInterface", mappedBy="periodicity")
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
      */
     private $entries;
 
     /**
      * Use for validator form.
      *
-     * @var Entry|null
+     * @var EntryInterface|null
      */
     private $entryReference;
 

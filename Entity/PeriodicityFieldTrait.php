@@ -10,12 +10,14 @@
 
 namespace Grr\Core\Entity;
 
+use Grr\Core\Contrat\Entity\PeriodicityInterface;
+
 trait PeriodicityFieldTrait
 {
     /**
-     * @Assert\Type("Grr\Core\Entity\PeriodicityInterface")
+     * @Assert\Type("Grr\Core\Contrat\Entity\PeriodicityInterface")
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\PeriodicityInterface", inversedBy="entries", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\PeriodicityInterface", inversedBy="entries", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      *
      * @var PeriodicityInterface|null

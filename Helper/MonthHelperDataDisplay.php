@@ -8,7 +8,7 @@
 
 namespace Grr\Core\Helper;
 
-use Grr\Core\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Model\Month;
 use Grr\Core\Provider\DateProvider;
 use Twig\Environment;

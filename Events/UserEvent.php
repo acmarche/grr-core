@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Events;
 
-use Grr\Core\Entity\Security\UserInterface;
+use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class UserEvent extends Event

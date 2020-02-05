@@ -8,9 +8,10 @@
  *
  */
 
-namespace Grr\Core\Entity\Security;
+namespace Grr\Core\Contrat\Entity;
 
-interface UserInterface
+
+interface SettingInterface
 {
 
 }

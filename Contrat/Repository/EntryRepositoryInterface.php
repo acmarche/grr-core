@@ -1,12 +1,12 @@
 <?php
 
-namespace Grr\Core\Repository;
+namespace Grr\Core\Contrat\Repository;
 
 use Carbon\CarbonInterface;
-use Grr\Core\Entity\AreaInterface;
-use Grr\Core\Entity\EntryInterface;
-use Grr\Core\Entity\PeriodicityInterface;
-use Grr\Core\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\PeriodicityInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
 
 interface EntryRepositoryInterface
 {

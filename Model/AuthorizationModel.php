@@ -3,9 +3,9 @@
 namespace Grr\Core\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Grr\Core\Entity\AreaInterface;
-use Grr\Core\Entity\RoomInterface;
-use Grr\Core\Entity\Security\UserInterface;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\Security\UserInterface;
 
 class AuthorizationModel
 {

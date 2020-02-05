@@ -11,12 +11,13 @@
 namespace Grr\Core\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\AreaInterface;
 
 trait AreaFieldTrait
 {
     /**
      * @var AreaInterface
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\AreaInterface", inversedBy="rooms")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface", inversedBy="rooms")
      * @ORM\JoinColumn(nullable=false)
      */
     private $area;

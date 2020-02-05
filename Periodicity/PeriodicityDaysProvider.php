@@ -8,8 +8,8 @@ use Carbon\CarbonInterval;
 use Carbon\CarbonPeriod;
 use DateTime;
 use DateTimeInterface;
-use Grr\Core\Entity\EntryInterface;
-use Grr\Core\Entity\PeriodicityInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\PeriodicityInterface;
 
 class PeriodicityDaysProvider
 {

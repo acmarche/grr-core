@@ -4,10 +4,12 @@ namespace Grr\Core\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
-use Grr\Core\Entity\Security\AuthorizationInterface;
+use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Grr\Core\Entity\Security\AuthorizationsFieldTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Room.
@@ -156,7 +158,7 @@ trait RoomTrait
     /**
      * Override pour mappedBy
      *
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
      * @var AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $authorizations;

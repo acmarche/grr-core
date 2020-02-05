@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Modules;
+namespace Grr\Core\Contrat\Modules;
 
 interface GrrModuleSenderInterface
 {

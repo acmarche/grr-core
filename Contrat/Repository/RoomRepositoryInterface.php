@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Repository;
+namespace Grr\Core\Contrat\Repository;
 
 use Doctrine\ORM\QueryBuilder;
 

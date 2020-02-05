@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Events;
 
-use Grr\Core\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class RoomEvent extends Event

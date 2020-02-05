@@ -5,8 +5,8 @@ namespace Grr\Core\Provider;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Carbon\CarbonPeriod;
-use Grr\Core\Entity\AreaInterface;
-use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\Model\TimeSlot;
 

@@ -4,9 +4,10 @@ namespace Grr\Core\Entity\Security;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
-use Grr\Core\Entity\AreaInterface;
-use Grr\Core\Entity\RoomInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 
 /**
@@ -18,7 +19,7 @@ trait AuthorizationTrait
     use TimestampableTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\Security\UserInterface", inversedBy="authorizations")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\Security\UserInterface", inversedBy="authorizations")
      * @ORM\JoinColumn(nullable=false)
      *
      * @var UserInterface
@@ -26,7 +27,7 @@ trait AuthorizationTrait
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\AreaInterface", inversedBy="authorizations")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface", inversedBy="authorizations")
      * @ORM\JoinColumn(nullable=true)
      *
      * @var AreaInterface|null
@@ -34,7 +35,7 @@ trait AuthorizationTrait
     private $area;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\RoomInterface", inversedBy="authorizations")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", inversedBy="authorizations")
      * @ORM\JoinColumn(nullable=true)
      *
      * @var RoomInterface|null

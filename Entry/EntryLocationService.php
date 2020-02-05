@@ -3,7 +3,7 @@
 namespace Grr\Core\Entry;
 
 use Carbon\CarbonPeriod;
-use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Model\TimeSlot;
 use Grr\Core\Provider\TimeSlotsProvider;
 

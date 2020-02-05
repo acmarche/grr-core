@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Events;
 
-use Grr\Core\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\AreaInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class EntryTypeAreaEvent extends Event

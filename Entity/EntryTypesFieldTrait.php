@@ -10,13 +10,13 @@
 
 namespace Grr\Core\Entity;
 
-use Grr\Core\Entity\EntryTypeInterface;
+use Grr\Core\Contrat\Entity\EntryTypeInterface;
 use Doctrine\Common\Collections\Collection;
 
 trait EntryTypesFieldTrait
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Grr\Core\Entity\EntryTypeInterface")
+     * @ORM\ManyToMany(targetEntity="Grr\Core\Contrat\Entity\EntryTypeInterface")
      * @ORM\JoinTable(name="area_entry_type")
      *
      * @var EntryTypeInterface[]|\Doctrine\Common\Collections\Collection

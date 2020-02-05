@@ -8,10 +8,10 @@
  *
  */
 
-namespace Grr\Core\Repository\Security;
+namespace Grr\Core\Contrat\Repository\Security;
 
 
-interface AuthorizationRepositoryInterface
+interface UserRepositoryInterface
 {
 
 }

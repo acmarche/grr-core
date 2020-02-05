@@ -11,11 +11,12 @@
 namespace Grr\Core\Entity\Security;
 
 use Doctrine\Common\Collections\Collection;
+use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 
 trait AuthorizationsFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\AuthorizationInterface", mappedBy="area", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="area", orphanRemoval=true)
      *
      * @var AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
      */

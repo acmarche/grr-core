@@ -5,10 +5,11 @@ namespace Grr\Core\Entity\Security;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
-use Grr\Core\Entity\AreaInterface;
-use Grr\Core\Entity\RoomInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -68,21 +69,21 @@ trait UserTrait
     private $languageDefault;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\AreaInterface")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface")
      *
      * @var AreaInterface
      */
     private $area;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\RoomInterface")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface")
      *
      * @var RoomInterface
      */
     private $room;
 
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Entity\Security\AuthorizationInterface", mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="user", orphanRemoval=true)
      *
      * @var AuthorizationInterface[]
      */

@@ -11,7 +11,7 @@ namespace Grr\Core\Model;
 use Carbon\CarbonImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
 
 class Day extends CarbonImmutable
 {

@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Events;
 
-use Grr\Core\Entity\Security\AuthorizationInterface;
+use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class AuthorizationEvent extends Event

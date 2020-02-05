@@ -6,8 +6,8 @@ namespace Grr\Core\Periodicity;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
-use Grr\Core\Entity\EntryInterface;
-use Grr\Core\Entity\PeriodicityInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\PeriodicityInterface;
 
 class Weekly
 {

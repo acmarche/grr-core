@@ -8,7 +8,7 @@
  *
  */
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Contrat\Entity;
 
 
 interface EntryTypeInterface

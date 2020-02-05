@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Events;
 
-use Grr\Core\Entity\EntryTypeInterface;
+use Grr\Core\Contrat\Entity\EntryTypeInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class EntryTypeEvent extends Event

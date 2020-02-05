@@ -4,7 +4,7 @@ namespace Grr\Core\Periodicity;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
-use Grr\Core\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
 
 class GeneratorEntry
 {

@@ -5,6 +5,9 @@ namespace Grr\Core\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryTypeInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Model\DurationModel;
@@ -111,7 +114,7 @@ trait EntryTrait
 
     /**
      * @var EntryTypeInterface|null
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Entity\EntryTypeInterface", inversedBy="entries")
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\EntryTypeInterface", inversedBy="entries")
      * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
      */
     private $type;

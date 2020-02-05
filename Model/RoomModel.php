@@ -2,10 +2,9 @@
 
 namespace Grr\Core\Model;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
-use Grr\Core\Entity\EntryInterface;
-use Grr\Core\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
 
 class RoomModel
 {

@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of grr5 application
+ * This file is part of sf5 application
  * @author jfsenechal <jfsenechal@gmail.com>
  * @date 21/11/19
  * For the full copyright and license information, please view the LICENSE
@@ -8,10 +8,10 @@
  *
  */
 
-namespace Grr\Core\Manager;
+namespace Grr\Core\Contrat\Entity;
 
 
-interface UserManagerInterface
+interface AreaInterface
 {
 
 }
