@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Entry\Events;
 
-class EntryEventUpdated extends BaseAreaEvent
+class EntryEventUpdated extends BaseEntryEvent
 {
 
 }

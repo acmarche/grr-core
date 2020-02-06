@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Entry\Events;
 
-class EntryEventDeleted extends BaseAreaEvent
+class EntryEventDeleted extends BaseEntryEvent
 {
 
 }
