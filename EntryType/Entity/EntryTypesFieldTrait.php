@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\EntryType\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Grr\Core\Contrat\Entity\EntryTypeInterface;

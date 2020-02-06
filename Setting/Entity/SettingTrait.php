@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Setting\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;

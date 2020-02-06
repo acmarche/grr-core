@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Entity\Security;
+namespace Grr\Core\User\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

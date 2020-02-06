@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Room\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

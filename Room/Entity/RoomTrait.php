@@ -1,14 +1,16 @@
 <?php
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Room\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Area\Entity\AreaFieldTrait;
+use Grr\Core\Authorization\Entity\AuthorizationsFieldTrait;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
-use Grr\Core\Entity\Security\AuthorizationsFieldTrait;
+use Grr\Core\Entry\Entity\EntriesFieldTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

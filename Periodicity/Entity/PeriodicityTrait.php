@@ -1,11 +1,12 @@
 <?php
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Periodicity\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
+use Grr\Core\Entry\Entity\EntriesFieldTrait;
 use Grr\Core\Periodicity\PeriodicityConstant;
 use Symfony\Component\Validator\Constraints as Assert;
 

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Area\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\AreaInterface;

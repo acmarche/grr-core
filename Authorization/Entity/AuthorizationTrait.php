@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Entity\Security;
+namespace Grr\Core\Authorization\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;

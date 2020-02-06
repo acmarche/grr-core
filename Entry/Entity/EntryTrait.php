@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Entity;
+namespace Grr\Core\Entry\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -12,6 +12,8 @@ use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Model\DurationModel;
 use Grr\Core\Model\TimeSlot;
+use Grr\Core\Periodicity\Entity\PeriodicityFieldTrait;
+use Grr\Core\Room\Entity\RoomFieldTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
