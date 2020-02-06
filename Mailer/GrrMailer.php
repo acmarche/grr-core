@@ -11,7 +11,6 @@
 namespace Grr\Core\Mailer;
 
 use Grr\GrrBundle\Mailer\EmailFactory;
-use Knp\Snappy\Pdf;
 use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;

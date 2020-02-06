@@ -1,16 +1,12 @@
 <?php
 
-namespace Grr\Core\Events;
+namespace Grr\Core\Area\Events;
 
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
-class AreaEvent extends Event
+class BaseAreaEvent extends Event
 {
-    const NEW_SUCCESS = 'grr.area.new.success';
-    const EDIT_SUCCESS = 'grr.area.edit.success';
-    const DELETE_SUCCESS = 'grr.area.delete.success';
-
     /**
      * @var AreaInterface
      */

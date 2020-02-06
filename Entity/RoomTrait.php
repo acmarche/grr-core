@@ -9,6 +9,7 @@ use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Entity\Security\AuthorizationsFieldTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Room.

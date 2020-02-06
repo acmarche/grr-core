@@ -1,17 +1,12 @@
 <?php
 
-namespace Grr\Core\Events;
+namespace Grr\Core\Password\Events;
 
 use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
-class UserEvent extends Event
+class BasePasswordEvent extends Event
 {
-    const NEW_SUCCESS = 'grr.user.new.success';
-    const EDIT_SUCCESS = 'grr.user.edit.success';
-    const DELETE_SUCCESS = 'grr.user.delete.success';
-    const CHANGE_PASSWORD_SUCCESS = 'grr.user.password.success';
-
     /**
      * @var UserInterface
      */
