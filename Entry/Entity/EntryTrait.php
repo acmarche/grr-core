@@ -54,16 +54,9 @@ trait EntryTrait
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=200, nullable=true)
-     */
-    private $beneficiaireExt;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=100, nullable=false)
      */
-    private $beneficiaire;
+    private $reservedFor;
 
     /**
      * @var string|null
@@ -259,30 +252,6 @@ trait EntryTrait
         return $this;
     }
 
-    public function getBeneficiaireExt(): ?string
-    {
-        return $this->beneficiaireExt;
-    }
-
-    public function setBeneficiaireExt(?string $beneficiaireExt): self
-    {
-        $this->beneficiaireExt = $beneficiaireExt;
-
-        return $this;
-    }
-
-    public function getBeneficiaire(): ?string
-    {
-        return $this->beneficiaire;
-    }
-
-    public function setBeneficiaire(string $beneficiaire): self
-    {
-        $this->beneficiaire = $beneficiaire;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -378,4 +347,22 @@ trait EntryTrait
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getReservedFor(): string
+    {
+        return $this->reservedFor;
+    }
+
+    /**
+     * @param string $reservedFor
+     */
+    public function setReservedFor(string $reservedFor): void
+    {
+        $this->reservedFor = $reservedFor;
+    }
+
 }
+
