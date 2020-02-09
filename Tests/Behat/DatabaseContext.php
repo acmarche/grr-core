@@ -29,7 +29,7 @@ class DatabaseContext implements Context
     {
         $path = $container->getParameter('kernel.project_dir');
         $this->loader = $container->get('fidry_alice_data_fixtures.loader.doctrine');
-        $this->pathFixtures = $path.'/src/Fixtures/';
+        $this->pathFixtures = $path.'/src/Grr/GrrBundle/src/Fixtures/';
     }
 
     /**

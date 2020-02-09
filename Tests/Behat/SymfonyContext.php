@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Grr\Core\Tests\Behat;
 
 use Behat\Behat\Context\Context;
-use Grr\Core\Repository\EntryRepository;
+use Grr\GrrBundle\Repository\EntryRepository;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,7 +51,6 @@ final class SymfonyContext implements Context
         if (null === $this->response) {
             throw new RuntimeException('No response received');
         }
-
 //        var_dump($this->response->getContent());
     }
 

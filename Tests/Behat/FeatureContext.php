@@ -13,8 +13,8 @@ namespace Grr\Core\Tests\Behat;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Carbon\Carbon;
 use Exception;
-use Grr\Core\Repository\AreaRepository;
-use Grr\Core\Repository\EntryRepository;
+use Grr\GrrBundle\Repository\AreaRepository;
+use Grr\GrrBundle\Repository\EntryRepository;
 
 class FeatureContext extends RawMinkContext
 {
