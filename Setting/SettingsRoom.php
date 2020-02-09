@@ -35,14 +35,14 @@ class SettingsRoom
     public static function whoCanAdd(): array
     {
         return [
-            self::CAN_ADD_NO_RULE => 'room.authorization.form.select.norule',
-            self::CAN_ADD_EVERY_BODY => 'room.authorization.form.select.everybody',
-            self::CAN_ADD_EVERY_CONNECTED => 'room.authorization.form.select.everyconnected',
-            self::CAN_ADD_EVERY_USER_ACTIVE => 'room.authorization.form.select.everyactive',
-            self::CAN_ADD_EVERY_ROOM_MANAGER => 'room.authorization.form.select.everyroommanager',
-            self::CAN_ADD_EVERY_AREA_ADMINISTRATOR => 'room.authorization.form.select.everyareaadministrator',
-            self::CAN_ADD_EVERY_GRR_ADMINISTRATOR_SITE => 'room.authorization.form.select.everysite',
-            self::CAN_ADD_EVERY_GRR_ADMINISTRATOR => 'room.authorization.form.select.everygrradministrator',
+            self::CAN_ADD_NO_RULE => 'room.authorization.select.norule',
+            self::CAN_ADD_EVERY_BODY => 'room.authorization.select.everybody',
+            self::CAN_ADD_EVERY_CONNECTED => 'room.authorization.select.everyconnected',
+            self::CAN_ADD_EVERY_USER_ACTIVE => 'room.authorization.select.everyactive',
+            self::CAN_ADD_EVERY_ROOM_MANAGER => 'room.authorization.select.everyroommanager',
+            self::CAN_ADD_EVERY_AREA_ADMINISTRATOR => 'room.authorization.select.everyareaadministrator',
+            self::CAN_ADD_EVERY_GRR_ADMINISTRATOR_SITE => 'room.authorization.select.everysite',
+            self::CAN_ADD_EVERY_GRR_ADMINISTRATOR => 'room.authorization.select.everygrradministrator',
         ];
     }
 
