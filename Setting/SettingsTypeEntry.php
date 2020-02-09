@@ -7,7 +7,7 @@ class SettingsTypeEntry
     /**
      * @return string[]
      */
-    public static function disponibleFor(): array
+    public static function availableFor(): array
     {
         return [
             2 => 'Tous',
