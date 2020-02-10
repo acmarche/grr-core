@@ -45,14 +45,14 @@ trait EntryTrait
     private $endTime;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(type="string", length=100, nullable=false)
      */
     private $createdBy;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(type="string", length=100, nullable=false)
      */
@@ -351,7 +351,7 @@ trait EntryTrait
     /**
      * @return string
      */
-    public function getReservedFor(): string
+    public function getReservedFor(): ?string
     {
         return $this->reservedFor;
     }
