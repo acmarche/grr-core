@@ -23,7 +23,6 @@ class SecurityRole
      * Administrateur de grr.
      */
     const ROLE_GRR_ADMINISTRATOR = 'ROLE_GRR_ADMINISTRATOR';
-
     /**
      * @return mixed[]|bool
      */
