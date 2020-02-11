@@ -10,15 +10,18 @@ class BaseSettingEvent extends Event
     /**
      * @var SettingInterface
      */
-    private $setting;
+    private $settings;
 
-    public function __construct(SettingInterface $setting)
+    public function __construct(array $settings)
     {
-        $this->setting = $setting;
+        $this->settings = $settings;
     }
 
-    public function getSetting(): SettingInterface
+    /**
+     * @return SettingInterface[]
+     */
+    public function getSettings(): array
     {
-        return $this->setting;
+        return $this->settings;
     }
 }
