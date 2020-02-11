@@ -12,6 +12,12 @@ namespace Grr\Core\Tests;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Fidry\AliceDataFixtures\LoaderInterface;
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Entity\EntryTypeInterface;
+use Grr\Core\Contrat\Entity\PeriodicityInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
+use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Faker\CarbonProvider;
 use Nelmio\Alice\Loader\NativeLoader;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -63,7 +69,7 @@ class BaseTesting extends WebTestCase
             ->get('doctrine')
             ->getManager();
 
-        $this->pathFixtures = $this->kernel2->getProjectDir().'/src/Grr/GrrBundle/src/Fixtures/';
+        $this->pathFixtures = $this->kernel2->getProjectDir() . '/src/Grr/GrrBundle/src/Fixtures/';
         $this->loader = $this->kernel2->getContainer()->get('fidry_alice_data_fixtures.loader.doctrine');
 
         $loader = new NativeLoader();
@@ -77,6 +83,8 @@ class BaseTesting extends WebTestCase
 
     protected function createGrrClient(string $email, string $password = 'homer'): KernelBrowser
     {
+        static::ensureKernelShutdown();
+
         return static::createClient(
             [],
             [
@@ -84,6 +92,57 @@ class BaseTesting extends WebTestCase
                 'PHP_AUTH_PW' => $password,
             ]
         );
+    }
+
+    protected function createAnonymousClient(): KernelBrowser
+    {
+        static::ensureKernelShutdown();
+
+        return static::createClient();
+    }
+
+    protected function getArea(string $name): ?AreaInterface
+    {
+        return $this->entityManager
+            ->getRepository(AreaInterface::class)
+            ->findOneBy(['name' => $name]);
+    }
+
+    protected function getRoom(string $roomName): ?RoomInterface
+    {
+        return $this->entityManager
+            ->getRepository(RoomInterface::class)
+            ->findOneBy(['name' => $roomName]);
+    }
+
+    protected function getPeriodicity(int $type, string $endTime): ?PeriodicityInterface
+    {
+        $dateTime = \DateTime::createFromFormat('Y-m-d', $endTime);
+
+        return $this->entityManager
+            ->getRepository(PeriodicityInterface::class)
+            ->findOneBy(['type' => $type, 'endTime' => $dateTime]);
+    }
+
+    protected function getEntry(string $name): ?EntryInterface
+    {
+        return $this->entityManager
+            ->getRepository(EntryInterface::class)
+            ->findOneBy(['name' => $name]);
+    }
+
+    protected function getUser(string $email): ?UserInterface
+    {
+        return $this->entityManager
+            ->getRepository(UserInterface::class)
+            ->findOneBy(['email' => $email]);
+    }
+
+    protected function getTypeEntry(string $name): ?EntryTypeInterface
+    {
+        return $this->entityManager
+            ->getRepository(EntryTypeInterface::class)
+            ->findOneBy(['name' => $name]);
     }
 
     /**
