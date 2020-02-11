@@ -11,6 +11,7 @@
 namespace Grr\Core\Mailer;
 
 use Grr\GrrBundle\Mailer\EmailFactory;
+use Knp\Snappy\Pdf;
 use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
@@ -63,7 +64,7 @@ class GrrMailer
     public function sendTest(): TemplatedEmail
     {
         $html = $this->twig->render(
-            'pdf/test.html.twig',
+            '@grr_front/pdf/test.html.twig',
             [
             ]
         );
@@ -90,7 +91,7 @@ class GrrMailer
         try {
             $this->mailer->send($email);
         } catch (TransportExceptionInterface $e) {
-            var_dump($e->getMessage());
+
         }
     }
 
@@ -111,7 +112,7 @@ EOF
         try {
             $this->mailer->send($email);
         } catch (TransportExceptionInterface $e) {
-            dump($e->getMessage());
+
         }
     }
 }

@@ -69,7 +69,7 @@ class BaseTesting extends WebTestCase
             ->get('doctrine')
             ->getManager();
 
-        $this->pathFixtures = $this->kernel2->getProjectDir() . '/src/Grr/GrrBundle/src/Fixtures/';
+        $this->pathFixtures = $this->kernel2->getProjectDir().'/src/Grr/GrrBundle/src/Fixtures/';
         $this->loader = $this->kernel2->getContainer()->get('fidry_alice_data_fixtures.loader.doctrine');
 
         $loader = new NativeLoader();
