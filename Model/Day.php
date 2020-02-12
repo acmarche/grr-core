@@ -39,14 +39,14 @@ class Day extends CarbonImmutable
      *
      * @return Day
      */
-    public function setEntries($entries): self
+    public function setEntries($entries): void
     {
         $this->entries = $entries;
 
         return $this;
     }
 
-    public function addEntry(EntryInterface $entry): self
+    public function addEntry(EntryInterface $entry): void
     {
         if (!$this->entries->contains($entry)) {
             $this->entries[] = $entry;

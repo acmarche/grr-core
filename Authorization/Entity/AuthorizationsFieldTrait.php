@@ -30,7 +30,7 @@ trait AuthorizationsFieldTrait
         return $this->authorizations;
     }
 
-    public function addAuthorization(AuthorizationInterface $authorization): self
+    public function addAuthorization(AuthorizationInterface $authorization): void
     {
         if (!$this->authorizations->contains($authorization)) {
             $this->authorizations[] = $authorization;
@@ -40,7 +40,7 @@ trait AuthorizationsFieldTrait
         return $this;
     }
 
-    public function removeAuthorization(AuthorizationInterface $authorization): self
+    public function removeAuthorization(AuthorizationInterface $authorization): void
     {
         if ($this->authorizations->contains($authorization)) {
             $this->authorizations->removeElement($authorization);

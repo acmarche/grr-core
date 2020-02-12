@@ -27,10 +27,8 @@ trait AreaFieldTrait
         return $this->area;
     }
 
-    public function setArea(?AreaInterface $area): self
+    public function setArea(?AreaInterface $area): void
     {
         $this->area = $area;
-
-        return $this;
     }
 }

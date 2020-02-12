@@ -87,7 +87,7 @@ class LdapAuth implements LdapInterface
      *
      * @return static
      */
-    public static function create(string $adapter, array $config = []): self
+    public static function create(string $adapter, array $config = []): void
     {
         if (!isset(self::$adapterMap[$adapter])) {
             throw new DriverNotFoundException(sprintf('Adapter "%s" not found. You should use one of: %s', $adapter, implode(', ', self::$adapterMap)));

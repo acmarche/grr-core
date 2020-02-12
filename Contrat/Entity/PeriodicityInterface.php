@@ -10,6 +10,36 @@
 
 namespace Grr\Core\Contrat\Entity;
 
+use DateTimeInterface;
+use Doctrine\Common\Collections\Collection;
+
 interface PeriodicityInterface
 {
+    public function getEntries(): Collection;
+
+    public function addEntry(EntryInterface $entry): void;
+
+    public function removeEntry(EntryInterface $entry): void;
+
+    public function getId(): ?int;
+
+    public function getEntryReference(): ?EntryInterface;
+
+    public function setEntryReference(?EntryInterface $entry_reference): void;
+
+    public function getEndTime(): ?DateTimeInterface;
+
+    public function setEndTime(DateTimeInterface $endTime): void;
+
+    public function getType(): ?int;
+
+    public function setType(int $type): void;
+
+    public function getWeekRepeat(): ?int;
+
+    public function setWeekRepeat(?int $weekRepeat): void;
+
+    public function getWeekDays(): ?array;
+
+    public function setWeekDays(?array $weekDays): void;
 }

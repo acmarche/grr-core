@@ -40,7 +40,7 @@ class Month extends Carbon
         return $this->carbon;
     }
 
-    public static function init(int $year, int $month, string $language): self
+    public static function init(int $year, int $month, string $language): void
     {
         Assert::greaterThan($year, 1970);
         Assert::greaterThan($month, 0);
@@ -110,7 +110,7 @@ class Month extends Carbon
         return Carbon::parse($debut)->daysUntil($fin);
     }
 
-    public function addDataDay(Day $day): self
+    public function addDataDay(Day $day): void
     {
         if (!$this->data_days->contains($day)) {
             $this->data_days[] = $day;

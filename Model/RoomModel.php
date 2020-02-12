@@ -34,7 +34,7 @@ class RoomModel
         return $this->room;
     }
 
-    public function addDataDay(Day $day): self
+    public function addDataDay(Day $day): void
     {
         if (!$this->data_days->contains($day)) {
             $this->data_days[] = $day;

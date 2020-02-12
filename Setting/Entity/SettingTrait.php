@@ -50,14 +50,14 @@ trait SettingTrait
         return $this->value;
     }
 
-    public function setValue(string $value): self
+    public function setValue(string $value): void
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
 
@@ -69,7 +69,7 @@ trait SettingTrait
         return $this->required;
     }
 
-    public function setRequired(bool $required): self
+    public function setRequired(bool $required): void
     {
         $this->required = $required;
 

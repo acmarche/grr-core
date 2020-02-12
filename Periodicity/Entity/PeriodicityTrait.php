@@ -88,11 +88,9 @@ trait PeriodicityTrait
         return $this->endTime;
     }
 
-    public function setEndTime(\DateTimeInterface $endTime): self
+    public function setEndTime(\DateTimeInterface $endTime): void
     {
         $this->endTime = $endTime;
-
-        return $this;
     }
 
     public function getType(): ?int
@@ -100,11 +98,9 @@ trait PeriodicityTrait
         return $this->type;
     }
 
-    public function setType(int $type): self
+    public function setType(int $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
     public function getWeekRepeat(): ?int
@@ -112,11 +108,9 @@ trait PeriodicityTrait
         return $this->weekRepeat;
     }
 
-    public function setWeekRepeat(?int $weekRepeat): self
+    public function setWeekRepeat(?int $weekRepeat): void
     {
         $this->weekRepeat = $weekRepeat;
-
-        return $this;
     }
 
     public function getWeekDays(): ?array
@@ -124,10 +118,8 @@ trait PeriodicityTrait
         return $this->weekDays;
     }
 
-    public function setWeekDays(?array $weekDays): self
+    public function setWeekDays(?array $weekDays): void
     {
         $this->weekDays = $weekDays;
-
-        return $this;
     }
 }

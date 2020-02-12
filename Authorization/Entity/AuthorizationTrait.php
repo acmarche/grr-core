@@ -69,7 +69,7 @@ trait AuthorizationTrait
         return $this->isAreaAdministrator;
     }
 
-    public function setIsAreaAdministrator(bool $isAreaAdministrator): self
+    public function setIsAreaAdministrator(bool $isAreaAdministrator): void
     {
         $this->isAreaAdministrator = $isAreaAdministrator;
 
@@ -81,7 +81,7 @@ trait AuthorizationTrait
         return $this->isResourceAdministrator;
     }
 
-    public function setIsResourceAdministrator(bool $isResourceAdministrator): self
+    public function setIsResourceAdministrator(bool $isResourceAdministrator): void
     {
         $this->isResourceAdministrator = $isResourceAdministrator;
 
@@ -93,7 +93,7 @@ trait AuthorizationTrait
         return $this->user;
     }
 
-    public function setUser(?UserInterface $user): self
+    public function setUser(?UserInterface $user): void
     {
         $this->user = $user;
 
@@ -105,7 +105,7 @@ trait AuthorizationTrait
         return $this->area;
     }
 
-    public function setArea(?AreaInterface $area): self
+    public function setArea(?AreaInterface $area): void
     {
         $this->area = $area;
 
@@ -117,7 +117,7 @@ trait AuthorizationTrait
         return $this->room;
     }
 
-    public function setRoom(?RoomInterface $room): self
+    public function setRoom(?RoomInterface $room): void
     {
         $this->room = $room;
 

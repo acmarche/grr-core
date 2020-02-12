@@ -139,11 +139,9 @@ trait AreaTrait
         return $this->orderDisplay;
     }
 
-    public function setOrderDisplay(int $orderDisplay): self
+    public function setOrderDisplay(int $orderDisplay): void
     {
         $this->orderDisplay = $orderDisplay;
-
-        return $this;
     }
 
     public function getStartTime(): ?int
@@ -151,11 +149,9 @@ trait AreaTrait
         return $this->startTime;
     }
 
-    public function setStartTime(int $startTime): self
+    public function setStartTime(int $startTime): void
     {
         $this->startTime = $startTime;
-
-        return $this;
     }
 
     public function getEndTime(): ?int
@@ -163,11 +159,9 @@ trait AreaTrait
         return $this->endTime;
     }
 
-    public function setEndTime(int $endTime): self
+    public function setEndTime(int $endTime): void
     {
         $this->endTime = $endTime;
-
-        return $this;
     }
 
     public function getWeekStart(): ?int
@@ -175,11 +169,9 @@ trait AreaTrait
         return $this->weekStart;
     }
 
-    public function setWeekStart(int $weekStart): self
+    public function setWeekStart(int $weekStart): void
     {
         $this->weekStart = $weekStart;
-
-        return $this;
     }
 
     public function getIs24HourFormat(): ?bool
@@ -187,11 +179,9 @@ trait AreaTrait
         return $this->is24HourFormat;
     }
 
-    public function setIs24HourFormat(bool $is24HourFormat): self
+    public function setIs24HourFormat(bool $is24HourFormat): void
     {
         $this->is24HourFormat = $is24HourFormat;
-
-        return $this;
     }
 
     public function getDaysOfWeekToDisplay(): ?array
@@ -199,11 +189,9 @@ trait AreaTrait
         return $this->daysOfWeekToDisplay;
     }
 
-    public function setDaysOfWeekToDisplay(array $daysOfWeekToDisplay): self
+    public function setDaysOfWeekToDisplay(array $daysOfWeekToDisplay): void
     {
         $this->daysOfWeekToDisplay = $daysOfWeekToDisplay;
-
-        return $this;
     }
 
     public function getTimeInterval(): ?int
@@ -211,11 +199,9 @@ trait AreaTrait
         return $this->timeInterval;
     }
 
-    public function setTimeInterval(int $timeInterval): self
+    public function setTimeInterval(int $timeInterval): void
     {
         $this->timeInterval = $timeInterval;
-
-        return $this;
     }
 
     public function getDurationMaximumEntry(): ?int
@@ -223,11 +209,9 @@ trait AreaTrait
         return $this->durationMaximumEntry;
     }
 
-    public function setDurationMaximumEntry(int $durationMaximumEntry): self
+    public function setDurationMaximumEntry(int $durationMaximumEntry): void
     {
         $this->durationMaximumEntry = $durationMaximumEntry;
-
-        return $this;
     }
 
     public function getDurationDefaultEntry(): ?int
@@ -235,11 +219,9 @@ trait AreaTrait
         return $this->durationDefaultEntry;
     }
 
-    public function setDurationDefaultEntry(int $durationDefaultEntry): self
+    public function setDurationDefaultEntry(int $durationDefaultEntry): void
     {
         $this->durationDefaultEntry = $durationDefaultEntry;
-
-        return $this;
     }
 
     public function getMinutesToAddToEndTime(): ?int
@@ -247,11 +229,9 @@ trait AreaTrait
         return $this->minutesToAddToEndTime;
     }
 
-    public function setMinutesToAddToEndTime(int $minutesToAddToEndTime): self
+    public function setMinutesToAddToEndTime(int $minutesToAddToEndTime): void
     {
         $this->minutesToAddToEndTime = $minutesToAddToEndTime;
-
-        return $this;
     }
 
     public function getMaxBooking(): ?int
@@ -259,11 +239,9 @@ trait AreaTrait
         return $this->maxBooking;
     }
 
-    public function setMaxBooking(int $maxBooking): self
+    public function setMaxBooking(int $maxBooking): void
     {
         $this->maxBooking = $maxBooking;
-
-        return $this;
     }
 
     public function getIsRestricted(): ?bool
@@ -271,10 +249,8 @@ trait AreaTrait
         return $this->isRestricted;
     }
 
-    public function setIsRestricted(bool $isRestricted): self
+    public function setIsRestricted(bool $isRestricted): void
     {
         $this->isRestricted = $isRestricted;
-
-        return $this;
     }
 }

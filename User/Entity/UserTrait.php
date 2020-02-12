@@ -105,7 +105,7 @@ trait UserTrait
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername(string $username): void
     {
         $this->username = $username;
 
@@ -121,7 +121,7 @@ trait UserTrait
         return array_unique($roles);
     }
 
-    public function addRole(string $role): self
+    public function addRole(string $role): void
     {
         if (!in_array($role, $this->roles, true)) {
             $this->roles[] = $role;
@@ -130,7 +130,7 @@ trait UserTrait
         return $this;
     }
 
-    public function removeRole(string $role): self
+    public function removeRole(string $role): void
     {
         if (in_array($role, $this->roles, true)) {
             $index = array_search($role, $this->roles);
@@ -145,7 +145,7 @@ trait UserTrait
         return in_array($role, $this->getRoles(), true);
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles(array $roles): void
     {
         $this->roles = $roles;
 
@@ -174,7 +174,7 @@ trait UserTrait
         return $this->password;
     }
 
-    public function setPassword(?string $password): self
+    public function setPassword(?string $password): void
     {
         $this->password = $password;
 
@@ -186,7 +186,7 @@ trait UserTrait
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(string $email): void
     {
         $this->email = $email;
 
@@ -198,7 +198,7 @@ trait UserTrait
         return $this->first_name;
     }
 
-    public function setFirstName(?string $first_name): self
+    public function setFirstName(?string $first_name): void
     {
         $this->first_name = $first_name;
 
@@ -210,7 +210,7 @@ trait UserTrait
         return $this->isEnabled;
     }
 
-    public function setIsEnabled(bool $is_enabled): self
+    public function setIsEnabled(bool $is_enabled): void
     {
         $this->isEnabled = $is_enabled;
 
@@ -225,7 +225,7 @@ trait UserTrait
         return $this->authorizations;
     }
 
-    public function addAuthorization(AuthorizationInterface $authorization): self
+    public function addAuthorization(AuthorizationInterface $authorization): void
     {
         if (!$this->authorizations->contains($authorization)) {
             $this->authorizations[] = $authorization;
@@ -235,7 +235,7 @@ trait UserTrait
         return $this;
     }
 
-    public function removeAuthorization(AuthorizationInterface $authorization): self
+    public function removeAuthorization(AuthorizationInterface $authorization): void
     {
         if ($this->authorizations->contains($authorization)) {
             $this->authorizations->removeElement($authorization);
@@ -253,7 +253,7 @@ trait UserTrait
         return $this->languageDefault;
     }
 
-    public function setLanguageDefault(?string $languageDefault): self
+    public function setLanguageDefault(?string $languageDefault): void
     {
         $this->languageDefault = $languageDefault;
 
@@ -265,7 +265,7 @@ trait UserTrait
         return $this->area;
     }
 
-    public function setArea(?AreaInterface $area): self
+    public function setArea(?AreaInterface $area): void
     {
         $this->area = $area;
 
@@ -277,7 +277,7 @@ trait UserTrait
         return $this->room;
     }
 
-    public function setRoom(?RoomInterface $room): self
+    public function setRoom(?RoomInterface $room): void
     {
         $this->room = $room;
 

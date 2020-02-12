@@ -31,7 +31,7 @@ trait RoomsFieldTrait
         return $this->rooms;
     }
 
-    public function addRoom(RoomInterface $room): self
+    public function addRoom(RoomInterface $room): void
     {
         if (!$this->rooms->contains($room)) {
             $this->rooms[] = $room;
@@ -41,7 +41,7 @@ trait RoomsFieldTrait
         return $this;
     }
 
-    public function removeRoom(RoomInterface $room): self
+    public function removeRoom(RoomInterface $room): void
     {
         if ($this->rooms->contains($room)) {
             $this->rooms->removeElement($room);

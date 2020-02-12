@@ -45,7 +45,7 @@ class Navigation
     /**
      * @return Navigation
      */
-    public function setPreviousButton(string $previousButton): self
+    public function setPreviousButton(string $previousButton): void
     {
         $this->previousButton = $previousButton;
 
@@ -60,7 +60,7 @@ class Navigation
     /**
      * @return Navigation
      */
-    public function setNextButton(string $nextButton): self
+    public function setNextButton(string $nextButton): void
     {
         $this->nextButton = $nextButton;
 
@@ -78,7 +78,7 @@ class Navigation
     /**
      * @return Navigation
      */
-    public function setMonths(array $months): self
+    public function setMonths(array $months): void
     {
         $this->months = $months;
 

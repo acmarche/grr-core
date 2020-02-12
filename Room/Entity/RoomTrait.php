@@ -198,7 +198,7 @@ trait RoomTrait
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
 
@@ -210,7 +210,7 @@ trait RoomTrait
         return $this->capacity;
     }
 
-    public function setCapacity(int $capacity): self
+    public function setCapacity(int $capacity): void
     {
         $this->capacity = $capacity;
 
@@ -222,7 +222,7 @@ trait RoomTrait
         return $this->maximumBooking;
     }
 
-    public function setMaximumBooking(int $maximumBooking): self
+    public function setMaximumBooking(int $maximumBooking): void
     {
         $this->maximumBooking = $maximumBooking;
 
@@ -234,7 +234,7 @@ trait RoomTrait
         return $this->statutRoom;
     }
 
-    public function setStatutRoom(bool $statutRoom): self
+    public function setStatutRoom(bool $statutRoom): void
     {
         $this->statutRoom = $statutRoom;
 
@@ -246,7 +246,7 @@ trait RoomTrait
         return $this->showFicRoom;
     }
 
-    public function setShowFicRoom(bool $showFicRoom): self
+    public function setShowFicRoom(bool $showFicRoom): void
     {
         $this->showFicRoom = $showFicRoom;
 
@@ -258,7 +258,7 @@ trait RoomTrait
         return $this->pictureRoom;
     }
 
-    public function setPictureRoom(?string $pictureRoom): self
+    public function setPictureRoom(?string $pictureRoom): void
     {
         $this->pictureRoom = $pictureRoom;
 
@@ -270,7 +270,7 @@ trait RoomTrait
         return $this->commentRoom;
     }
 
-    public function setCommentRoom(?string $commentRoom): self
+    public function setCommentRoom(?string $commentRoom): void
     {
         $this->commentRoom = $commentRoom;
 
@@ -282,7 +282,7 @@ trait RoomTrait
         return $this->showComment;
     }
 
-    public function setShowComment(bool $showComment): self
+    public function setShowComment(bool $showComment): void
     {
         $this->showComment = $showComment;
 
@@ -294,7 +294,7 @@ trait RoomTrait
         return $this->delaisMaxResaRoom;
     }
 
-    public function setDelaisMaxResaRoom(int $delaisMaxResaRoom): self
+    public function setDelaisMaxResaRoom(int $delaisMaxResaRoom): void
     {
         $this->delaisMaxResaRoom = $delaisMaxResaRoom;
 
@@ -306,7 +306,7 @@ trait RoomTrait
         return $this->delaisMinResaRoom;
     }
 
-    public function setDelaisMinResaRoom(int $delaisMinResaRoom): self
+    public function setDelaisMinResaRoom(int $delaisMinResaRoom): void
     {
         $this->delaisMinResaRoom = $delaisMinResaRoom;
 
@@ -318,7 +318,7 @@ trait RoomTrait
         return $this->allowActionInPast;
     }
 
-    public function setAllowActionInPast(bool $allowActionInPast): self
+    public function setAllowActionInPast(bool $allowActionInPast): void
     {
         $this->allowActionInPast = $allowActionInPast;
 
@@ -330,7 +330,7 @@ trait RoomTrait
         return $this->orderDisplay;
     }
 
-    public function setOrderDisplay(int $orderDisplay): self
+    public function setOrderDisplay(int $orderDisplay): void
     {
         $this->orderDisplay = $orderDisplay;
 
@@ -342,7 +342,7 @@ trait RoomTrait
         return $this->delaisOptionReservation;
     }
 
-    public function setDelaisOptionReservation(int $delaisOptionReservation): self
+    public function setDelaisOptionReservation(int $delaisOptionReservation): void
     {
         $this->delaisOptionReservation = $delaisOptionReservation;
 
@@ -354,7 +354,7 @@ trait RoomTrait
         return $this->dontAllowModify;
     }
 
-    public function setDontAllowModify(bool $dontAllowModify): self
+    public function setDontAllowModify(bool $dontAllowModify): void
     {
         $this->dontAllowModify = $dontAllowModify;
 
@@ -366,7 +366,7 @@ trait RoomTrait
         return $this->typeAffichageReser;
     }
 
-    public function setTypeAffichageReser(int $typeAffichageReser): self
+    public function setTypeAffichageReser(int $typeAffichageReser): void
     {
         $this->typeAffichageReser = $typeAffichageReser;
 
@@ -378,7 +378,7 @@ trait RoomTrait
         return $this->moderate;
     }
 
-    public function setModerate(?bool $moderate): self
+    public function setModerate(?bool $moderate): void
     {
         $this->moderate = $moderate;
 
@@ -390,7 +390,7 @@ trait RoomTrait
         return $this->quiPeutReserverPour;
     }
 
-    public function setQuiPeutReserverPour(string $quiPeutReserverPour): self
+    public function setQuiPeutReserverPour(string $quiPeutReserverPour): void
     {
         $this->quiPeutReserverPour = $quiPeutReserverPour;
 
@@ -402,7 +402,7 @@ trait RoomTrait
         return $this->activeRessourceEmpruntee;
     }
 
-    public function setActiveRessourceEmpruntee(bool $activeRessourceEmpruntee): self
+    public function setActiveRessourceEmpruntee(bool $activeRessourceEmpruntee): void
     {
         $this->activeRessourceEmpruntee = $activeRessourceEmpruntee;
 
@@ -414,7 +414,7 @@ trait RoomTrait
         return $this->ruleToAdd;
     }
 
-    public function setRuleToAdd(int $ruleToAdd): self
+    public function setRuleToAdd(int $ruleToAdd): void
     {
         $this->ruleToAdd = $ruleToAdd;
 
