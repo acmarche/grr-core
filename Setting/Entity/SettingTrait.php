@@ -53,15 +53,11 @@ trait SettingTrait
     public function setValue(string $value): void
     {
         $this->value = $value;
-
-        return $this;
     }
 
     public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getRequired(): bool
@@ -72,7 +68,5 @@ trait SettingTrait
     public function setRequired(bool $required): void
     {
         $this->required = $required;
-
-        return $this;
     }
 }

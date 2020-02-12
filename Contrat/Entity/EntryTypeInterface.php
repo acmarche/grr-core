@@ -26,7 +26,7 @@ interface EntryTypeInterface
 
     public function getColor(): ?string;
 
-    public function setColor(?string $color): object;
+    public function setColor(?string $color): void;
 
     public function getLetter(): ?string;
 

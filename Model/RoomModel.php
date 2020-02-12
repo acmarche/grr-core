@@ -39,8 +39,6 @@ class RoomModel
         if (!$this->data_days->contains($day)) {
             $this->data_days[] = $day;
         }
-
-        return $this;
     }
 
     /**

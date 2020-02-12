@@ -44,10 +44,8 @@ class LdapAuth implements LdapInterface
      *
      * @throws ConnectionException if dn / password could not be bound
      */
-    public function bind($dn = null, $password = null): void
+    public function bind(string $dn = null, string $password = null)
     {
-        var_dump($dn);
-        exit();
         $this->adapter->getConnection()->bind($dn, $password);
     }
 
@@ -87,7 +85,7 @@ class LdapAuth implements LdapInterface
      *
      * @return static
      */
-    public static function create(string $adapter, array $config = []): void
+    public static function create(string $adapter, array $config = []): self
     {
         if (!isset(self::$adapterMap[$adapter])) {
             throw new DriverNotFoundException(sprintf('Adapter "%s" not found. You should use one of: %s', $adapter, implode(', ', self::$adapterMap)));

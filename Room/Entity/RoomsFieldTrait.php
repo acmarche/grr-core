@@ -37,8 +37,6 @@ trait RoomsFieldTrait
             $this->rooms[] = $room;
             $room->setArea($this);
         }
-
-        return $this;
     }
 
     public function removeRoom(RoomInterface $room): void
@@ -50,7 +48,5 @@ trait RoomsFieldTrait
                 $room->setArea(null);
             }
         }
-
-        return $this;
     }
 }

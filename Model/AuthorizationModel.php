@@ -66,8 +66,6 @@ class AuthorizationModel
         if (!$this->rooms->contains($room)) {
             $this->rooms[] = $room;
         }
-
-        return $this;
     }
 
     public function removeRoom(RoomInterface $room): void
@@ -75,8 +73,6 @@ class AuthorizationModel
         if ($this->rooms->contains($room)) {
             $this->rooms->removeElement($room);
         }
-
-        return $this;
     }
 
     public function getRole(): ?int

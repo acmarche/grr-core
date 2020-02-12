@@ -61,8 +61,6 @@ class DurationModel
     public function setUnit(int $unit): void
     {
         $this->unit = $unit;
-
-        return $this;
     }
 
     public function getTime(): float
@@ -76,8 +74,6 @@ class DurationModel
     public function setTime(float $time): void
     {
         $this->time = $time;
-
-        return $this;
     }
 
     public function isFullDay(): bool
@@ -91,7 +87,5 @@ class DurationModel
     public function setFullDay(bool $full_day): void
     {
         $this->full_day = $full_day;
-
-        return $this;
     }
 }

@@ -35,12 +35,12 @@ class Month extends Carbon
         $this->carbon = new Carbon();
     }
 
-    public function getCarbon(): \Carbon\CarbonInterface
+    public function getCarbon(): CarbonInterface
     {
         return $this->carbon;
     }
 
-    public static function init(int $year, int $month, string $language): void
+    public static function init(int $year, int $month, string $language): self
     {
         Assert::greaterThan($year, 1970);
         Assert::greaterThan($month, 0);
@@ -55,22 +55,22 @@ class Month extends Carbon
         return $monthModel;
     }
 
-    public function previousYear(): \Carbon\CarbonInterface
+    public function previousYear(): CarbonInterface
     {
         return $this->copy()->subYear();
     }
 
-    public function nextYear(): \Carbon\CarbonInterface
+    public function nextYear(): CarbonInterface
     {
         return $this->copy()->addYear();
     }
 
-    public function previousMonth(): \Carbon\CarbonInterface
+    public function previousMonth(): CarbonInterface
     {
         return $this->copy()->subMonth();
     }
 
-    public function nextMonth(): \Carbon\CarbonInterface
+    public function nextMonth(): CarbonInterface
     {
         return $this->copy()->addMonth();
     }
@@ -115,8 +115,6 @@ class Month extends Carbon
         if (!$this->data_days->contains($day)) {
             $this->data_days[] = $day;
         }
-
-        return $this;
     }
 
     /**
@@ -130,11 +128,9 @@ class Month extends Carbon
     }
 
     /**
-     * @return array
-     *
      * @throws \Exception
      */
-    public function groupDataDaysByWeeks()
+    public function groupDataDaysByWeeks(): array
     {
         $weeks = [];
         foreach ($this->getWeeksOfMonth() as $weekCalendar) {

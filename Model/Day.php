@@ -42,8 +42,6 @@ class Day extends CarbonImmutable
     public function setEntries($entries): void
     {
         $this->entries = $entries;
-
-        return $this;
     }
 
     public function addEntry(EntryInterface $entry): void
@@ -51,8 +49,6 @@ class Day extends CarbonImmutable
         if (!$this->entries->contains($entry)) {
             $this->entries[] = $entry;
         }
-
-        return $this;
     }
 
     public function addEntries(array $entries)
