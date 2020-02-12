@@ -10,6 +10,35 @@
 
 namespace Grr\Core\Contrat\Entity;
 
+use Doctrine\Common\Collections\Collection;
+
 interface EntryTypeInterface
 {
+    public function getEntries(): Collection;
+
+    public function addEntry(EntryInterface $entry): void;
+
+    public function removeEntry(EntryInterface $entry): void;
+
+    public function getOrderDisplay(): ?int;
+
+    public function setOrderDisplay(int $orderDisplay): void;
+
+    public function getColor(): ?string;
+
+    public function setColor(?string $color): object;
+
+    public function getLetter(): ?string;
+
+    public function setLetter(string $letter);
+
+    public function getAvailable(): int;
+
+    public function setAvailable(int $available): void;
+
+    public function getId(): ?int;
+
+    public function getName(): ?string;
+
+    public function setName(string $name): void;
 }

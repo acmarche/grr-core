@@ -30,17 +30,15 @@ trait EntriesFieldTrait
         return $this->entries;
     }
 
-    public function addEntry(EntryInterface $entry): self
+    public function addEntry(EntryInterface $entry): void
     {
         if (!$this->entries->contains($entry)) {
             $this->entries[] = $entry;
             $entry->setRoom($this);
         }
-
-        return $this;
     }
 
-    public function removeEntry(EntryInterface $entry): self
+    public function removeEntry(EntryInterface $entry): void
     {
         if ($this->entries->contains($entry)) {
             $this->entries->removeElement($entry);
@@ -49,7 +47,5 @@ trait EntriesFieldTrait
                 $entry->setRoom(null);
             }
         }
-
-        return $this;
     }
 }

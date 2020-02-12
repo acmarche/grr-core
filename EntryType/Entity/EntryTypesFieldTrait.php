@@ -31,21 +31,17 @@ trait EntryTypesFieldTrait
         return $this->entryTypes;
     }
 
-    public function addEntryType(EntryTypeInterface $entryType): self
+    public function addEntryType(EntryTypeInterface $entryType): void
     {
         if (!$this->entryTypes->contains($entryType)) {
             $this->entryTypes[] = $entryType;
         }
-
-        return $this;
     }
 
-    public function removeEntryType(EntryTypeInterface $entryType): self
+    public function removeEntryType(EntryTypeInterface $entryType): void
     {
         if ($this->entryTypes->contains($entryType)) {
             $this->entryTypes->removeElement($entryType);
         }
-
-        return $this;
     }
 }

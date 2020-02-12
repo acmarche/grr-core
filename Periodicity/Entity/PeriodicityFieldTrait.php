@@ -29,10 +29,8 @@ trait PeriodicityFieldTrait
         return $this->periodicity;
     }
 
-    public function setPeriodicity(?PeriodicityInterface $periodicity): self
+    public function setPeriodicity(?PeriodicityInterface $periodicity): void
     {
         $this->periodicity = $periodicity;
-
-        return $this;
     }
 }

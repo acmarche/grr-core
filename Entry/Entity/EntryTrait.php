@@ -162,20 +162,16 @@ trait EntryTrait
     /**
      * @return EntryInterface
      */
-    public function setCellules(int $cellules): self
+    public function setCellules(int $cellules): void
     {
         $this->cellules = $cellules;
-
-        return $this;
     }
 
-    public function addLocation(array $location): self
+    public function addLocation(array $location): void
     {
         if (!$this->locations->contains($location)) {
             $this->locations[] = $location;
         }
-
-        return $this;
     }
 
     public function getDuration(): ?DurationModel
@@ -186,11 +182,9 @@ trait EntryTrait
     /**
      * @return EntryInterface
      */
-    public function setDuration(?DurationModel $duration): self
+    public function setDuration(?DurationModel $duration): void
     {
         $this->duration = $duration;
-
-        return $this;
     }
 
     public function getArea(): ?AreaInterface
@@ -221,11 +215,9 @@ trait EntryTrait
         return $this->startTime;
     }
 
-    public function setStartTime(\DateTimeInterface $startTime): self
+    public function setStartTime(\DateTimeInterface $startTime): void
     {
         $this->startTime = $startTime;
-
-        return $this;
     }
 
     public function getEndTime(): ?\DateTimeInterface
@@ -233,11 +225,9 @@ trait EntryTrait
         return $this->endTime;
     }
 
-    public function setEndTime(\DateTimeInterface $endTime): self
+    public function setEndTime(\DateTimeInterface $endTime): void
     {
         $this->endTime = $endTime;
-
-        return $this;
     }
 
     public function getCreatedBy(): ?string
@@ -245,11 +235,9 @@ trait EntryTrait
         return $this->createdBy;
     }
 
-    public function setCreatedBy(string $createdBy): self
+    public function setCreatedBy(string $createdBy): void
     {
         $this->createdBy = $createdBy;
-
-        return $this;
     }
 
     public function getDescription(): ?string
@@ -257,11 +245,9 @@ trait EntryTrait
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
-
-        return $this;
     }
 
     public function getStatutEntry(): ?string
@@ -269,11 +255,9 @@ trait EntryTrait
         return $this->statutEntry;
     }
 
-    public function setStatutEntry(?string $statutEntry): self
+    public function setStatutEntry(?string $statutEntry): void
     {
         $this->statutEntry = $statutEntry;
-
-        return $this;
     }
 
     public function getOptionReservation(): ?int
@@ -281,11 +265,9 @@ trait EntryTrait
         return $this->optionReservation;
     }
 
-    public function setOptionReservation(int $optionReservation): self
+    public function setOptionReservation(int $optionReservation): void
     {
         $this->optionReservation = $optionReservation;
-
-        return $this;
     }
 
     public function getOverloadDesc(): ?string
@@ -293,11 +275,9 @@ trait EntryTrait
         return $this->overloadDesc;
     }
 
-    public function setOverloadDesc(?string $overloadDesc): self
+    public function setOverloadDesc(?string $overloadDesc): void
     {
         $this->overloadDesc = $overloadDesc;
-
-        return $this;
     }
 
     public function getModerate(): ?bool
@@ -305,11 +285,9 @@ trait EntryTrait
         return $this->moderate;
     }
 
-    public function setModerate(?bool $moderate): self
+    public function setModerate(?bool $moderate): void
     {
         $this->moderate = $moderate;
-
-        return $this;
     }
 
     public function getPrivate(): ?bool
@@ -317,11 +295,9 @@ trait EntryTrait
         return $this->private;
     }
 
-    public function setPrivate(bool $private): self
+    public function setPrivate(bool $private): void
     {
         $this->private = $private;
-
-        return $this;
     }
 
     public function getJours(): ?bool
@@ -329,11 +305,9 @@ trait EntryTrait
         return $this->jours;
     }
 
-    public function setJours(bool $jours): self
+    public function setJours(bool $jours): void
     {
         $this->jours = $jours;
-
-        return $this;
     }
 
     public function getType(): ?EntryTypeInterface
@@ -341,11 +315,9 @@ trait EntryTrait
         return $this->type;
     }
 
-    public function setType(?EntryTypeInterface $type): self
+    public function setType(?EntryTypeInterface $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
     /**

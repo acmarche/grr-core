@@ -26,10 +26,8 @@ trait RoomFieldTrait
         return $this->room;
     }
 
-    public function setRoom(?RoomInterface $room): self
+    public function setRoom(?RoomInterface $room): void
     {
         $this->room = $room;
-
-        return $this;
     }
 }

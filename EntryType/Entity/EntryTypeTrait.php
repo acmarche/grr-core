@@ -9,7 +9,7 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Entry\Entity\EntriesFieldTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
-trait EntryTypeTrait
+trait EntryTypeTrait 
 {
     use IdEntityTrait;
     use NameEntityTrait;
@@ -67,11 +67,9 @@ trait EntryTypeTrait
         return $this->orderDisplay;
     }
 
-    public function setOrderDisplay(int $orderDisplay): self
+    public function setOrderDisplay(int $orderDisplay): void
     {
         $this->orderDisplay = $orderDisplay;
-
-        return $this;
     }
 
     public function getColor(): ?string
@@ -79,11 +77,9 @@ trait EntryTypeTrait
         return $this->color;
     }
 
-    public function setColor(?string $color): self
+    public function setColor(?string $color): void
     {
         $this->color = $color;
-
-        return $this;
     }
 
     public function getLetter(): ?string
@@ -91,11 +87,9 @@ trait EntryTypeTrait
         return $this->letter;
     }
 
-    public function setLetter(string $letter): self
+    public function setLetter(string $letter)
     {
         $this->letter = $letter;
-
-        return $this;
     }
 
     public function getAvailable(): int
