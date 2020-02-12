@@ -108,8 +108,6 @@ trait UserTrait
     public function setUsername(string $username): void
     {
         $this->username = $username;
-
-        return $this;
     }
 
     public function getRoles(): ?array
@@ -126,8 +124,6 @@ trait UserTrait
         if (!in_array($role, $this->roles, true)) {
             $this->roles[] = $role;
         }
-
-        return $this;
     }
 
     public function removeRole(string $role): void
@@ -136,8 +132,6 @@ trait UserTrait
             $index = array_search($role, $this->roles);
             unset($this->roles[$index]);
         }
-
-        return $this;
     }
 
     public function hasRole(string $role): bool
@@ -148,8 +142,6 @@ trait UserTrait
     public function setRoles(array $roles): void
     {
         $this->roles = $roles;
-
-        return $this;
     }
 
     /**
@@ -177,8 +169,6 @@ trait UserTrait
     public function setPassword(?string $password): void
     {
         $this->password = $password;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -189,8 +179,6 @@ trait UserTrait
     public function setEmail(string $email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
     public function getFirstName(): ?string
@@ -201,8 +189,6 @@ trait UserTrait
     public function setFirstName(?string $first_name): void
     {
         $this->first_name = $first_name;
-
-        return $this;
     }
 
     public function getIsEnabled(): ?bool
@@ -213,8 +199,6 @@ trait UserTrait
     public function setIsEnabled(bool $is_enabled): void
     {
         $this->isEnabled = $is_enabled;
-
-        return $this;
     }
 
     /**
@@ -231,8 +215,6 @@ trait UserTrait
             $this->authorizations[] = $authorization;
             $authorization->setUser($this);
         }
-
-        return $this;
     }
 
     public function removeAuthorization(AuthorizationInterface $authorization): void
@@ -244,8 +226,6 @@ trait UserTrait
                 $authorization->setUser(null);
             }
         }
-
-        return $this;
     }
 
     public function getLanguageDefault(): ?string
@@ -256,8 +236,6 @@ trait UserTrait
     public function setLanguageDefault(?string $languageDefault): void
     {
         $this->languageDefault = $languageDefault;
-
-        return $this;
     }
 
     public function getArea(): ?AreaInterface
@@ -268,8 +246,6 @@ trait UserTrait
     public function setArea(?AreaInterface $area): void
     {
         $this->area = $area;
-
-        return $this;
     }
 
     public function getRoom(): ?RoomInterface
@@ -280,7 +256,5 @@ trait UserTrait
     public function setRoom(?RoomInterface $room): void
     {
         $this->room = $room;
-
-        return $this;
     }
 }

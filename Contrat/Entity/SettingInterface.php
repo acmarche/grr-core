@@ -12,4 +12,17 @@ namespace Grr\Core\Contrat\Entity;
 
 interface SettingInterface
 {
+    public function getId(): ?int;
+
+    public function getName(): string;
+
+    public function getValue(): string;
+
+    public function setValue(string $value): void;
+
+    public function setName(string $name): void;
+
+    public function getRequired(): bool;
+
+    public function setRequired(bool $required): void;
 }

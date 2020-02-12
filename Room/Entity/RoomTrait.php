@@ -11,7 +11,6 @@ use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Entry\Entity\EntriesFieldTrait;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Room.
@@ -201,8 +200,6 @@ trait RoomTrait
     public function setDescription(?string $description): void
     {
         $this->description = $description;
-
-        return $this;
     }
 
     public function getCapacity(): ?int
@@ -213,8 +210,6 @@ trait RoomTrait
     public function setCapacity(int $capacity): void
     {
         $this->capacity = $capacity;
-
-        return $this;
     }
 
     public function getMaximumBooking(): ?int
@@ -225,8 +220,6 @@ trait RoomTrait
     public function setMaximumBooking(int $maximumBooking): void
     {
         $this->maximumBooking = $maximumBooking;
-
-        return $this;
     }
 
     public function getStatutRoom(): ?bool
@@ -237,8 +230,6 @@ trait RoomTrait
     public function setStatutRoom(bool $statutRoom): void
     {
         $this->statutRoom = $statutRoom;
-
-        return $this;
     }
 
     public function getShowFicRoom(): ?bool
@@ -249,8 +240,6 @@ trait RoomTrait
     public function setShowFicRoom(bool $showFicRoom): void
     {
         $this->showFicRoom = $showFicRoom;
-
-        return $this;
     }
 
     public function getPictureRoom(): ?string
@@ -261,8 +250,6 @@ trait RoomTrait
     public function setPictureRoom(?string $pictureRoom): void
     {
         $this->pictureRoom = $pictureRoom;
-
-        return $this;
     }
 
     public function getCommentRoom(): ?string
@@ -273,8 +260,6 @@ trait RoomTrait
     public function setCommentRoom(?string $commentRoom): void
     {
         $this->commentRoom = $commentRoom;
-
-        return $this;
     }
 
     public function getShowComment(): ?bool
@@ -285,8 +270,6 @@ trait RoomTrait
     public function setShowComment(bool $showComment): void
     {
         $this->showComment = $showComment;
-
-        return $this;
     }
 
     public function getDelaisMaxResaRoom(): ?int
@@ -297,8 +280,6 @@ trait RoomTrait
     public function setDelaisMaxResaRoom(int $delaisMaxResaRoom): void
     {
         $this->delaisMaxResaRoom = $delaisMaxResaRoom;
-
-        return $this;
     }
 
     public function getDelaisMinResaRoom(): ?int
@@ -309,8 +290,6 @@ trait RoomTrait
     public function setDelaisMinResaRoom(int $delaisMinResaRoom): void
     {
         $this->delaisMinResaRoom = $delaisMinResaRoom;
-
-        return $this;
     }
 
     public function getAllowActionInPast(): ?bool
@@ -321,8 +300,6 @@ trait RoomTrait
     public function setAllowActionInPast(bool $allowActionInPast): void
     {
         $this->allowActionInPast = $allowActionInPast;
-
-        return $this;
     }
 
     public function getOrderDisplay(): ?int
@@ -333,8 +310,6 @@ trait RoomTrait
     public function setOrderDisplay(int $orderDisplay): void
     {
         $this->orderDisplay = $orderDisplay;
-
-        return $this;
     }
 
     public function getDelaisOptionReservation(): ?int
@@ -345,8 +320,6 @@ trait RoomTrait
     public function setDelaisOptionReservation(int $delaisOptionReservation): void
     {
         $this->delaisOptionReservation = $delaisOptionReservation;
-
-        return $this;
     }
 
     public function getDontAllowModify(): bool
@@ -357,8 +330,6 @@ trait RoomTrait
     public function setDontAllowModify(bool $dontAllowModify): void
     {
         $this->dontAllowModify = $dontAllowModify;
-
-        return $this;
     }
 
     public function getTypeAffichageReser(): ?int
@@ -369,8 +340,6 @@ trait RoomTrait
     public function setTypeAffichageReser(int $typeAffichageReser): void
     {
         $this->typeAffichageReser = $typeAffichageReser;
-
-        return $this;
     }
 
     public function getModerate(): ?bool
@@ -381,8 +350,6 @@ trait RoomTrait
     public function setModerate(?bool $moderate): void
     {
         $this->moderate = $moderate;
-
-        return $this;
     }
 
     public function getQuiPeutReserverPour(): ?string
@@ -393,8 +360,6 @@ trait RoomTrait
     public function setQuiPeutReserverPour(string $quiPeutReserverPour): void
     {
         $this->quiPeutReserverPour = $quiPeutReserverPour;
-
-        return $this;
     }
 
     public function getActiveRessourceEmpruntee(): ?bool
@@ -405,8 +370,6 @@ trait RoomTrait
     public function setActiveRessourceEmpruntee(bool $activeRessourceEmpruntee): void
     {
         $this->activeRessourceEmpruntee = $activeRessourceEmpruntee;
-
-        return $this;
     }
 
     public function getRuleToAdd(): ?int
@@ -417,7 +380,5 @@ trait RoomTrait
     public function setRuleToAdd(int $ruleToAdd): void
     {
         $this->ruleToAdd = $ruleToAdd;
-
-        return $this;
     }
 }

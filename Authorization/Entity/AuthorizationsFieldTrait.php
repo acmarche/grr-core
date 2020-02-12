@@ -36,8 +36,6 @@ trait AuthorizationsFieldTrait
             $this->authorizations[] = $authorization;
             $authorization->setArea($this);
         }
-
-        return $this;
     }
 
     public function removeAuthorization(AuthorizationInterface $authorization): void
@@ -49,7 +47,5 @@ trait AuthorizationsFieldTrait
                 $authorization->setArea(null);
             }
         }
-
-        return $this;
     }
 }
