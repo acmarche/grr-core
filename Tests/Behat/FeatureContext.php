@@ -38,7 +38,7 @@ class FeatureContext extends RawMinkContext
      */
     public function iAmLoggedInAsAnAdmin(): void
     {
-        $this->visitPath('/login');
+        $this->visitPath('/fr/login');
         //var_dump($this->getSession()->getPage()->getContent());
         $this->fillField('username', 'grr@domain.be');
         $this->fillField('password', 'homer');
@@ -52,7 +52,7 @@ class FeatureContext extends RawMinkContext
      */
     public function iAmLoggedInAsUser(string $username): void
     {
-        $this->visitPath('/login');
+        $this->visitPath('/fr/login');
         $this->fillField('username', $username);
         $this->fillField('password', 'homer');
         $this->pressButton('S\'identifier');
@@ -175,7 +175,7 @@ class FeatureContext extends RawMinkContext
     public function iAmOnThePageShowEntry(string $name): void
     {
         $entry = $this->entryRepository->findOneBy(['name' => $name]);
-        $path = '/front/entry/'.$entry->getId();
+        $path = '/fr/front/entry/'.$entry->getId();
         $this->visitPath($path);
     }
 
@@ -185,7 +185,7 @@ class FeatureContext extends RawMinkContext
     public function iAmOnThePageMonthView(int $month, int $year, string $areaName): void
     {
         $area = $this->areaRepository->findOneBy(['name' => $areaName]);
-        $path = '/front/monthview/area/'.$area->getId().'/year/'.$year.'/month/'.$month.'/room';
+        $path = '/fr/front/monthview/area/'.$area->getId().'/year/'.$year.'/month/'.$month.'/room';
         $this->visitPath($path);
     }
 
