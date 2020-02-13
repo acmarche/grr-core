@@ -14,10 +14,6 @@ class LocalHelper
      */
     private $parameterBag;
     /**
-     * @var string
-     */
-    private $defaultLocale;
-    /**
      * @var RequestStack
      */
     private $requestStack;
@@ -33,43 +29,37 @@ class LocalHelper
         $this->requestStack = $requestStack;
     }
 
-    public function setDefaultLocal(): void
+    public function getDefaultLocal(): string
     {
         /**
+         * User preference.
+         *
          * @var UserInterface
          */
         $user = $this->security->getUser();
-        /*
-         * Parameter from symfony config/translation.yaml
-         * */
-        $this->defaultLocale = $this->parameterBag->get('kernel.default_locale');
+        if ($user) {
+            if ($user->getLanguageDefault()) {
+                return $user->getLanguageDefault();
+            }
+        }
         /**
-         * Navigator.
+         * Url.
          */
         $master = $this->requestStack->getMasterRequest();
         if (null !== $master) {
-            $this->defaultLocale = $master->getLocale();
+            return $master->getLocale();
         }
+
         /*
-         * user preference
-         */
-        if ($user) {
-            if ($user->getLanguageDefault()) {
-                $this->defaultLocale = $user->getLanguageDefault();
-            }
-        }
+         * Parameter from symfony config/translation.yaml
+         * */
+        return $this->parameterBag->get('kernel.default_locale');
     }
 
-    public function getDefaultLocal(): string
+    public function getSupportedLocales(): array
     {
-        if ('' === $this->defaultLocale || null === $this->defaultLocale) {
-            $this->setDefaultLocal();
-        }
+        $locales = $this->parameterBag->get('grr.supported_locales');
 
-        if ('' !== $this->defaultLocale && null !== $this->defaultLocale) {
-            return $this->defaultLocale;
-        }
-
-        return 'fr'; //bug test mode console
+        return array_combine($locales, $locales);
     }
 }
