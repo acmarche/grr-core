@@ -10,7 +10,9 @@
 
 namespace Grr\Core\Periodicity\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\PeriodicityInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 trait PeriodicityFieldTrait
 {

@@ -11,6 +11,7 @@
 namespace Grr\Core\Entry\Entity;
 
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\EntryInterface;
 
 trait EntriesFieldTrait
