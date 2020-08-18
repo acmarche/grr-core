@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Grr\Core\Tests\Behat;
+namespace Grr\Core\Behat;
 
 use Behat\Behat\Context\Context;
 use Grr\GrrBundle\Repository\EntryRepository;

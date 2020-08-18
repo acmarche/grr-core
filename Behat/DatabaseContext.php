@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Grr\Core\Tests\Behat;
+namespace Grr\Core\Behat;
 
 use Behat\Behat\Context\Context;
 use Fidry\AliceDataFixtures\LoaderInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Tests\Behat;
+namespace Grr\Core\Behat;
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;

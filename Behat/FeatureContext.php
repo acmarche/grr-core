@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Grr\Core\Tests\Behat;
+namespace Grr\Core\Behat;
 
 use Behat\MinkExtension\Context\RawMinkContext;
 use Carbon\Carbon;
