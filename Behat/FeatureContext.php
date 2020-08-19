@@ -13,8 +13,8 @@ namespace Grr\Core\Behat;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Carbon\Carbon;
 use Exception;
-use Grr\GrrBundle\Repository\AreaRepository;
-use Grr\GrrBundle\Repository\EntryRepository;
+use Grr\GrrBundle\Area\Repository\AreaRepository;
+use Grr\GrrBundle\Entry\Repository\EntryRepository;
 
 class FeatureContext extends RawMinkContext
 {
@@ -158,7 +158,7 @@ class FeatureContext extends RawMinkContext
     /**
      * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function iShouldSeeTextSoManyTimes($sText, $iExpected): void
     {

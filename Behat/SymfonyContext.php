@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Grr\Core\Behat;
 
 use Behat\Behat\Context\Context;
-use Grr\GrrBundle\Repository\EntryRepository;
+use Grr\GrrBundle\Entry\Repository\EntryRepository;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

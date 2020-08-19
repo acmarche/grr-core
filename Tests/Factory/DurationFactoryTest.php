@@ -7,10 +7,10 @@ use DateTimeInterface;
 use Grr\Core\Factory\DurationFactory;
 use Grr\Core\Model\DurationModel;
 use Grr\Core\Tests\BaseTesting;
-use Grr\GrrBundle\Area\AreaFactory;
-use Grr\GrrBundle\Entry\EntryFactory;
-use Grr\GrrBundle\Periodicity\PeriodicityFactory;
-use Grr\GrrBundle\Room\RoomFactory;
+use Grr\GrrBundle\Area\Factory\AreaFactory;
+use Grr\GrrBundle\Entry\Factory\EntryFactory;
+use Grr\GrrBundle\Periodicity\Factory\PeriodicityFactory;
+use Grr\GrrBundleRoom\Factory\RoomFactory;
 
 class DurationFactoryTest extends BaseTesting
 {

@@ -27,9 +27,10 @@ class SecurityRole
      * @return mixed[]|bool
      */
     public const ROLES = [
-        self::ROLE_GRR_ACTIVE_USER => 'Utilisateur simple',
+        self::ROLE_GRR => 'Visiteur',
+        self::ROLE_GRR_ACTIVE_USER => 'Utilisateur actif',
         self::ROLE_GRR_MANAGER_USER => 'Gestionnaire des utilisateurs',
-        self::ROLE_GRR_ADMINISTRATOR => 'Administrateur',
+        self::ROLE_GRR_ADMINISTRATOR => 'Administrateur de Grr',
     ];
 
     public static function niceName(array $roles): array

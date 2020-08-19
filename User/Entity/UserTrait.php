@@ -10,6 +10,7 @@ use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
+use Grr\Core\Doctrine\Traits\RolesTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,6 +20,7 @@ trait UserTrait
     use IdEntityTrait;
     use TimestampableTrait;
     use NameEntityTrait;
+    use RolesTrait;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -108,38 +110,6 @@ trait UserTrait
     public function setUsername(string $username): void
     {
         $this->username = $username;
-    }
-
-    public function getRoles(): ?array
-    {
-        $roles = $this->roles;
-
-        return array_unique($roles);
-    }
-
-    public function addRole(string $role): void
-    {
-        if (!in_array($role, $this->roles, true)) {
-            $this->roles[] = $role;
-        }
-    }
-
-    public function removeRole(string $role): void
-    {
-        if (in_array($role, $this->roles, true)) {
-            $index = array_search($role, $this->roles);
-            unset($this->roles[$index]);
-        }
-    }
-
-    public function hasRole(string $role): bool
-    {
-        return in_array($role, $this->getRoles(), true);
-    }
-
-    public function setRoles(array $roles): void
-    {
-        $this->roles = $roles;
     }
 
     /**

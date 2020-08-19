@@ -11,6 +11,7 @@
 namespace Grr\Core\Tests;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\ORM\EntityManager;
 use Fidry\AliceDataFixtures\LoaderInterface;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
@@ -22,11 +23,12 @@ use Grr\Core\Faker\CarbonProvider;
 use Nelmio\Alice\Loader\NativeLoader;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class BaseTesting extends WebTestCase
 {
     /**
-     * @var \Doctrine\ORM\EntityManager
+     * @var EntityManager
      */
     protected $entityManager;
     /**
@@ -42,19 +44,19 @@ class BaseTesting extends WebTestCase
      */
     protected $pathFixtures;
     /**
-     * @var \Symfony\Component\HttpKernel\KernelInterface
+     * @var KernelInterface
      */
     private $kernel2;
     /**
-     * @var \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     * @var KernelBrowser
      */
     protected $administrator;
     /**
-     * @var \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     * @var KernelBrowser
      */
     protected $bob;
     /**
-     * @var \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     * @var KernelBrowser
      */
     protected $brenda;
 

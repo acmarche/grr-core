@@ -12,7 +12,7 @@ namespace Grr\Core\Tests\Validator;
 
 use DateTime;
 use Grr\Core\Factory\DurationFactory;
-use Grr\GrrBundle\Validator\Entry\DurationValidator;
+use Grr\GrrBundle\Entry\Validator\DurationValidator;
 use PHPUnit\Framework\TestCase;
 
 class TTest extends TestCase
