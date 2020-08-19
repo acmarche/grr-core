@@ -26,22 +26,29 @@ class SecurityRole
     /**
      * @return mixed[]|bool
      */
-    public static function getRoles()
-    {
-        $roles = [
-            self::ROLE_GRR,
-            self::ROLE_GRR_ACTIVE_USER,
-            self::ROLE_GRR_MANAGER_USER,
-            self::ROLE_GRR_ADMINISTRATOR,
-        ];
+    public const ROLES = [
+        self::ROLE_GRR_ACTIVE_USER => 'Utilisateur simple',
+        self::ROLE_GRR_MANAGER_USER => 'Gestionnaire des utilisateurs',
+        self::ROLE_GRR_ADMINISTRATOR => 'Administrateur',
+    ];
 
-        return array_combine($roles, $roles);
+    public static function niceName(array $roles): array
+    {
+        $nices = [];
+        foreach ($roles as $role) {
+            if (isset(self::ROLES[$role])) {
+                $nice = self::ROLES[$role];
+                $nices[] = $nice;
+            }
+        }
+
+        return $nices;
     }
 
     /**
      * Utilisé pour le formulaire d'authorization.
      *
-     * @return \stdClass[]
+     * @return stdClass[]
      */
     public static function getRolesForAuthorization(): array
     {
