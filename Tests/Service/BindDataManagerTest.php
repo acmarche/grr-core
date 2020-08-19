@@ -20,7 +20,7 @@ use Grr\Core\Provider\TimeSlotsProvider;
 use Grr\Core\Tests\BaseTesting;
 use Grr\GrrBundle\Entity\Entry;
 use Grr\GrrBundle\Entity\Room;
-use Grr\GrrBundle\Service\BindDataManager;
+use Grr\GrrBundle\Entry\Binder\BindDataManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;

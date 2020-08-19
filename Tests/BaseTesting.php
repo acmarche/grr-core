@@ -46,7 +46,7 @@ class BaseTesting extends WebTestCase
     /**
      * @var KernelInterface
      */
-    private $kernel2;
+    protected $kernel2;
     /**
      * @var KernelBrowser
      */

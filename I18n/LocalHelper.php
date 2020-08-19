@@ -53,7 +53,12 @@ class LocalHelper
         /*
          * Parameter from symfony config/translation.yaml
          * */
-        return $this->parameterBag->get('kernel.default_locale');
+        $local = $this->parameterBag->get('kernel.default_locale');
+        if ($local != null) {
+            return $local;
+        }
+
+        return 'fr';//a cause de test phpunit
     }
 
     public function getSupportedLocales(): array
