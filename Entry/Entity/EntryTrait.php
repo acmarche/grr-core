@@ -328,13 +328,8 @@ trait EntryTrait
         return $this->reservedFor;
     }
 
-    /**
-     * @param string $reservedFor
-     */
     public function setReservedFor(string $reservedFor): void
     {
         $this->reservedFor = $reservedFor;
     }
-
 }
-

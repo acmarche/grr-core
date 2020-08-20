@@ -91,7 +91,6 @@ class GrrMailer
         try {
             $this->mailer->send($email);
         } catch (TransportExceptionInterface $e) {
-
         }
     }
 
@@ -112,7 +111,6 @@ EOF
         try {
             $this->mailer->send($email);
         } catch (TransportExceptionInterface $e) {
-
         }
     }
 }

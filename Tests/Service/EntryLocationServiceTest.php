@@ -29,12 +29,6 @@ class EntryLocationServiceTest extends BaseTesting
 {
     /**
      * @dataProvider getData
-     *
-     * @param int $entryHourBegin
-     * @param int $entryMinuteBegin
-     * @param int $entryHourEnd
-     * @param int $entryMinuteEnd
-     * @param int $countLocations
      */
     public function testSetLocations(
         int $entryHourBegin,
@@ -116,9 +110,6 @@ class EntryLocationServiceTest extends BaseTesting
 
     /**
      * @dataProvider getDataMultipleDays
-     * @param DateTime $dateStart
-     * @param DateTime $dateEnd
-     * @param array $countLocations
      */
     public function testMultipleDaysSetLocations(
         DateTime $dateStart,

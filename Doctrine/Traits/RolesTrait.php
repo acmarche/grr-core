@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Grr\Core\Doctrine\Traits;
-
 
 trait RolesTrait
 {
-
     /**
      * @var array
      */

@@ -7,7 +7,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class BaseAuthorizationEvent extends Event
 {
-   /**
+    /**
      * @var AuthorizationInterface|null
      */
     private $authorization;
@@ -21,5 +21,4 @@ class BaseAuthorizationEvent extends Event
     {
         return $this->authorization;
     }
-
 }

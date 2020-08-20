@@ -13,7 +13,6 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Doctrine\Traits\RolesTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 trait UserTrait
 {
