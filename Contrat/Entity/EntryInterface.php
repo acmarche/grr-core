@@ -73,9 +73,9 @@ interface EntryInterface
 
     public function setJours(bool $jours): void;
 
-    public function getType(): ?EntryTypeInterface;
+    public function getType(): ?TypeEntryInterface;
 
-    public function setType(?EntryTypeInterface $type): void;
+    public function setType(?TypeEntryInterface $type): void;
 
     public function getReservedFor(): ?string;
 

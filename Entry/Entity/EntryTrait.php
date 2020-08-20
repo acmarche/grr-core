@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
-use Grr\Core\Contrat\Entity\EntryTypeInterface;
+use Grr\Core\Contrat\Entity\TypeEntryInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Model\DurationModel;
@@ -108,8 +108,8 @@ trait EntryTrait
     private $jours;
 
     /**
-     * @var EntryTypeInterface|null
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\EntryTypeInterface", inversedBy="entries")
+     * @var TypeEntryInterface|null
+     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface", inversedBy="entries")
      * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
      */
     private $type;
@@ -310,12 +310,12 @@ trait EntryTrait
         $this->jours = $jours;
     }
 
-    public function getType(): ?EntryTypeInterface
+    public function getType(): ?TypeEntryInterface
     {
         return $this->type;
     }
 
-    public function setType(?EntryTypeInterface $type): void
+    public function setType(?TypeEntryInterface $type): void
     {
         $this->type = $type;
     }

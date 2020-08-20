@@ -12,7 +12,7 @@ namespace Grr\Core\Contrat\Entity;
 
 use Doctrine\Common\Collections\Collection;
 
-interface EntryTypeInterface
+interface TypeEntryInterface
 {
     public function getEntries(): Collection;
 

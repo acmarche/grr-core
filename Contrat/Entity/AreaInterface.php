@@ -69,11 +69,11 @@ interface AreaInterface
 
     public function removeAuthorization(AuthorizationInterface $authorization): void;
 
-    public function getEntryTypes(): Collection;
+    public function getTypesEntry(): Collection;
 
-    public function addEntryType(EntryTypeInterface $entryType): void;
+    public function addTypeEntry(TypeEntryInterface $typeEntry): void;
 
-    public function removeEntryType(EntryTypeInterface $entryType): void;
+    public function removeTypeEntry(TypeEntryInterface $typeEntry): void;
 
     public function getId(): ?int;
 

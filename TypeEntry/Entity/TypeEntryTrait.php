@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\EntryType\Entity;
+namespace Grr\Core\TypeEntry\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,7 +9,7 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Entry\Entity\EntriesFieldTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
-trait EntryTypeTrait 
+trait TypeEntryTrait
 {
     use IdEntityTrait;
     use NameEntityTrait;

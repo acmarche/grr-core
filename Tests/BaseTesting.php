@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityManager;
 use Fidry\AliceDataFixtures\LoaderInterface;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
-use Grr\Core\Contrat\Entity\EntryTypeInterface;
+use Grr\Core\Contrat\Entity\TypeEntryInterface;
 use Grr\Core\Contrat\Entity\PeriodicityInterface;
 use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Entity\Security\UserInterface;
@@ -140,10 +140,10 @@ class BaseTesting extends WebTestCase
             ->findOneBy(['email' => $email]);
     }
 
-    protected function getTypeEntry(string $name): ?EntryTypeInterface
+    protected function getTypeEntry(string $name): ?TypeEntryInterface
     {
         return $this->entityManager
-            ->getRepository(EntryTypeInterface::class)
+            ->getRepository(TypeEntryInterface::class)
             ->findOneBy(['name' => $name]);
     }
 

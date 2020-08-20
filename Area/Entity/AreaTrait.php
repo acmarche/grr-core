@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Authorization\Entity\AuthorizationsFieldTrait;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
-use Grr\Core\EntryType\Entity\EntryTypesFieldTrait;
 use Grr\Core\Room\Entity\RoomsFieldTrait;
+use Grr\Core\TypeEntry\Entity\TypesEntryFieldTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,7 +20,7 @@ trait AreaTrait
     use NameEntityTrait;
     use RoomsFieldTrait;
     use AuthorizationsFieldTrait;
-    use EntryTypesFieldTrait;
+    use TypesEntryFieldTrait;
 
     /**
      * @var int
@@ -126,7 +126,7 @@ trait AreaTrait
         $this->isRestricted = false;
         $this->rooms = new ArrayCollection();
         $this->authorizations = new ArrayCollection();
-        $this->entryTypes = new ArrayCollection();
+        $this->typesEntry = new ArrayCollection();
     }
 
     public function __toString(): string
