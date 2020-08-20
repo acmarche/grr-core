@@ -114,7 +114,7 @@ trait UserTrait
     /**
      * @see UserInterface
      */
-    public function getSalt()
+    public function getSalt(): void
     {
         // not needed for apps that do not check user passwords
     }
@@ -122,7 +122,7 @@ trait UserTrait
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;

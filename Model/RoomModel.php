@@ -57,7 +57,7 @@ class RoomModel
         return $this->entries;
     }
 
-    public function setEntries($entries)
+    public function setEntries($entries): void
     {
         $this->entries = $entries;
     }

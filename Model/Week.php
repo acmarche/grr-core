@@ -38,12 +38,12 @@ class Week
         $date->locale($language);
         self::$language = $language;
 
-        $weekModel = new self();
+        $self = new self();
 
-        $weekModel->first_day = $date;
-        $weekModel->last_day = $date->copy()->endOfWeek();
+        $self->first_day = $date;
+        $self->last_day = $date->copy()->endOfWeek();
 
-        return $weekModel;
+        return $self;
     }
 
     /**
@@ -51,13 +51,13 @@ class Week
      */
     public function getCalendarDays(): CarbonPeriod
     {
-        $period = Carbon::parse($this->getFirstDay()->toDateString())->daysUntil(
+        $carbonPeriod = Carbon::parse($this->getFirstDay()->toDateString())->daysUntil(
             $this->getLastDay()->toDateString()
         );
 
-        $period->locale(self::$language);
+        $carbonPeriod->locale(self::$language);
 
-        return $period;
+        return $carbonPeriod;
     }
 
     public function getFirstDay(): CarbonInterface

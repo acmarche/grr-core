@@ -35,9 +35,9 @@ class DayFactory
 
     public function createFromCarbon(CarbonInterface $carbon): Day
     {
-        $dayModel = new Day($carbon);
-        $dayModel->locale($this->localHelper->getDefaultLocal());
+        $day = new Day($carbon);
+        $day->locale($this->localHelper->getDefaultLocal());
 
-        return $dayModel;
+        return $day;
     }
 }

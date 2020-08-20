@@ -51,7 +51,7 @@ class Day extends CarbonImmutable
         }
     }
 
-    public function addEntries(array $entries)
+    public function addEntries(array $entries): void
     {
         foreach ($entries as $entry) {
             $this->addEntry($entry);

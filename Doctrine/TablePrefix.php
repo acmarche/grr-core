@@ -38,9 +38,9 @@ class TablePrefix implements EventSubscriber
         return ['loadClassMetadata'];
     }
 
-    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs): void
+    public function loadClassMetadata(LoadClassMetadataEventArgs $loadClassMetadataEventArgs): void
     {
-        $classMetadata = $eventArgs->getClassMetadata();
+        $classMetadata = $loadClassMetadataEventArgs->getClassMetadata();
 
         if (!$classMetadata->isInheritanceTypeSingleTable() || $classMetadata->getName(
             ) === $classMetadata->rootEntityName) {

@@ -25,11 +25,11 @@ interface PeriodicityInterface
 
     public function getEntryReference(): ?EntryInterface;
 
-    public function setEntryReference(?EntryInterface $entry_reference): void;
+    public function setEntryReference(?EntryInterface $entry): void;
 
     public function getEndTime(): ?DateTimeInterface;
 
-    public function setEndTime(DateTimeInterface $endTime): void;
+    public function setEndTime(DateTimeInterface $dateTime): void;
 
     public function getType(): ?int;
 

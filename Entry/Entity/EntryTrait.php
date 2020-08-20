@@ -54,7 +54,7 @@ trait EntryTrait
     /**
      * @var string|null
      *
-     * @ORM\Column(type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $reservedFor;
 
@@ -96,7 +96,7 @@ trait EntryTrait
     /**
      * @var bool|null
      *
-     * @ORM\Column(type="boolean", options={"default": 0})
+     * @ORM\Column(type="boolean", options={"default"=0})
      */
     private $private;
 
@@ -182,9 +182,9 @@ trait EntryTrait
     /**
      * @return EntryInterface
      */
-    public function setDuration(?DurationModel $duration): void
+    public function setDuration(?DurationModel $durationModel): void
     {
-        $this->duration = $duration;
+        $this->duration = $durationModel;
     }
 
     public function getArea(): ?AreaInterface
@@ -215,9 +215,9 @@ trait EntryTrait
         return $this->startTime;
     }
 
-    public function setStartTime(\DateTimeInterface $startTime): void
+    public function setStartTime(\DateTimeInterface $dateTime): void
     {
-        $this->startTime = $startTime;
+        $this->startTime = $dateTime;
     }
 
     public function getEndTime(): ?\DateTimeInterface
@@ -225,9 +225,9 @@ trait EntryTrait
         return $this->endTime;
     }
 
-    public function setEndTime(\DateTimeInterface $endTime): void
+    public function setEndTime(\DateTimeInterface $dateTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime = $dateTime;
     }
 
     public function getCreatedBy(): ?string
@@ -260,7 +260,7 @@ trait EntryTrait
         $this->statutEntry = $statutEntry;
     }
 
-    public function getOptionReservation(): ?int
+    public function getOptionReservation(): int
     {
         return $this->optionReservation;
     }
@@ -315,20 +315,17 @@ trait EntryTrait
         return $this->type;
     }
 
-    public function setType(?TypeEntryInterface $type): void
+    public function setType(?TypeEntryInterface $typeEntry): void
     {
-        $this->type = $type;
+        $this->type = $typeEntry;
     }
 
-    /**
-     * @return string
-     */
     public function getReservedFor(): ?string
     {
         return $this->reservedFor;
     }
 
-    public function setReservedFor(string $reservedFor): void
+    public function setReservedFor(?string $reservedFor): void
     {
         $this->reservedFor = $reservedFor;
     }

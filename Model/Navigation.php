@@ -29,12 +29,12 @@ class Navigation
     /**
      * @var CarbonInterface
      */
-    protected $today;
+    protected $carbon;
 
     public function __construct()
     {
         $this->months = [];
-        $this->today = Carbon::today();
+        $this->carbon = Carbon::today();
     }
 
     public function getPreviousButton(): string
@@ -86,6 +86,6 @@ class Navigation
 
     public function getToday(): CarbonInterface
     {
-        return $this->today;
+        return $this->carbon;
     }
 }

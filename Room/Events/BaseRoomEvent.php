@@ -12,9 +12,9 @@ class BaseRoomEvent extends Event
      */
     private $room;
 
-    public function __construct(RoomInterface $area)
+    public function __construct(RoomInterface $room)
     {
-        $this->room = $area;
+        $this->room = $room;
     }
 
     public function getRoom(): RoomInterface

@@ -55,6 +55,7 @@ trait PeriodicityTrait
      * Override mappedBy.
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
+     * @var \Grr\Core\Contrat\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $entries;
 
@@ -78,9 +79,9 @@ trait PeriodicityTrait
         return $this->entryReference;
     }
 
-    public function setEntryReference(?EntryInterface $entry_reference): void
+    public function setEntryReference(?EntryInterface $entry): void
     {
-        $this->entryReference = $entry_reference;
+        $this->entryReference = $entry;
     }
 
     public function getEndTime(): ?\DateTimeInterface
@@ -88,12 +89,12 @@ trait PeriodicityTrait
         return $this->endTime;
     }
 
-    public function setEndTime(\DateTimeInterface $endTime): void
+    public function setEndTime(\DateTimeInterface $dateTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime = $dateTime;
     }
 
-    public function getType(): ?int
+    public function getType(): int
     {
         return $this->type;
     }

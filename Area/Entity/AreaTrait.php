@@ -134,7 +134,7 @@ trait AreaTrait
         return $this->name;
     }
 
-    public function getOrderDisplay(): ?int
+    public function getOrderDisplay(): int
     {
         return $this->orderDisplay;
     }
@@ -144,7 +144,7 @@ trait AreaTrait
         $this->orderDisplay = $orderDisplay;
     }
 
-    public function getStartTime(): ?int
+    public function getStartTime(): int
     {
         return $this->startTime;
     }
@@ -154,7 +154,7 @@ trait AreaTrait
         $this->startTime = $startTime;
     }
 
-    public function getEndTime(): ?int
+    public function getEndTime(): int
     {
         return $this->endTime;
     }
@@ -164,7 +164,7 @@ trait AreaTrait
         $this->endTime = $endTime;
     }
 
-    public function getWeekStart(): ?int
+    public function getWeekStart(): int
     {
         return $this->weekStart;
     }
@@ -194,7 +194,7 @@ trait AreaTrait
         $this->daysOfWeekToDisplay = $daysOfWeekToDisplay;
     }
 
-    public function getTimeInterval(): ?int
+    public function getTimeInterval(): int
     {
         return $this->timeInterval;
     }
@@ -214,7 +214,7 @@ trait AreaTrait
         $this->durationMaximumEntry = $durationMaximumEntry;
     }
 
-    public function getDurationDefaultEntry(): ?int
+    public function getDurationDefaultEntry(): int
     {
         return $this->durationDefaultEntry;
     }
@@ -224,7 +224,7 @@ trait AreaTrait
         $this->durationDefaultEntry = $durationDefaultEntry;
     }
 
-    public function getMinutesToAddToEndTime(): ?int
+    public function getMinutesToAddToEndTime(): int
     {
         return $this->minutesToAddToEndTime;
     }

@@ -37,17 +37,15 @@ class LocalHelper
          * @var UserInterface
          */
         $user = $this->security->getUser();
-        if ($user) {
-            if ($user->getLanguageDefault()) {
-                return $user->getLanguageDefault();
-            }
+        if ($user && $user->getLanguageDefault()) {
+            return $user->getLanguageDefault();
         }
         /**
          * Url.
          */
-        $master = $this->requestStack->getMasterRequest();
-        if (null !== $master) {
-            return $master->getLocale();
+        $request = $this->requestStack->getMasterRequest();
+        if (null !== $request) {
+            return $request->getLocale();
         }
 
         /*

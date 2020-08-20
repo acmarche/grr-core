@@ -2,6 +2,8 @@
 
 namespace Grr\Core\Doctrine\Traits;
 
+use Grr\Core\Security\SecurityRole;
+
 trait RolesTrait
 {
     /**
@@ -41,5 +43,10 @@ trait RolesTrait
     public function setRoles(array $roles): void
     {
         $this->roles = $roles;
+    }
+
+    public function getNiceRoles(): array
+    {
+        return SecurityRole::niceName($this->getRoles());
     }
 }

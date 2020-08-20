@@ -8,19 +8,19 @@ use Grr\Core\Contrat\Entity\EntryInterface;
 
 class GeneratorEntry
 {
-    public function generateEntry(EntryInterface $entry, CarbonInterface $day): EntryInterface
+    public function generateEntry(EntryInterface $entry, CarbonInterface $carbon): EntryInterface
     {
         $newEntry = clone $entry;
 
         $startTime = Carbon::instance($entry->getStartTime());
-        $startTime->setYear($day->year);
-        $startTime->setMonth($day->month);
-        $startTime->setDay($day->day);
+        $startTime->setYear($carbon->year);
+        $startTime->setMonth($carbon->month);
+        $startTime->setDay($carbon->day);
 
         $endTime = Carbon::instance($entry->getEndTime());
-        $endTime->setYear($day->year);
-        $endTime->setMonth($day->month);
-        $endTime->setDay($day->day);
+        $endTime->setYear($carbon->year);
+        $endTime->setMonth($carbon->month);
+        $endTime->setDay($carbon->day);
 
         $newEntry->setStartTime($startTime->toDateTime());
         $newEntry->setEndTime($endTime->toDateTime());

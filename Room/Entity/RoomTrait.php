@@ -202,7 +202,7 @@ trait RoomTrait
         $this->description = $description;
     }
 
-    public function getCapacity(): ?int
+    public function getCapacity(): int
     {
         return $this->capacity;
     }
@@ -272,7 +272,7 @@ trait RoomTrait
         $this->showComment = $showComment;
     }
 
-    public function getDelaisMaxResaRoom(): ?int
+    public function getDelaisMaxResaRoom(): int
     {
         return $this->delaisMaxResaRoom;
     }
@@ -282,7 +282,7 @@ trait RoomTrait
         $this->delaisMaxResaRoom = $delaisMaxResaRoom;
     }
 
-    public function getDelaisMinResaRoom(): ?int
+    public function getDelaisMinResaRoom(): int
     {
         return $this->delaisMinResaRoom;
     }
@@ -302,7 +302,7 @@ trait RoomTrait
         $this->allowActionInPast = $allowActionInPast;
     }
 
-    public function getOrderDisplay(): ?int
+    public function getOrderDisplay(): int
     {
         return $this->orderDisplay;
     }
@@ -312,7 +312,7 @@ trait RoomTrait
         $this->orderDisplay = $orderDisplay;
     }
 
-    public function getDelaisOptionReservation(): ?int
+    public function getDelaisOptionReservation(): int
     {
         return $this->delaisOptionReservation;
     }
@@ -332,7 +332,7 @@ trait RoomTrait
         $this->dontAllowModify = $dontAllowModify;
     }
 
-    public function getTypeAffichageReser(): ?int
+    public function getTypeAffichageReser(): int
     {
         return $this->typeAffichageReser;
     }
@@ -352,7 +352,7 @@ trait RoomTrait
         $this->moderate = $moderate;
     }
 
-    public function getQuiPeutReserverPour(): ?string
+    public function getQuiPeutReserverPour(): string
     {
         return $this->quiPeutReserverPour;
     }
@@ -372,7 +372,7 @@ trait RoomTrait
         $this->activeRessourceEmpruntee = $activeRessourceEmpruntee;
     }
 
-    public function getRuleToAdd(): ?int
+    public function getRuleToAdd(): int
     {
         return $this->ruleToAdd;
     }

@@ -46,6 +46,7 @@ trait TypeEntryTrait
      * Override mappedBy.
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
+     * @var \Grr\Core\Contrat\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $entries;
 
@@ -61,7 +62,7 @@ trait TypeEntryTrait
         return $this->name;
     }
 
-    public function getOrderDisplay(): ?int
+    public function getOrderDisplay(): int
     {
         return $this->orderDisplay;
     }
@@ -86,7 +87,7 @@ trait TypeEntryTrait
         return $this->letter;
     }
 
-    public function setLetter(string $letter)
+    public function setLetter(string $letter): void
     {
         $this->letter = $letter;
     }

@@ -32,10 +32,10 @@ class EntryLocationService
          * @var TimeSlot[]
          */
         $locations = [];
-        $entryTimeSlots = $this->timeSlotsProvider->getTimeSlotsOfEntry($entry);
+        $carbonPeriod = $this->timeSlotsProvider->getTimeSlotsOfEntry($entry);
 
         foreach ($dayTimeSlots as $dayTimeSlot) {
-            if ($this->isEntryInTimeSlot($entry, $entryTimeSlots, $dayTimeSlot)) {
+            if ($this->isEntryInTimeSlot($entry, $carbonPeriod, $dayTimeSlot)) {
                 $locations[] = $dayTimeSlot;
             }
         }
@@ -45,7 +45,7 @@ class EntryLocationService
 
     protected function isEntryInTimeSlot(
         EntryInterface $entry,
-        CarbonPeriod $entryTimeSlots,
+        CarbonPeriod $carbonPeriod,
         TimeSlot $dayTimeSlot
     ): bool {
         $startTimeSlot = $dayTimeSlot->getBegin();
@@ -55,7 +55,7 @@ class EntryLocationService
          * Use case
          * si tranche 9h30-10h00, entry 9h30-10h00
          */
-        foreach ($entryTimeSlots as $entryTimeSlot) {
+        foreach ($carbonPeriod as $entryTimeSlot) {
             if ($entryTimeSlot->between($startTimeSlot, $endTimeSlot)) {
                 /*
                  * si la tranche horaire de l'entrée est égale à l'heure de fin de la tranche journalière

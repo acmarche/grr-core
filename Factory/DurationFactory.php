@@ -23,23 +23,23 @@ class DurationFactory
 
     public function createByEntry(EntryInterface $entry): DurationModel
     {
-        $duration = $this->createFromDates($entry->getStartTime(), $entry->getEndTime());
-        $this->setFullDay($entry, $duration);
+        $durationModel = $this->createFromDates($entry->getStartTime(), $entry->getEndTime());
+        $this->setFullDay($entry, $durationModel);
 
-        return $duration;
+        return $durationModel;
     }
 
     public function createFromDates(DateTimeInterface $startTime, DateTimeInterface $endTime): DurationModel
     {
-        $duration = $this->createNew();
+        $durationModel = $this->createNew();
 
-        $this->setUnitAndTime($duration, $startTime, $endTime);
+        $this->setUnitAndTime($durationModel, $startTime, $endTime);
 
-        return $duration;
+        return $durationModel;
     }
 
     protected function setUnitAndTime(
-        DurationModel $duration,
+        DurationModel $durationModel,
         DateTimeInterface $startDateTime,
         DateTimeInterface $endDateTime
     ): void {
@@ -52,31 +52,31 @@ class DurationFactory
         $weeks = $startTime->diffInWeeks($endTime);
 
         if ($minutes > 0) {
-            $duration->setUnit(DurationModel::UNIT_TIME_MINUTES);
-            $duration->setTime($minutes);
+            $durationModel->setUnit(DurationModel::UNIT_TIME_MINUTES);
+            $durationModel->setTime($minutes);
         }
         if ($hours > 0) {
-            $duration->setUnit(DurationModel::UNIT_TIME_HOURS);
+            $durationModel->setUnit(DurationModel::UNIT_TIME_HOURS);
             $hour = TimeService::convertMinutesToHour($hours, $minutes);
-            $duration->setTime($hour);
+            $durationModel->setTime($hour);
         }
         if ($days > 0) {
-            $duration->setUnit(DurationModel::UNIT_TIME_DAYS);
-            $duration->setTime($days);
+            $durationModel->setUnit(DurationModel::UNIT_TIME_DAYS);
+            $durationModel->setTime($days);
         }
         if ($weeks > 0) {
-            $duration->setUnit(DurationModel::UNIT_TIME_WEEKS);
-            $duration->setTime($weeks);
+            $durationModel->setUnit(DurationModel::UNIT_TIME_WEEKS);
+            $durationModel->setTime($weeks);
         }
     }
 
-    private function setFullDay(EntryInterface $entry, DurationModel $duration): void
+    private function setFullDay(EntryInterface $entry, DurationModel $durationModel): void
     {
         $area = $entry->getRoom()->getArea();
 
         if ($area->getStartTime() === (int) $entry->getStartTime()->format('G') && $area->getEndTime(
             ) === (int) $entry->getEndTime()->format('G')) {
-            $duration->setFullDay(true);
+            $durationModel->setFullDay(true);
         }
     }
 }

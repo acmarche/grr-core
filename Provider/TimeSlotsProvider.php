@@ -27,23 +27,23 @@ class TimeSlotsProvider
      *
      * @return TimeSlot[]
      */
-    public function getTimeSlotsModelByAreaAndDaySelected(AreaInterface $area, CarbonInterface $daySelected): array
+    public function getTimeSlotsModelByAreaAndDaySelected(AreaInterface $area, CarbonInterface $carbon): array
     {
-        $hourBegin = $area->getStartTime();
-        $hourEnd = $area->getEndTime();
+        $startTime = $area->getStartTime();
+        $endTime = $area->getEndTime();
         $timeInterval = $area->getTimeInterval();
 
-        $timeSlots = $this->getTimeSlots($daySelected, $hourBegin, $hourEnd, $timeInterval);
+        $carbonPeriod = $this->getTimeSlots($carbon, $startTime, $endTime, $timeInterval);
 
         $hours = [];
-        $timeSlots->rewind();
-        $last = $timeSlots->last();
-        $timeSlots->rewind();
+        $carbonPeriod->rewind();
+        $last = $carbonPeriod->last();
+        $carbonPeriod->rewind();
 
-        while ($timeSlots->current()->lessThan($last)) {
-            $begin = $timeSlots->current();
-            $timeSlots->next();
-            $end = $timeSlots->current();
+        while ($carbonPeriod->current()->lessThan($last)) {
+            $begin = $carbonPeriod->current();
+            $carbonPeriod->next();
+            $end = $carbonPeriod->current();
 
             $hour = new TimeSlot($begin, $end);
 
@@ -57,20 +57,20 @@ class TimeSlotsProvider
      * Retourne les tranches d'heures d'après une heure de début, de fin et d'un interval de temps.
      */
     public function getTimeSlots(
-        CarbonInterface $daySelected,
+        CarbonInterface $carbon,
         int $hourBegin,
         int $hourEnd,
         int $timeInterval
     ): CarbonPeriod {
         $dateBegin = $this->carbonFactory->create(
-            $daySelected->year,
-            $daySelected->month,
-            $daySelected->day,
+            $carbon->year,
+            $carbon->month,
+            $carbon->day,
             $hourBegin,
             0
         );
 
-        $dateEnd = $this->carbonFactory->create($daySelected->year, $daySelected->month, $daySelected->day, $hourEnd, 0, 0);
+        $dateEnd = $this->carbonFactory->create($carbon->year, $carbon->month, $carbon->day, $hourEnd, 0, 0);
 
         return Carbon::parse($dateBegin)->minutesUntil($dateEnd, $timeInterval);
     }

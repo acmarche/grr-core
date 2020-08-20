@@ -24,15 +24,15 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 class ForeignKeyEnabler //implements EventSubscriber
 {
     /** @var EntityManagerInterface */
-    private $manager;
+    private $entityManager;
     /**
      * @var ParameterBagInterface
      */
     private $parameterBag;
 
-    public function __construct(EntityManagerInterface $manager, ParameterBagInterface $parameterBag)
+    public function __construct(EntityManagerInterface $entityManager, ParameterBagInterface $parameterBag)
     {
-        $this->manager = $manager;
+        $this->entityManager = $entityManager;
         $this->parameterBag = $parameterBag;
     }
 
@@ -48,9 +48,9 @@ class ForeignKeyEnabler //implements EventSubscriber
         ];
     }
 
-    public function preFlush(PreFlushEventArgs $args): void
+    public function preFlush(): void
     {
-        $this->manager
+        $this->entityManager
             ->createNativeQuery('PRAGMA foreign_keys = ON;', new ResultSetMapping())
             ->execute();
     }

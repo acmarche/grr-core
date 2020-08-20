@@ -23,7 +23,7 @@ interface EntryInterface
 
     public function getDuration(): ?DurationModel;
 
-    public function setDuration(?DurationModel $duration): void;
+    public function setDuration(?DurationModel $durationModel): void;
 
     public function getArea(): ?AreaInterface;
 
@@ -35,11 +35,11 @@ interface EntryInterface
 
     public function getStartTime(): ?DateTimeInterface;
 
-    public function setStartTime(DateTimeInterface $startTime): void;
+    public function setStartTime(DateTimeInterface $dateTime): void;
 
     public function getEndTime(): ?DateTimeInterface;
 
-    public function setEndTime(DateTimeInterface $endTime): void;
+    public function setEndTime(DateTimeInterface $dateTime): void;
 
     public function getCreatedBy(): ?string;
 
@@ -75,7 +75,7 @@ interface EntryInterface
 
     public function getType(): ?TypeEntryInterface;
 
-    public function setType(?TypeEntryInterface $type): void;
+    public function setType(?TypeEntryInterface $typeEntry): void;
 
     public function getReservedFor(): ?string;
 

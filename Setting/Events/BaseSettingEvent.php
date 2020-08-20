@@ -10,18 +10,18 @@ class BaseSettingEvent extends Event
     /**
      * @var SettingInterface
      */
-    private $settings;
+    private $setting;
 
     public function __construct(array $settings)
     {
-        $this->settings = $settings;
+        $this->setting = $settings;
     }
 
     /**
      * @return SettingInterface[]
      */
-    public function getSettings(): array
+    public function getSettings(): \Grr\Core\Contrat\Entity\SettingInterface
     {
-        return $this->settings;
+        return $this->setting;
     }
 }

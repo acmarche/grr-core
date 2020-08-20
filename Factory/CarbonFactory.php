@@ -67,9 +67,9 @@ class CarbonFactory
     /**
      * start/end of week force.
      */
-    public function setStartEndWeek(CarbonInterface $mutable): void
+    public function setStartEndWeek(CarbonInterface $carbon): void
     {
-        $mutable->startOfWeek(Carbon::MONDAY);
-        $mutable->startOfWeek(Carbon::SUNDAY);
+        $carbon->startOfWeek(Carbon::MONDAY);
+        $carbon->startOfWeek(Carbon::SUNDAY);
     }
 }

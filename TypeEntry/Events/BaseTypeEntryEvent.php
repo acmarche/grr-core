@@ -10,15 +10,15 @@ class BaseTypeEntryEvent extends Event
     /**
      * @var TypeEntryInterface
      */
-    private $user;
+    private $typeEntry;
 
-    public function __construct(TypeEntryInterface $area)
+    public function __construct(TypeEntryInterface $typeEntry)
     {
-        $this->user = $area;
+        $this->typeEntry = $typeEntry;
     }
 
     public function getTypeEntry(): TypeEntryInterface
     {
-        return $this->user;
+        return $this->typeEntry;
     }
 }

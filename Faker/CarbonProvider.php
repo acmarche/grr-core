@@ -34,7 +34,7 @@ class CarbonProvider extends BaseProvider
     /**
      * @return \Carbon\CarbonImmutable|bool
      */
-    public function carbonFromFormat(string $format, string $date)
+    public function carbonFromFormat(string $format, string $date): \Carbon\CarbonImmutable
     {
         return CarbonImmutable::createFromFormat($format, $date);
     }

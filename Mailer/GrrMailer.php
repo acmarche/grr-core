@@ -30,16 +30,16 @@ class GrrMailer
     /**
      * @var Environment
      */
-    private $twig;
+    private $environment;
     /**
      * @var Pdf
      */
     private $pdf;
 
-    public function __construct(MailerInterface $mailer, Environment $twig, Pdf $pdf)
+    public function __construct(MailerInterface $mailer, Environment $environment, Pdf $pdf)
     {
         $this->mailer = $mailer;
-        $this->twig = $twig;
+        $this->environment = $environment;
         $this->pdf = $pdf;
     }
 
@@ -63,7 +63,7 @@ class GrrMailer
 
     public function sendTest(): TemplatedEmail
     {
-        $html = $this->twig->render(
+        $html = $this->environment->render(
             '@grr_front/pdf/test.html.twig',
             [
             ]
@@ -94,9 +94,9 @@ class GrrMailer
         }
     }
 
-    public function t()
+    public function t(): void
     {
-        $email = (new NotificationEmail())
+        $notificationEmail = (new NotificationEmail())
             ->from('fabien@marche.be')
             ->to('jf@marche.be')
             ->cc('jfsenechal@gmail.com')
@@ -109,7 +109,7 @@ EOF
             )
             ->action('More info2?', 'https://example.com/');
         try {
-            $this->mailer->send($email);
+            $this->mailer->send($notificationEmail);
         } catch (TransportExceptionInterface $e) {
         }
     }

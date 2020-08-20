@@ -22,42 +22,25 @@ use Symfony\Component\Security\Http\SecurityEvents;
 
 class UserLocaleSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
-     */
-    private $session;
-
-    public function construct(SessionInterface $session)
+    public function construct(SessionInterface $session): void
     {
-        $this->session = $session;
     }
-
     public function __construct(RequestContext $requestContext)
     {
         $requestContext->getParameter('_locale');
     }
-
     public static function getSubscribedEvents(): array
     {
         return [
             SecurityEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin',
         ];
     }
-
-    public function onInteractiveLogin(InteractiveLoginEvent $event): void
+    public function onInteractiveLogin(): void
     {
-        return;
-        $user = $event->getAuthenticationToken()->getUser();
-
-        if (null !== $user->getLocale()) {
-            $this->session->set('_locale', $user->getLocale());
-        }
-        $requestContext->getParameter('_locale');
     }
-
-    public function onKernelRequest(RequestEvent $event)
+    public function onKernelRequest(RequestEvent $requestEvent): void
     {
-        $request = $event->getRequest();
+        $request = $requestEvent->getRequest();
         if ($locale = $request->attributes->get('_locale')) {
             $request->setLocale($locale);
         }

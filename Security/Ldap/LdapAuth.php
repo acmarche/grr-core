@@ -44,7 +44,7 @@ class LdapAuth implements LdapInterface
      *
      * @throws ConnectionException if dn / password could not be bound
      */
-    public function bind(string $dn = null, string $password = null)
+    public function bind(string $dn = null, string $password = null): void
     {
         $this->adapter->getConnection()->bind($dn, $password);
     }

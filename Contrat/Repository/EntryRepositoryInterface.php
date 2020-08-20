@@ -3,6 +3,7 @@
 namespace Grr\Core\Contrat\Repository;
 
 use Carbon\CarbonInterface;
+use DateTimeInterface;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Contrat\Entity\PeriodicityInterface;
@@ -15,12 +16,12 @@ interface EntryRepositoryInterface
      *
      * @return EntryInterface[] Returns an array of EntryInterface objects
      */
-    public function findForMonth(\DateTimeInterface $date, AreaInterface $area, RoomInterface $room = null): array;
+    public function findForMonth(DateTimeInterface $dateTime, AreaInterface $area, RoomInterface $room = null): array;
 
     /**
      * @return EntryInterface[]
      */
-    public function findForDay(CarbonInterface $day, RoomInterface $room): array;
+    public function findForDay(CarbonInterface $carbon, RoomInterface $room): array;
 
     /**
      * @return EntryInterface[]

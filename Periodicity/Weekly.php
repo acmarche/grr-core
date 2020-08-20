@@ -9,6 +9,14 @@ use Grr\Core\Contrat\Entity\PeriodicityInterface;
 
 class Weekly
 {
+    /**
+     * @var \Carbon\Carbon|mixed
+     */
+    public $entry_start;
+    /**
+     * @var \Carbon\Carbon|mixed
+     */
+    public $periodicity_end;
     public function getDaysByEntry(EntryInterface $entry)
     {
         $periodicity = $entry->getPeriodicity();
@@ -35,11 +43,11 @@ class Weekly
          *
          * @example : [1,2,3]
          */
-        $days = $periodicity->getWeekDays();
+        $weekDays = $periodicity->getWeekDays();
         /**
          * @example 1 for every weeks, 2 every 2 weeks, 3,4...
          */
-        $repeat_week = $periodicity->getWeekRepeat();
+        $weekRepeat = $periodicity->getWeekRepeat();
 
         /**
          * filter days of the week.
@@ -75,7 +83,7 @@ class Weekly
         $period->excludeStartDate();
         $period->addFilter($filterDayOfWeek);
 
-        if ($repeat_week > 1) {
+        if ($weekRepeat > 1) {
             $period->addFilter($filterWeek);
         }
 

@@ -46,13 +46,13 @@ class Month extends Carbon
         Assert::greaterThan($month, 0);
         Assert::lessThan($month, 13);
 
-        $monthModel = new self();
-        $monthModel->setDate($year, $month, 01);
-        $monthModel->locale($language);
-        $monthModel->setCarbon();
-        $monthModel->data_days = new ArrayCollection();
+        $self = new self();
+        $self->setDate($year, $month, 01);
+        $self->locale($language);
+        $self->setCarbon();
+        $self->data_days = new ArrayCollection();
 
-        return $monthModel;
+        return $self;
     }
 
     public function previousYear(): CarbonInterface
@@ -102,10 +102,10 @@ class Month extends Carbon
         return $weeks;
     }
 
-    public function getWeekOfMonth(CarbonInterface $date): CarbonPeriod
+    public function getWeekOfMonth(CarbonInterface $carbon): CarbonPeriod
     {
-        $debut = $date->toDateString();
-        $fin = $date->endOfWeek()->toDateString();
+        $debut = $carbon->toDateString();
+        $fin = $carbon->endOfWeek()->toDateString();
 
         return Carbon::parse($debut)->daysUntil($fin);
     }
@@ -149,11 +149,10 @@ class Month extends Carbon
     /**
      * @param CarbonInterface $dayCalendar
      *
-     * @return Day
      *
      * @throws \Exception
      */
-    protected function findDataDayWithDate($dayCalendar)
+    protected function findDataDayWithDate($dayCalendar): \Grr\Core\Model\Day
     {
         foreach ($this->getDataDays() as $dataDay) {
             if ($dataDay->toDateString() === $dayCalendar->toDateString()) {

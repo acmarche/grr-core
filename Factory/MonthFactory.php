@@ -25,7 +25,7 @@ class MonthFactory
         $this->localHelper = $localHelper;
     }
 
-    public function create(int $year, int $month, $day = 1): Month
+    public function create(int $year, int $month): Month
     {
         return Month::init($year, $month, $this->localHelper->getDefaultLocal());
     }
