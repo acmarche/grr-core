@@ -10,7 +10,7 @@
 
 namespace Grr\Core\Contrat\Entity;
 
-interface SettingInterface
+interface SettingEntityInterface
 {
     public function getId(): ?int;
 

@@ -20,6 +20,7 @@ use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Contrat\Entity\TypeEntryInterface;
 use Grr\Core\Faker\CarbonProvider;
+use Grr\GrrBundle\User\Repository\UserRepository;
 use Nelmio\Alice\Loader\NativeLoader;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -101,6 +102,18 @@ class BaseTesting extends WebTestCase
         static::ensureKernelShutdown();
 
         return static::createClient();
+    }
+
+    protected function loginUser(string $username, string $password = 'homer'): KernelBrowser
+    {
+        static::ensureKernelShutdown();
+        $client = static::createClient();
+        $userRepository = static::$container->get(UserRepository::class);
+        $testUser = $userRepository->loadByUserNameOrEmail($username);
+
+        $client->loginUser($testUser);
+
+        return $client;
     }
 
     protected function getArea(string $name): ?AreaInterface

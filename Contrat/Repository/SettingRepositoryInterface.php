@@ -6,5 +6,4 @@ interface SettingRepositoryInterface
 {
     public function getValueByName(string $name): ?string;
 
-    public function load(): array;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Grr\Core\Setting;
+namespace Grr\Core\Setting\TypeEntry;
 
 class SettingsTypeEntry
 {

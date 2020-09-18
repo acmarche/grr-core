@@ -33,6 +33,19 @@ class FeatureContext extends RawMinkContext
         $this->areaRepository = $areaRepository;
     }
 
+    public function getSymfonyProfile()
+    {
+        $driver = $this->getSession()->getDriver();
+
+        $profile = $driver->getClient()->getProfile();
+        var_dump($profile);
+        if (false === $profile) {
+            throw new \RuntimeException('The profiler is disabled. Activate it by setting '.'framework.profiler.only_exceptions to false in '.'your config');
+        }
+
+        return $profile;
+    }
+
     /**
      * @Given I am logged in as an admin
      */
