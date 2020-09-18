@@ -2,12 +2,8 @@
 
 namespace Grr\Core\Setting\Form;
 
-use Grr\Core\Setting\General\CompanyNameSetting;
 use Grr\Core\Setting\Repository\SettingProvider;
-use Grr\Core\Setting\SettingConstants;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\DependencyInjection\ServiceLocator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\tagged_locator;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 
@@ -26,8 +22,11 @@ class FormSettingFactory
      */
     private $criteria;
 
-    public function __construct(SettingProvider $settingProvider, FormFactoryInterface $formFactory, ContainerInterface $criteria)
-    {
+    public function __construct(
+        SettingProvider $settingProvider,
+        FormFactoryInterface $formFactory,
+        ContainerInterface $criteria
+    ) {
         $this->settingProvider = $settingProvider;
         $this->formFactory = $formFactory;
         $this->criteria = $criteria;
@@ -56,9 +55,7 @@ class FormSettingFactory
     {
         $data = [];
 
-
         foreach ($settings as $setting) {
-
             $data[$setting->name()] = $setting->value();
         }
 
