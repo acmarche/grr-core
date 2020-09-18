@@ -7,7 +7,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormInterface;
 
-class WebmasterEmailSetting extends AbstractSettingGeneral
+class WebmasterEmailSetting
 {
     use SettingTrait;
 

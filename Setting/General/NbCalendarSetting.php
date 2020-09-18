@@ -7,7 +7,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormInterface;
 
-class NbCalendarSetting  extends AbstractSettingGeneral
+class NbCalendarSetting
 {
     use SettingTrait;
 

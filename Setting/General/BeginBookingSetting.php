@@ -7,7 +7,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormInterface;
 
-class BeginBookingSetting extends AbstractSettingGeneral
+class BeginBookingSetting
 {
     use SettingTrait;
 

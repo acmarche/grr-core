@@ -2,10 +2,10 @@
 
 namespace Grr\Core\Setting\Repository;
 
+use Grr\Core\Contrat\Entity\AreaInterface;
+use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Repository\AreaRepositoryInterface;
 use Grr\Core\Setting\General\SettingGeneralInterface;
-use Grr\GrrBundle\Entity\Area;
-use Grr\GrrBundle\Entity\Room;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 
 class SettingProvider
@@ -39,12 +39,11 @@ class SettingProvider
     }
 
     /**
-     * @param string $key
-     * @return SettingGeneralInterface
      * @throws \Exception
      */
-    public function loadInterfaceByKey(string $key): SettingGeneralInterface {
-        if( $this->criteria->get($key)) {
+    public function loadInterfaceByKey(string $key): SettingGeneralInterface
+    {
+        if ($this->criteria->get($key)) {
             return $this->criteria->get($key);
         }
         throw new \Exception('');
@@ -75,7 +74,7 @@ class SettingProvider
     /**
      * @todo
      */
-    public function getDefaultArea(): ?Area
+    public function getDefaultArea(): ?AreaInterface
     {
         return $this->areaRepository->findOneBy([], ['id' => 'ASC']);
     }
@@ -83,7 +82,7 @@ class SettingProvider
     /**
      * @todo default room
      */
-    public function getDefaulRoom(): ?Room
+    public function getDefaulRoom(): ?RoomInterface
     {
         return null;
     }

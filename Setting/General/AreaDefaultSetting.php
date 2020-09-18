@@ -6,12 +6,10 @@ use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Repository\AreaRepositoryInterface;
 use Grr\Core\Setting\SettingConstants;
 use Grr\Core\Setting\Traits\SettingTrait;
-use Grr\GrrBundle\Setting\Repository\SettingRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
-use Twig\Environment;
 
-class AreaDefaultSetting extends AbstractSettingGeneral
+class AreaDefaultSetting
 {
     use SettingTrait;
 
@@ -22,12 +20,8 @@ class AreaDefaultSetting extends AbstractSettingGeneral
      */
     private $areaRepository;
 
-    public function __construct(
-        SettingRepository $settingRepository,
-        Environment $environment,
-        AreaRepositoryInterface $areaRepository
-    ) {
-        parent::__construct($settingRepository, $environment);
+    public function __construct(AreaRepositoryInterface $areaRepository)
+    {
         $this->areaRepository = $areaRepository;
     }
 
@@ -61,7 +55,7 @@ class AreaDefaultSetting extends AbstractSettingGeneral
     public function bindValue($value): ?string
     {
         if ($value instanceof AreaInterface) {
-            return (string) $value->getId();
+            return (string)$value->getId();
         }
 
         return null;

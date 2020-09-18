@@ -7,7 +7,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
 
-class TitleHomePageSetting extends AbstractSettingGeneral
+class TitleHomePageSetting
 {
     use SettingTrait;
 

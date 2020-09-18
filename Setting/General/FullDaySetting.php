@@ -7,7 +7,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormInterface;
 
-class FullDaySetting extends AbstractSettingGeneral
+class FullDaySetting
 {
     use SettingTrait;
 
