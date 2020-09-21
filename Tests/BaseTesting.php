@@ -20,6 +20,10 @@ use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Contrat\Entity\TypeEntryInterface;
 use Grr\Core\Faker\CarbonProvider;
+use Grr\GrrBundle\Authorization\Helper\AuthorizationHelper;
+use Grr\GrrBundle\Entity\Area;
+use Grr\GrrBundle\Entity\Room;
+use Grr\GrrBundle\Entity\Security\Authorization;
 use Grr\GrrBundle\User\Repository\UserRepository;
 use Nelmio\Alice\Loader\NativeLoader;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -158,6 +162,15 @@ class BaseTesting extends WebTestCase
         return $this->entityManager
             ->getRepository(TypeEntryInterface::class)
             ->findOneBy(['name' => $name]);
+    }
+
+    protected function initSecurityHelper(): AuthorizationHelper
+    {
+        return new AuthorizationHelper(
+            $this->entityManager->getRepository(Authorization::class),
+            $this->entityManager->getRepository(Area::class),
+            $this->entityManager->getRepository(Room::class)
+        );
     }
 
     /**
