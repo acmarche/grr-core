@@ -9,7 +9,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
 
-class AreaDefaultSetting
+class AreaDefaultSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 

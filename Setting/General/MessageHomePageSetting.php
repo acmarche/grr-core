@@ -7,7 +7,7 @@ use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormInterface;
 
-class MessageHomePageSetting
+class MessageHomePageSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
