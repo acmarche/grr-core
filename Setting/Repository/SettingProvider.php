@@ -46,7 +46,7 @@ class SettingProvider
         if ($this->criteria->get($key)) {
             return $this->criteria->get($key);
         }
-        throw new \Exception('');
+        throw new \Exception('Aucune class trouvée pour gérer cette option');
     }
 
     public function loadData(): array

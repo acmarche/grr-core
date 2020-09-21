@@ -38,8 +38,7 @@ class AreaDefaultSetting
     public function value(): ?AreaInterface
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
-            $areaId = (int)$setting->getValue();
-            dump($areaId);
+            $areaId = (int) $setting->getValue();
 
             return $this->areaRepository->find($areaId);
         }
@@ -55,7 +54,7 @@ class AreaDefaultSetting
     public function bindValue($value): ?string
     {
         if ($value instanceof AreaInterface) {
-            return (string)$value->getId();
+            return (string) $value->getId();
         }
 
         return null;
