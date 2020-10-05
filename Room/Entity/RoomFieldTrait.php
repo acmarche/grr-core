@@ -10,6 +10,7 @@
 
 namespace Grr\Core\Room\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\RoomInterface;
 
 trait RoomFieldTrait
