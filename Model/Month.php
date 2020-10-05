@@ -13,6 +13,7 @@ use Carbon\CarbonInterface;
 use Carbon\CarbonPeriod;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Grr\Core\Provider\DateProvider;
 use Webmozart\Assert\Assert;
 
 /**
@@ -25,20 +26,6 @@ class Month extends Carbon
      * @var Day[]|ArrayCollection
      */
     protected $data_days;
-    /**
-     * @var CarbonInterface
-     */
-    private $carbon;
-
-    public function setCarbon(): void
-    {
-        $this->carbon = new Carbon();
-    }
-
-    public function getCarbon(): CarbonInterface
-    {
-        return $this->carbon;
-    }
 
     public static function init(int $year, int $month, string $language): self
     {
@@ -49,30 +36,9 @@ class Month extends Carbon
         $self = new self();
         $self->setDate($year, $month, 01);
         $self->locale($language);
-        $self->setCarbon();
         $self->data_days = new ArrayCollection();
 
         return $self;
-    }
-
-    public function previousYear(): CarbonInterface
-    {
-        return $this->copy()->subYear();
-    }
-
-    public function nextYear(): CarbonInterface
-    {
-        return $this->copy()->addYear();
-    }
-
-    public function previousMonth(): CarbonInterface
-    {
-        return $this->copy()->subMonth();
-    }
-
-    public function nextMonth(): CarbonInterface
-    {
-        return $this->copy()->addMonth();
     }
 
     public function getCalendarDays(): CarbonPeriod
@@ -80,34 +46,6 @@ class Month extends Carbon
         return Carbon::parse($this->firstOfMonth()->toDateString())->daysUntil(
             $this->endOfMonth()->toDateString()
         );
-    }
-
-    /**
-     * Retourne la liste des semaines.
-     *
-     * @return CarbonPeriod[]
-     */
-    public function getWeeksOfMonth(): array
-    {
-        $weeks = [];
-        $firstDayMonth = $this->firstOfMonth();
-
-        $firstDayWeek = $firstDayMonth->copy()->startOfWeek()->toMutable();
-
-        do {
-            $weeks[] = $this->getWeekOfMonth($firstDayWeek); // point at end ofWeek
-            $firstDayWeek->nextWeekday();
-        } while ($firstDayWeek->isSameMonth($firstDayMonth));
-
-        return $weeks;
-    }
-
-    public function getWeekOfMonth(CarbonInterface $carbon): CarbonPeriod
-    {
-        $debut = $carbon->toDateString();
-        $fin = $carbon->endOfWeek()->toDateString();
-
-        return Carbon::parse($debut)->daysUntil($fin);
     }
 
     public function addDataDay(Day $day): void
@@ -133,7 +71,7 @@ class Month extends Carbon
     public function groupDataDaysByWeeks(): array
     {
         $weeks = [];
-        foreach ($this->getWeeksOfMonth() as $weekCalendar) {
+        foreach (DateProvider::weeksOfMonth($this) as $weekCalendar) {
             $days = [];
             foreach ($weekCalendar as $dayCalendar) {
                 $dayModel = $this->findDataDayWithDate($dayCalendar);
@@ -149,10 +87,9 @@ class Month extends Carbon
     /**
      * @param CarbonInterface $dayCalendar
      *
-     *
      * @throws \Exception
      */
-    protected function findDataDayWithDate($dayCalendar): \Grr\Core\Model\Day
+    protected function findDataDayWithDate($dayCalendar): Day
     {
         foreach ($this->getDataDays() as $dataDay) {
             if ($dataDay->toDateString() === $dayCalendar->toDateString()) {

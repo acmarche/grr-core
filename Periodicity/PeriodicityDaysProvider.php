@@ -135,6 +135,12 @@ class PeriodicityDaysProvider
          * @example : [1,2,3]
          */
         $days = $periodicity->getWeekDays();
+
+        /**
+         * @todo peut aider?
+         */
+        //$prev_monday = $now->previous(Carbon::MONDAY);
+
         /**
          * @example 1 for every weeks, 2 every 2 weeks, 3,4...
          */
