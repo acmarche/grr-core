@@ -71,7 +71,7 @@ class DateProvider
 
         do {
             $weeks[] = self::daysOfWeek($firstDayWeek); // point at the end of Week
-            $firstDayWeek->nextWeekday();
+            $firstDayWeek->nextWeekday(); //passe de dimanche a lundi
         } while ($firstDayWeek->isSameMonth($firstDayMonth));
 
         return $weeks;
@@ -80,7 +80,7 @@ class DateProvider
     public static function daysOfWeek(CarbonInterface $date): CarbonPeriod
     {
         $debut = $date->toDateString();
-        $fin = $date->endOfWeek()->toDateString(); //+7
+        $fin = $date->endOfWeek()->toDateString(); //+6
 
         return Carbon::parse($debut)->daysUntil($fin);
     }
