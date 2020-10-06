@@ -82,6 +82,6 @@ class DateProvider
         $debut = $date->toDateString();
         $fin = $date->endOfWeek()->toDateString(); //+6
 
-        return Carbon::parse($debut)->daysUntil($fin);
+        return Carbon::parse($debut)->daysUntil($fin)->locale('fr');//todo locale
     }
 }
