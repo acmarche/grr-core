@@ -8,8 +8,8 @@
 
 namespace Grr\Core\Helper;
 
-use Grr\Core\Contrat\Entity\AreaInterface;
-use Grr\Core\Model\Month;
+use Carbon\Carbon;
+use Grr\Core\Model\DataDay;
 use Grr\Core\Provider\DateProvider;
 use Twig\Environment;
 
@@ -26,22 +26,23 @@ class MonthHelperDataDisplay
     }
 
     /**
+     * @param DataDay[] $dataDays
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function generateHtmlMonth(Month $month, AreaInterface $area): string
+    public function generateHtmlMonth(\DateTimeInterface $dateSelected, array $dataDays): string
     {
-        $weeks = $month->groupDataDaysByWeeks();
+        $today = Carbon::instance($dateSelected);
+        $weeks = DateProvider::weeksOfMonth($today);
 
         return $this->environment->render(
             '@grr_front/monthly/_calendar_data.html.twig',
             [
-                'listDays' => DateProvider::getNamesDaysOfWeek(),
-                'firstDay' => $month->firstOfMonth(),
-                'dataDays' => $month->getDataDays(),
+                'days' => DateProvider::getNamesDaysOfWeek(),
+                'firstDay' => $today->firstOfMonth(),
+                'dataDays' => $dataDays,
                 'weeks' => $weeks,
-                'area' => $area, //for legend entry type
             ]
         );
     }

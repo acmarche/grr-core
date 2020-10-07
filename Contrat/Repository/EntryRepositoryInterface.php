@@ -16,7 +16,7 @@ interface EntryRepositoryInterface
      *
      * @return EntryInterface[] Returns an array of EntryInterface objects
      */
-    public function findForMonth(DateTimeInterface $dateTime, AreaInterface $area, RoomInterface $room = null): array;
+    public function findForMonth(DateTimeInterface $firstDayOfMonth, AreaInterface $area, RoomInterface $room = null): array;
 
     /**
      * @return EntryInterface[]
