@@ -14,7 +14,7 @@ class RoomModel
     protected $room;
 
     /**
-     * @var ArrayCollection|Day[]
+     * @var ArrayCollection|DataDay[]
      */
     protected $data_days;
     /**
@@ -34,7 +34,7 @@ class RoomModel
         return $this->room;
     }
 
-    public function addDataDay(Day $day): void
+    public function addDataDay(DataDay $day): void
     {
         if (!$this->data_days->contains($day)) {
             $this->data_days[] = $day;
@@ -42,7 +42,7 @@ class RoomModel
     }
 
     /**
-     * @return Day[]|ArrayCollection
+     * @return DataDay[]|ArrayCollection
      */
     public function getDataDays()
     {
@@ -50,7 +50,7 @@ class RoomModel
     }
 
     /**
-     * @return Day[]|ArrayCollection
+     * @return EntryInterface[]|ArrayCollection
      */
     public function getEntries()
     {
