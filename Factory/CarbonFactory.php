@@ -3,8 +3,8 @@
 namespace Grr\Core\Factory;
 
 use Carbon\Carbon;
-use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
+use DateTimeInterface;
 use Grr\Core\I18n\LocalHelper;
 
 class CarbonFactory
@@ -19,57 +19,18 @@ class CarbonFactory
         $this->localHelper = $localHelper;
     }
 
-    public function getToday(): CarbonInterface
+    public function today(): CarbonInterface
     {
-        $date = Carbon::today();
-        $date->locale($this->localHelper->getDefaultLocal());
-
-        return $date;
+        return $this->setLocale(Carbon::today());
     }
 
-    public function getTodayImmutable(): CarbonImmutable
+    public function instance(DateTimeInterface $date): CarbonInterface
     {
-        $date = Carbon::today();
-        $date->locale($this->localHelper->getDefaultLocal());
-
-        return $date->toImmutable();
+        return $this->setLocale(Carbon::instance($date));
     }
 
-    public function create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0): Carbon
+    public function setLocale(CarbonInterface $date): CarbonInterface
     {
-        $date = Carbon::create($year, $month, $day, $hour, $minute, $second);
-        $date->locale($this->localHelper->getDefaultLocal());
-
-        return $date;
-    }
-
-    public function createImmutable(
-        $year = 0,
-        $month = 1,
-        $day = 1,
-        $hour = 0,
-        $minute = 0,
-        $second = 0
-    ): CarbonImmutable {
-        $date = CarbonImmutable::create(
-            $year,
-            $month,
-            $day,
-            $hour,
-            $minute,
-            $second
-        );
-        $date->locale($this->localHelper->getDefaultLocal());
-
-        return $date;
-    }
-
-    /**
-     * start/end of week force.
-     */
-    public function setStartEndWeek(CarbonInterface $carbon): void
-    {
-        $carbon->startOfWeek(Carbon::MONDAY);
-        $carbon->startOfWeek(Carbon::SUNDAY);
+        return $date->locale($this->localHelper->getDefaultLocal());
     }
 }

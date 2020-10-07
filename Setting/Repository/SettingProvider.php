@@ -21,16 +21,16 @@ class SettingProvider
     /**
      * @var ServiceLocator
      */
-    private $criteria;
+    private $serviceLocator;
 
     public function __construct(
         \Traversable $settings,
-        ServiceLocator $criteria,
+        ServiceLocator $serviceLocator,
         AreaRepositoryInterface $areaRepository
     ) {
         $this->settings = $settings;
         $this->areaRepository = $areaRepository;
-        $this->criteria = $criteria;
+        $this->serviceLocator = $serviceLocator;
     }
 
     public function loadAllInterface(): \Traversable
@@ -43,8 +43,8 @@ class SettingProvider
      */
     public function loadInterfaceByKey(string $key): SettingGeneralInterface
     {
-        if ($this->criteria->get($key)) {
-            return $this->criteria->get($key);
+        if ($this->serviceLocator->get($key)) {
+            return $this->serviceLocator->get($key);
         }
         throw new \Exception('Aucune class trouvée pour gérer cette option');
     }
