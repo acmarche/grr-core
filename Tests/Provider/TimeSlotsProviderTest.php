@@ -36,7 +36,7 @@ class TimeSlotsProviderTest extends BaseTesting
         $day->minute = $minute;
 
         $timeSlotProvicer = $this->initTimeSlotProvider();
-        $modelsTimeSlot = $timeSlotProvicer->getTimeSlotsModelByAreaAndDaySelected($area, $day);
+        $modelsTimeSlot = $timeSlotProvicer->getTimeSlotsByAreaAndDaySelected($area, $day);
         self::assertGreaterThan(0, count($modelsTimeSlot));
 
         foreach ($modelsTimeSlot as $modelTimeSlot) {
@@ -84,7 +84,7 @@ class TimeSlotsProviderTest extends BaseTesting
 
         $timeSlotProvicer = $this->initTimeSlotProvider();
 
-        $timesSlot = $timeSlotProvicer->getTimeSlotsOfEntry($entry);
+        $timesSlot = $timeSlotProvicer->getTimeSlotsByEntry($entry);
 
         foreach ($timesSlot as $timeSlot) {
             self::assertSame($timeSlot->hour, $day->hour);

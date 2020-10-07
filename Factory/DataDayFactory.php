@@ -4,9 +4,9 @@ namespace Grr\Core\Factory;
 
 use Carbon\CarbonInterface;
 use Grr\Core\I18n\LocalHelper;
-use Grr\Core\Model\Day;
+use Grr\Core\Model\DataDay;
 
-class DayFactory
+class DataDayFactory
 {
     /**
      * @var \Grr\Core\Factory\CarbonFactory|mixed
@@ -23,20 +23,20 @@ class DayFactory
         $this->localHelper = $localHelper;
     }
 
-    public function createImmutable(int $year, int $month, int $day): Day
+    public function createImmutable(int $year, int $month, int $day): DataDay
     {
         $date = $this->carbonFactory->createImmutable($year, $month, $day);
 
-        $dayModel = new Day($date);
-        $dayModel->locale($this->localHelper->getDefaultLocal());
+        $dayModel = new DataDay($date);
+        $dayModel->getDay()->locale($this->localHelper->getDefaultLocal());
 
         return $dayModel;
     }
 
-    public function createFromCarbon(CarbonInterface $carbon): Day
+    public function createFromCarbon(CarbonInterface $carbon): DataDay
     {
-        $day = new Day($carbon);
-        $day->locale($this->localHelper->getDefaultLocal());
+        $day = new DataDay($carbon);
+        $day->getDay()->locale($this->localHelper->getDefaultLocal());
 
         return $day;
     }

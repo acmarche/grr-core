@@ -23,7 +23,7 @@ use Webmozart\Assert\Assert;
 class Month extends Carbon
 {
     /**
-     * @var Day[]|ArrayCollection
+     * @var DataDay[]|ArrayCollection
      */
     protected $data_days;
 
@@ -48,7 +48,7 @@ class Month extends Carbon
         );
     }
 
-    public function addDataDay(Day $day): void
+    public function addDataDay(DataDay $day): void
     {
         if (!$this->data_days->contains($day)) {
             $this->data_days[] = $day;
@@ -58,7 +58,7 @@ class Month extends Carbon
     /**
      * Tous les jours du mois sous forme de DayModel avec les entrées.
      *
-     * @return Collection|Day[]
+     * @return Collection|DataDay[]
      */
     public function getDataDays(): Collection
     {
@@ -89,7 +89,7 @@ class Month extends Carbon
      *
      * @throws \Exception
      */
-    protected function findDataDayWithDate($dayCalendar): Day
+    protected function findDataDayWithDate($dayCalendar): DataDay
     {
         foreach ($this->getDataDays() as $dataDay) {
             if ($dataDay->toDateString() === $dayCalendar->toDateString()) {
@@ -98,6 +98,6 @@ class Month extends Carbon
         }
 
         //if month 08 and first day of week 29/07
-        return new Day($dayCalendar);
+        return new DataDay($dayCalendar);
     }
 }

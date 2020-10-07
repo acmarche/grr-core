@@ -45,7 +45,7 @@ class DataDay
     /**
      * @param EntryInterface[]|ArrayCollection $entries
      *
-     * @return Day
+     * @return void
      */
     public function setEntries($entries): void
     {

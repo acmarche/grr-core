@@ -13,7 +13,7 @@ namespace Grr\Core\Tests\Factory;
 use Carbon\Carbon;
 use Doctrine\Common\Collections\ArrayCollection;
 use Grr\Core\Factory\CarbonFactory;
-use Grr\Core\Factory\DayFactory;
+use Grr\Core\Factory\DataDayFactory;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Model\Day;
 use Grr\Core\Tests\BaseTesting;
@@ -24,7 +24,7 @@ use Symfony\Component\Security\Core\Security;
 class DayFactoryTest extends BaseTesting
 {
     /**
-     * @var DayFactory
+     * @var DataDayFactory
      */
     private $dayFactory;
 
@@ -36,7 +36,7 @@ class DayFactoryTest extends BaseTesting
         $security = $this->createMock(Security::class);
         $localHelper = new LocalHelper($parameterBag, $security, $requestStack);
         $carbonFactory = new CarbonFactory($localHelper);
-        $this->dayFactory = new DayFactory($carbonFactory, $localHelper);
+        $this->dayFactory = new DataDayFactory($carbonFactory, $localHelper);
     }
 
     public function testCreateImmutable(): void

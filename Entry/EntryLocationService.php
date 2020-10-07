@@ -32,7 +32,7 @@ class EntryLocationService
          * @var TimeSlot[]
          */
         $locations = [];
-        $carbonPeriod = $this->timeSlotsProvider->getTimeSlotsOfEntry($entry);
+        $carbonPeriod = $this->timeSlotsProvider->getTimeSlotsByEntry($entry);
 
         foreach ($dayTimeSlots as $dayTimeSlot) {
             if ($this->isEntryInTimeSlot($entry, $carbonPeriod, $dayTimeSlot)) {

@@ -12,7 +12,7 @@ namespace Grr\Core\Tests\Service;
 
 use Grr\Core\Entry\EntryLocationService;
 use Grr\Core\Factory\CarbonFactory;
-use Grr\Core\Factory\DayFactory;
+use Grr\Core\Factory\DataDayFactory;
 use Grr\Core\I18n\LocalHelper;
 use Grr\Core\Model\Month;
 use Grr\Core\Model\Week;
@@ -130,7 +130,7 @@ class BindDataManagerTest extends BaseTesting
         $area = $this->getArea('Hdv');
         $bindDataManager = $this->initBindDataManager();
 
-        $hoursModel = $timeSlotsProvider->getTimeSlotsModelByAreaAndDaySelected($area, $daySelected);
+        $hoursModel = $timeSlotsProvider->getTimeSlotsByAreaAndDaySelected($area, $daySelected);
         $roomsModel = $bindDataManager->bindDay($daySelected, $area, $hoursModel, null);
 
         self::assertCount(3, $roomsModel);
@@ -174,7 +174,7 @@ class BindDataManagerTest extends BaseTesting
         return new TimeSlotsProvider($carbonFactory);
     }
 
-    protected function initDayFactory(): DayFactory
+    protected function initDayFactory(): DataDayFactory
     {
         $parameterBag = $this->createMock(ParameterBagInterface::class);
         $requestStack = $this->createMock(RequestStack::class);
@@ -182,7 +182,7 @@ class BindDataManagerTest extends BaseTesting
         $localHelper = new LocalHelper($parameterBag, $security, $requestStack);
         $carbonFactory = new CarbonFactory($localHelper);
 
-        return new DayFactory($carbonFactory, $localHelper);
+        return new DataDayFactory($carbonFactory, $localHelper);
     }
 
     private function initLocationService(): EntryLocationService

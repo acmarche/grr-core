@@ -27,15 +27,15 @@ class TimeSlotsProvider
      *
      * @return TimeSlot[]
      */
-    public function getTimeSlotsModelByAreaAndDaySelected(AreaInterface $area, CarbonInterface $carbon): array
+    public function getTimeSlotsModelByAreaAndDaySelected(AreaInterface $area, CarbonInterface $dateSelected): array
     {
         $startTime = $area->getStartTime();
         $endTime = $area->getEndTime();
         $timeInterval = $area->getTimeInterval();
 
-        $carbonPeriod = $this->getTimeSlots($carbon, $startTime, $endTime, $timeInterval);
+        $carbonPeriod = $this->getTimeSlots($dateSelected, $startTime, $endTime, $timeInterval);
 
-        $hours = [];
+        $timeSlots = [];
         $carbonPeriod->rewind();
         $last = $carbonPeriod->last();
         $carbonPeriod->rewind();
@@ -45,32 +45,31 @@ class TimeSlotsProvider
             $carbonPeriod->next();
             $end = $carbonPeriod->current();
 
-            $hour = new TimeSlot($begin, $end);
-
-            $hours[] = $hour;
+            $timeSlots[] = new TimeSlot($begin, $end);
         }
 
-        return $hours;
+        return $timeSlots;
     }
 
     /**
      * Retourne les tranches d'heures d'après une heure de début, de fin et d'un interval de temps.
+     * @param CarbonInterface $dateSelected
+     * @param int $hourBegin
+     * @param int $hourEnd
+     * @param int $timeInterval
+     * @return CarbonPeriod
      */
     public function getTimeSlots(
-        CarbonInterface $carbon,
+        CarbonInterface $dateSelected,
         int $hourBegin,
         int $hourEnd,
         int $timeInterval
     ): CarbonPeriod {
-        $dateBegin = $this->carbonFactory->create(
-            $carbon->year,
-            $carbon->month,
-            $carbon->day,
-            $hourBegin,
-            0
-        );
+        $dateBegin = $dateSelected->copy();
+        $dateEnd = $dateSelected->copy();
 
-        $dateEnd = $this->carbonFactory->create($carbon->year, $carbon->month, $carbon->day, $hourEnd, 0, 0);
+        $dateBegin->hour($hourBegin);
+        $dateEnd->hour($hourEnd);
 
         return Carbon::parse($dateBegin)->minutesUntil($dateEnd, $timeInterval);
     }
@@ -78,7 +77,7 @@ class TimeSlotsProvider
     /**
      * Obtient les tranches horaires de l'entrée basée sur la résolution de l'Area.
      */
-    public function getTimeSlotsOfEntry(EntryInterface $entry): CarbonPeriod
+    public function getTimeSlotsByEntry(EntryInterface $entry): CarbonPeriod
     {
         $area = $entry->getRoom()->getArea();
         $entryHourBegin = $entry->getStartTime();

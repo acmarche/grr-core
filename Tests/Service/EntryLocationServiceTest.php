@@ -56,7 +56,7 @@ class EntryLocationServiceTest extends BaseTesting
         $entry->setRoom($room);
 
         $timeSlotProvider = $this->initTimeSlotProvider();
-        $timesSlot = $timeSlotProvider->getTimeSlotsModelByAreaAndDaySelected($area, $daySelected);
+        $timesSlot = $timeSlotProvider->getTimeSlotsByAreaAndDaySelected($area, $daySelected);
 
         $entryService = new EntryLocationService($timeSlotProvider);
         $locations = $entryService->getLocations($entry, $timesSlot);
@@ -133,7 +133,7 @@ class EntryLocationServiceTest extends BaseTesting
         $days = CarbonPeriod::between($dateStart, $dateEnd);
         $i = 0;
         foreach ($days as $daySelected) {
-            $timesSlot = $timeSlotProvider->getTimeSlotsModelByAreaAndDaySelected($area, $daySelected);
+            $timesSlot = $timeSlotProvider->getTimeSlotsByAreaAndDaySelected($area, $daySelected);
 
             $entryService = new EntryLocationService($timeSlotProvider);
             $locations = $entryService->getLocations($entry, $timesSlot);
