@@ -12,6 +12,7 @@ namespace Grr\Core\Router;
 
 use Carbon\Carbon;
 use Grr\Core\Contrat\Entity\EntryInterface;
+use Grr\Core\Contrat\Front\ViewInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 class FrontRouterHelper
@@ -32,15 +33,13 @@ class FrontRouterHelper
         $area = $room->getArea();
 
         $date = Carbon::instance($entry->getStartTime());
-        $year = $date->year;
-        $month = $date->month;
 
-        $params = ['area' => $area->getId(), 'year' => $year, 'month' => $month];
+        $params = ['area' => $area->getId(), 'date' => $date, 'view' => ViewInterface::VIEW_MONTHLY];
 
         if ($withRoom) {
             $params['room'] = $room->getId();
         }
 
-        return $this->router->generate('grr_front_month', $params);
+        return $this->router->generate('grr_front_view', $params);
     }
 }
