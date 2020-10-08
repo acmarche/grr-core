@@ -10,9 +10,11 @@
 
 namespace Grr\Core\Behat;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Carbon\Carbon;
 use Exception;
+use Grr\Core\Contrat\Front\ViewInterface;
 use Grr\GrrBundle\Area\Repository\AreaRepository;
 use Grr\GrrBundle\Entry\Repository\EntryRepository;
 
@@ -193,12 +195,12 @@ class FeatureContext extends RawMinkContext
     }
 
     /**
-     * @Given /^I am on the page month view of month (\d+)-(\d+) and area "([^"]*)"$/
+     * @Given /^I am on the page month view at "([^"]*)" and area "([^"]*)"$/
      */
-    public function iAmOnThePageMonthView(int $month, int $year, string $areaName): void
+    public function iAmOnThePageMonthView(string $date, string $areaName): void
     {
         $area = $this->areaRepository->findOneBy(['name' => $areaName]);
-        $path = '/fr/front/monthview/area/'.$area->getId().'/year/'.$year.'/month/'.$month.'/room';
+        $path = '/fr/front/area/'.$area->getId().'/date/'.$date.'/view/'.ViewInterface::VIEW_MONTHLY.'/room';
         $this->visitPath($path);
     }
 
@@ -220,4 +222,5 @@ class FeatureContext extends RawMinkContext
     {
         return str_replace('\\"', '"', $argument);
     }
+
 }
