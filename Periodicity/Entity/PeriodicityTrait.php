@@ -44,7 +44,7 @@ trait PeriodicityTrait
     /**
      * Monday, tuesday, wednesday...
      *
-     * @see DateProvider::getNamesDaysOfWeek();
+     * @see DateProvider::weekDaysName();
      *
      * @var int[]
      * @ORM\Column(type="array", nullable=true)

@@ -19,7 +19,7 @@ use Grr\Core\Contrat\Entity\PeriodicityInterface;
 use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Contrat\Entity\TypeEntryInterface;
-use Grr\Core\Faker\CarbonProvider;
+use Grr\Core\Faker\CarbonFakerProvider;
 use Grr\GrrBundle\Authorization\Helper\AuthorizationHelper;
 use Grr\GrrBundle\Entity\Area;
 use Grr\GrrBundle\Entity\Room;
@@ -81,7 +81,7 @@ class BaseTesting extends WebTestCase
 
         $loader = new NativeLoader();
         $faker = $loader->getFakerGenerator();
-        $faker->addProvider(CarbonProvider::class);
+        $faker->addProvider(CarbonFakerProvider::class);
 
         $this->administrator = $this->createGrrClient('grr@domain.be');
 

@@ -5,15 +5,32 @@ namespace Grr\Core\Provider;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Carbon\CarbonPeriod;
+use Grr\Core\Factory\CarbonFactory;
+use Grr\Core\I18n\LocalHelper;
 
 class DateProvider
 {
+    /**
+     * @var LocalHelper
+     */
+    private $localHelper;
+    /**
+     * @var CarbonFactory
+     */
+    private $carbonFactory;
+
+    public function __construct(LocalHelper $localHelper, CarbonFactory $carbonFactory)
+    {
+        $this->localHelper = $localHelper;
+        $this->carbonFactory = $carbonFactory;
+    }
+
     /**
      * Names of days of the week.
      *
      * @return string[]
      */
-    public static function getNamesDaysOfWeek(): array
+    public function weekDaysName(): array
     {
         //todo dynamic first day of week
         //https://carbon.nesbot.com/docs/#api-week
@@ -35,22 +52,17 @@ class DateProvider
         return $days;
     }
 
-    public static function createCarbon(\DateTimeInterface $dateTime): CarbonInterface
-    {
-        return Carbon::instance($dateTime);
-    }
-
     /**
      * @return int[]
      */
-    public static function getHours(): array
+    public function getHours(): array
     {
         return range(1, CarbonInterface::HOURS_PER_DAY);
     }
 
-    public static function daysOfMonth(\DateTimeInterface $date): CarbonPeriod
+    public function daysOfMonth(\DateTimeInterface $date): CarbonPeriod
     {
-        $carbon = Carbon::instance($date);
+        $carbon = $this->carbonFactory->instance($date);
 
         return Carbon::parse($carbon->firstOfMonth())->daysUntil(
             $carbon->endOfMonth()
@@ -62,24 +74,26 @@ class DateProvider
      *
      * @return CarbonPeriod[]
      */
-    public static function weeksOfMonth(\DateTimeInterface $date): array
+    public function weeksOfMonth(\DateTimeInterface $date): array
     {
         $weeks = [];
-        $firstDayMonth = Carbon::instance($date)->firstOfMonth();
+        $firstDayMonth = $this->carbonFactory->instance($date)->firstOfMonth();
 
         do {
-            $weeks[] = self::daysOfWeek($firstDayMonth); // point at the end of Week
+            $weeks[] = $this->daysOfWeek($firstDayMonth); // point at the end of Week
             $firstDayMonth->nextWeekday(); //passe de dimanche a lundi
         } while ($firstDayMonth->isSameMonth($date));
 
         return $weeks;
     }
 
-    public static function daysOfWeek(CarbonInterface $date): CarbonPeriod
+    public function daysOfWeek(CarbonInterface $date): CarbonPeriod
     {
         $firstDayOfWeek = $date->copy()->startOfWeek()->toMutable()->toDateString();
         $lastDayOffWeek = $date->endOfWeek()->toDateString(); //+6
 
-        return Carbon::parse($firstDayOfWeek)->daysUntil($lastDayOffWeek)->locale('fr'); //todo locale
+        return Carbon::parse($firstDayOfWeek)->daysUntil($lastDayOffWeek)->locale(
+            $this->localHelper->getDefaultLocal()
+        );
     }
 }
