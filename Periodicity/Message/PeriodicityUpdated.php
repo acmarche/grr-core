@@ -9,12 +9,12 @@ final class PeriodicityUpdated
      */
     private $periodicityId;
 
-    public function __construct(int $periodicityId)
+    public function __construct(?int $periodicityId)
     {
         $this->periodicityId = $periodicityId;
     }
 
-    public function getPeriodicityId(): int
+    public function getPeriodicityId(): ?int
     {
         return $this->periodicityId;
     }
