@@ -24,6 +24,10 @@ class SecurityRole
      */
     const ROLE_GRR_ADMINISTRATOR = 'ROLE_GRR_ADMINISTRATOR';
     /**
+     * Developpeur de grr.
+     */
+    const ROLE_GRR_DEVELOPER = 'ROLE_GRR_DEVELOPER';
+    /**
      * @return mixed[]|bool
      */
     public const ROLES = [
@@ -31,6 +35,7 @@ class SecurityRole
         self::ROLE_GRR_ACTIVE_USER => 'Utilisateur actif',
         self::ROLE_GRR_MANAGER_USER => 'Gestionnaire des utilisateurs',
         self::ROLE_GRR_ADMINISTRATOR => 'Administrateur de Grr',
+        self::ROLE_GRR_DEVELOPER => 'Developpeur de Grr',
     ];
 
     public static function niceName(array $roles): array
