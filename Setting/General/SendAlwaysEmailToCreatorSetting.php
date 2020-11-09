@@ -26,7 +26,7 @@ class SendAlwaysEmailToCreatorSetting implements SettingGeneralInterface
     public function value(): bool
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
-            return (bool)$setting->getValue();
+            return (bool) $setting->getValue();
         }
 
         return $this->defaultValue();
@@ -57,10 +57,12 @@ class SendAlwaysEmailToCreatorSetting implements SettingGeneralInterface
             ]
         );
     }
+
     public function displayOrder(): int
     {
         return 6;
     }
+
     public function renderValue(): string
     {
         return $this->environment->render(

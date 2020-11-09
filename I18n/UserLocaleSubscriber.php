@@ -17,7 +17,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
 class UserLocaleSubscriber implements EventSubscriberInterface
@@ -25,19 +24,23 @@ class UserLocaleSubscriber implements EventSubscriberInterface
     public function construct(SessionInterface $session): void
     {
     }
+
     public function __construct(RequestContext $requestContext)
     {
         $requestContext->getParameter('_locale');
     }
+
     public static function getSubscribedEvents(): array
     {
         return [
             SecurityEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin',
         ];
     }
+
     public function onInteractiveLogin(): void
     {
     }
+
     public function onKernelRequest(RequestEvent $requestEvent): void
     {
         $request = $requestEvent->getRequest();

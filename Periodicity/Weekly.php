@@ -17,6 +17,7 @@ class Weekly
      * @var \Carbon\Carbon|mixed
      */
     public $periodicity_end;
+
     public function getDaysByEntry(EntryInterface $entry)
     {
         $periodicity = $entry->getPeriodicity();

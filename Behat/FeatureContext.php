@@ -10,7 +10,6 @@
 
 namespace Grr\Core\Behat;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Carbon\Carbon;
 use Exception;
@@ -222,5 +221,4 @@ class FeatureContext extends RawMinkContext
     {
         return str_replace('\\"', '"', $argument);
     }
-
 }

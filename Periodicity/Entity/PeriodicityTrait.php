@@ -55,6 +55,7 @@ trait PeriodicityTrait
      * Override mappedBy.
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
+     *
      * @var \Grr\Core\Contrat\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
      */
     private $entries;

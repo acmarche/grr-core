@@ -12,8 +12,7 @@ interface SettingGeneralInterface
     public function name(): string;
 
     /**
-     * Nom de l'index du service stocké dans le container de sf
-     * @return string
+     * Nom de l'index du service stocké dans le container de sf.
      */
     public static function getDefaultIndexName(): string;
 

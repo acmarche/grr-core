@@ -53,11 +53,6 @@ class TimeSlotsProvider
 
     /**
      * Retourne les tranches d'heures d'après une heure de début, de fin et d'un interval de temps.
-     * @param CarbonInterface $dateSelected
-     * @param int $hourBegin
-     * @param int $hourEnd
-     * @param int $timeInterval
-     * @return CarbonPeriod
      */
     public function getTimeSlots(
         CarbonInterface $dateSelected,

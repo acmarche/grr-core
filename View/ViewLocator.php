@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Grr\Core\View;
 
 use Grr\Core\Contrat\Front\ViewInterface;

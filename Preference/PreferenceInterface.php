@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Grr\Core\Preference;
-
 
 class PreferenceInterface
 {

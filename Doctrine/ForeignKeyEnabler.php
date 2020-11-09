@@ -12,7 +12,6 @@ namespace Grr\Core\Doctrine;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Event\PreFlushEventArgs;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 

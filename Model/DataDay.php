@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Grr\Core\Model;
 
 use Carbon\CarbonInterface;
@@ -26,9 +25,6 @@ class DataDay
         $this->entries = new ArrayCollection();
     }
 
-    /**
-     * @return CarbonInterface
-     */
     public function getDay(): CarbonInterface
     {
         return $this->day;
@@ -44,8 +40,6 @@ class DataDay
 
     /**
      * @param EntryInterface[]|ArrayCollection $entries
-     *
-     * @return void
      */
     public function setEntries($entries): void
     {

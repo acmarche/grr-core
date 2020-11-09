@@ -18,8 +18,6 @@ trait SettingTrait
 
     /**
      * @required
-     * @param SettingRepositoryInterface $settingRepository
-     * @param Environment $environment
      */
     public function injectServices(SettingRepositoryInterface $settingRepository, Environment $environment)
     {
