@@ -5,6 +5,7 @@ namespace Grr\Core\Setting\Repository;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\RoomInterface;
 use Grr\Core\Contrat\Repository\AreaRepositoryInterface;
+use Grr\Core\Setting\General\AreaDefaultSetting;
 use Grr\Core\Setting\General\SettingGeneralInterface;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 
@@ -72,10 +73,16 @@ class SettingProvider
     }
 
     /**
-     * @todo
+     *
      */
     public function getDefaultArea(): ?AreaInterface
     {
+        $interface = $this->loadInterfaceByKey(AreaDefaultSetting::NAME);
+        $area = $interface->value();
+        if ($area instanceof AreaInterface) {
+            return $area;
+        }
+
         return $this->areaRepository->findOneBy([], ['id' => 'ASC']);
     }
 
