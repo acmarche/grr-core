@@ -6,6 +6,7 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Translation\TranslatorInterface;
 
 trait LocalHelperTrait
 {
@@ -35,7 +36,8 @@ trait LocalHelperTrait
 
     public function getDefaultLocal(): string
     {
-        dump($this->parameterBag);
+        //dump($this->parameterBag);
+        //TranslatorInterface::getLocale
         /**
          * User preference.
          *
