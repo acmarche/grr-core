@@ -3,6 +3,7 @@
 namespace Grr\Core\Room\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Area\Entity\AreaFieldTrait;
 use Grr\Core\Authorization\Entity\AuthorizationsFieldTrait;
@@ -28,142 +29,143 @@ trait RoomTrait
      *
      * @ORM\Column(type="string", length=60, nullable=true)
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var int
      *
      * @ORM\Column(type="integer", nullable=false)
      */
-    private $capacity;
+    private int $capacity;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $maximumBooking;
+    private int $maximumBooking;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
      */
-    private $statutRoom;
+    private bool $statutRoom;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="show_fic_room", type="boolean", nullable=false)
      */
-    private $showFicRoom;
+    private bool $showFicRoom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="picture_room", type="string", length=50, nullable=true)
      */
-    private $pictureRoom;
+    private ?string $pictureRoom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="comment_room", type="text", length=65535, nullable=true)
      */
-    private $commentRoom;
+    private ?string $commentRoom;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="show_comment", type="boolean", nullable=false)
      */
-    private $showComment;
+    private bool $showComment;
 
     /**
      * @var int
      *
      * @ORM\Column(name="delais_max_resa_room", type="smallint", nullable=false)
      */
-    private $delaisMaxResaRoom;
+    private int $delaisMaxResaRoom;
 
     /**
      * @var int
      *
      * @ORM\Column(name="delais_min_resa_room", type="smallint", nullable=false)
      */
-    private $delaisMinResaRoom;
+    private int $delaisMinResaRoom;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private $allowActionInPast;
+    private bool $allowActionInPast;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $orderDisplay;
+    private int $orderDisplay;
 
     /**
      * @var int
      *
      * @ORM\Column(name="delais_option_reservation", type="smallint", nullable=false)
      */
-    private $delaisOptionReservation;
+    private int $delaisOptionReservation;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private $dontAllowModify;
+    private bool $dontAllowModify;
 
     /**
      * @var int
      *
      * @ORM\Column(name="type_affichage_reser", type="smallint", nullable=false)
      */
-    private $typeAffichageReser;
+    private int $typeAffichageReser;
 
     /**
      * @var bool|null
      *
      * @ORM\Column(name="moderate", type="boolean", nullable=true)
      */
-    private $moderate;
+    private bool $moderate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="qui_peut_reserver_pour", type="string", length=1, nullable=false)
      */
-    private $quiPeutReserverPour;
+    private string $quiPeutReserverPour;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private $activeRessourceEmpruntee;
+    private bool $activeRessourceEmpruntee;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $ruleToAdd;
+    private int $ruleToAdd;
 
     /**
      * Override pour mappedBy.
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
      *
-     * @var AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
+     * @var AuthorizationInterface[]|Collection
      */
-    private $authorizations;
+    private iterable $authorizations;
 
     public function __construct(AreaInterface $area)
     {

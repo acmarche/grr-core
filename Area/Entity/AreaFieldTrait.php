@@ -16,11 +16,10 @@ use Grr\Core\Contrat\Entity\AreaInterface;
 trait AreaFieldTrait
 {
     /**
-     * @var AreaInterface
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface", inversedBy="rooms")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $area;
+    private ?AreaInterface $area;
 
     public function getArea(): ?AreaInterface
     {

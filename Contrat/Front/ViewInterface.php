@@ -9,9 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 interface ViewInterface
 {
-    const VIEW_MONTHLY = 'monthly';
-    const VIEW_WEEKLY = 'weekly';
-    const VIEW_DAILY = 'daily';
+    public const VIEW_MONTHLY = 'monthly';
+    public const VIEW_WEEKLY = 'weekly';
+    public const VIEW_DAILY = 'daily';
 
     /**
      * Reponse rendue.

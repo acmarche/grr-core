@@ -19,15 +19,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
  */
 final class SymfonyContext implements Context
 {
-    /** @var KernelInterface */
-    private $kernel;
+    private KernelInterface $kernel;
 
-    /** @var Response|null */
-    private $response;
-    /**
-     * @var EntryRepository
-     */
-    private $entryRepository;
+    private ?Response $response = null;
+    private EntryRepository $entryRepository;
 
     public function __construct(KernelInterface $kernel, EntryRepository $entryRepository)
     {

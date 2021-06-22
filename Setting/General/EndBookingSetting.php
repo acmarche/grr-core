@@ -2,6 +2,9 @@
 
 namespace Grr\Core\Setting\General;
 
+use DateTime;
+use DateTimeInterface;
+use Exception;
 use Grr\Core\Setting\SettingConstants;
 use Grr\Core\Setting\Traits\SettingTrait;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -11,7 +14,7 @@ class EndBookingSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::END_BOOKINGS;
+    public const NAME = SettingConstants::END_BOOKINGS;
 
     public function label(): string
     {
@@ -23,12 +26,12 @@ class EndBookingSetting implements SettingGeneralInterface
         return 'help.setting.end_booking';
     }
 
-    public function value(): \DateTimeInterface
+    public function value(): DateTimeInterface
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
             try {
-                return \DateTime::createFromFormat('Y-m-d', $setting->getValue());
-            } catch (\Exception $exception) {
+                return DateTime::createFromFormat('Y-m-d', $setting->getValue());
+            } catch (Exception $exception) {
                 return $this->defaultValue();
             }
         }
@@ -36,14 +39,14 @@ class EndBookingSetting implements SettingGeneralInterface
         return $this->defaultValue();
     }
 
-    public function defaultValue(): \DateTimeInterface
+    public function defaultValue(): DateTimeInterface
     {
-        return new \DateTime('+5 years');
+        return new DateTime('+5 years');
     }
 
     public function bindValue($value): ?string
     {
-        if ($value instanceof \DateTimeInterface) {
+        if ($value instanceof DateTimeInterface) {
             return $value->format('Y-m-d');
         }
 

@@ -12,14 +12,8 @@ use Carbon\CarbonInterface;
 
 class TimeSlot
 {
-    /**
-     * @var CarbonInterface
-     */
-    protected $begin;
-    /**
-     * @var CarbonInterface
-     */
-    protected $end;
+    protected CarbonInterface $begin;
+    protected CarbonInterface $end;
 
     public function __construct(CarbonInterface $begin, CarbonInterface $end)
     {

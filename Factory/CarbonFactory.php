@@ -10,10 +10,7 @@ use Grr\Core\I18n\LocalHelper;
 
 class CarbonFactory
 {
-    /**
-     * @var LocalHelper
-     */
-    private $localHelper;
+    private LocalHelper $localHelper;
 
     public function __construct(LocalHelper $localHelper)
     {

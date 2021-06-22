@@ -4,10 +4,7 @@ namespace Grr\Core\Password\Message;
 
 final class PasswordUpdated
 {
-    /**
-     * @var int
-     */
-    private $userId;
+    private int $userId;
 
     public function __construct(int $userId)
     {

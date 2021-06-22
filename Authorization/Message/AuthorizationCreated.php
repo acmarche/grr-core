@@ -4,10 +4,7 @@ namespace Grr\Core\Authorization\Message;
 
 final class AuthorizationCreated
 {
-    /**
-     * @var int
-     */
-    private $authorizationId;
+    private int $authorizationId;
 
     public function __construct(int $authorizationId)
     {

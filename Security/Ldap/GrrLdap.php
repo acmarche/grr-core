@@ -10,22 +10,10 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
 class GrrLdap
 {
-    /**
-     * @var Ldap
-     */
-    private $ldap;
-    /**
-     * @var string
-     */
-    private $dn;
-    /**
-     * @var string
-     */
-    private $user;
-    /**
-     * @var string
-     */
-    private $password;
+    private Ldap $ldap;
+    private string $dn;
+    private string $user;
+    private string $password;
 
     public function __construct(string $host, $dn, string $user, string $password)
     {

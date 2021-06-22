@@ -4,8 +4,11 @@ namespace Grr\Core\Behat;
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
+use Behat\Mink\Element\DocumentElement;
+use Behat\Mink\Element\NodeElement;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 
@@ -15,10 +18,7 @@ use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 class XxContext
 {
     private $currentUser;
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     /**
      * Initializes context.
@@ -35,7 +35,7 @@ class XxContext
     /**
      * @BeforeScenario
      */
-    public function clearData()
+    public function clearData(): void
     {
         $purger = new ORMPurger($this->entityManager);
         $purger->purge();
@@ -44,10 +44,10 @@ class XxContext
     /**
      * @BeforeScenario @fixtures
      */
-    public function loadFixtures()
+    public function loadFixtures(): void
     {
         $loader = new ContainerAwareLoader($this->getContainer());
-        $loader->loadFromDirectory(__DIR__.'/../../src/AppBundle/DataFixtures');
+        $loader->loadFromDirectory(__DIR__ . '/../../src/AppBundle/DataFixtures');
         $executor = new ORMExecutor($this->getEntityManager());
         $executor->execute($loader->getFixtures(), true);
     }
@@ -55,7 +55,7 @@ class XxContext
     /**
      * @Given there is an admin user :username with password :password
      */
-    public function thereIsAnAdminUserWithPassword($username, $password)
+    public function thereIsAnAdminUserWithPassword($username, $password): \App\Entity\Security\User
     {
         $user = new \App\Entity\Security\User();
         $user->setUsername($username);
@@ -71,7 +71,7 @@ class XxContext
     /**
      * @When I fill in the search box with :term
      */
-    public function iFillInTheSearchBoxWith($term)
+    public function iFillInTheSearchBoxWith($term): void
     {
         $searchBox = $this->assertSession()
             ->elementExists('css', 'input[name="searchTerm"]');
@@ -82,7 +82,7 @@ class XxContext
     /**
      * @When I press the search button
      */
-    public function iPressTheSearchButton()
+    public function iPressTheSearchButton(): void
     {
         $button = $this->assertSession()
             ->elementExists('css', '#search_submit');
@@ -93,7 +93,7 @@ class XxContext
     /**
      * @Given there is/are :count product(s)
      */
-    public function thereAreProducts($count)
+    public function thereAreProducts($count): void
     {
         $this->createProducts($count);
     }
@@ -101,7 +101,7 @@ class XxContext
     /**
      * @Given I author :count products
      */
-    public function iAuthorProducts($count)
+    public function iAuthorProducts($count): void
     {
         $this->createProducts($count, $this->currentUser);
     }
@@ -109,7 +109,7 @@ class XxContext
     /**
      * @Given the following product(s) exist(s):
      */
-    public function theFollowingProductsExist(TableNode $table)
+    public function theFollowingProductsExist(TableNode $table): void
     {
         foreach ($table as $row) {
             $product = new Product();
@@ -130,7 +130,7 @@ class XxContext
     /**
      * @Then the :rowText row should have a check mark
      */
-    public function theProductRowShouldShowAsPublished($rowText)
+    public function theProductRowShouldShowAsPublished($rowText): void
     {
         $row = $this->findRowByText($rowText);
 
@@ -140,7 +140,7 @@ class XxContext
     /**
      * @When I press :linkText in the :rowText row
      */
-    public function iClickInTheRow($linkText, $rowText)
+    public function iClickInTheRow($linkText, $rowText): void
     {
         $this->findRowByText($rowText)->pressButton($linkText);
     }
@@ -148,7 +148,7 @@ class XxContext
     /**
      * @When I click :linkName
      */
-    public function iClick($linkName)
+    public function iClick($linkName): void
     {
         $this->getPage()->clickLink($linkName);
     }
@@ -156,18 +156,18 @@ class XxContext
     /**
      * @Then I should see :count products
      */
-    public function iShouldSeeProducts($count)
+    public function iShouldSeeProducts($count): void
     {
         $table = $this->getPage()->find('css', 'table.table');
         assertNotNull($table, 'Cannot find a table!');
 
-        assertCount(intval($count), $table->findAll('css', 'tbody tr'));
+        assertCount((int) $count, $table->findAll('css', 'tbody tr'));
     }
 
     /**
      * @Given I am logged in as an admin
      */
-    public function iAmLoggedInAsAnAdmin()
+    public function iAmLoggedInAsAnAdmin(): void
     {
         $this->currentUser = $this->thereIsAnAdminUserWithPassword('admin', 'admin');
 
@@ -180,7 +180,7 @@ class XxContext
     /**
      * @When I wait for the modal to load
      */
-    public function iWaitForTheModalToLoad()
+    public function iWaitForTheModalToLoad(): void
     {
         $this->getSession()->wait(
             5000,
@@ -193,7 +193,7 @@ class XxContext
      *
      * @Then (I )break
      */
-    public function iPutABreakpoint()
+    public function iPutABreakpoint(): void
     {
         fwrite(STDOUT, "\033[s    \033[93m[Breakpoint] Press \033[1;93m[RETURN]\033[0;93m to continue...\033[0m");
         while ('' == fgets(STDIN, 1024)) {
@@ -208,37 +208,31 @@ class XxContext
      *
      * @When I save a screenshot to :filename
      */
-    public function iSaveAScreenshotIn($filename)
+    public function iSaveAScreenshotIn($filename): void
     {
         sleep(1);
-        $this->saveScreenshot($filename, __DIR__.'/../sallessf');
+        $this->saveScreenshot($filename, __DIR__ . '/../sallessf');
     }
 
-    /**
-     * @return \Behat\Mink\Element\DocumentElement
-     */
-    private function getPage()
+    private function getPage(): DocumentElement
     {
         return $this->getSession()->getPage();
     }
 
-    /**
-     * @return \Doctrine\ORM\EntityManager
-     */
-    private function getEntityManager()
+    private function getEntityManager(): EntityManager
     {
         return $this->getContainer()->get('doctrine.orm.entity_manager');
     }
 
-    private function createProducts($count, User $author = null)
+    private function createProducts($count, User $author = null): void
     {
         for ($i = 0; $i < $count; ++$i) {
             $product = new Product();
-            $product->setName('Product '.$i);
+            $product->setName('Product ' . $i);
             $product->setPrice(rand(10, 1000));
             $product->setDescription('lorem');
 
-            if ($author) {
+            if ($author !== null) {
                 $product->setAuthor($author);
             }
 
@@ -250,10 +244,8 @@ class XxContext
 
     /**
      * @param $rowText
-     *
-     * @return \Behat\Mink\Element\NodeElement
      */
-    private function findRowByText($rowText)
+    private function findRowByText($rowText): ?NodeElement
     {
         $row = $this->getPage()->find('css', sprintf('table tr:contains("%s")', $rowText));
         assertNotNull($row, 'Cannot find a table row with this text!');

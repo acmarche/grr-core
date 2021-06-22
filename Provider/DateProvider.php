@@ -5,19 +5,14 @@ namespace Grr\Core\Provider;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Carbon\CarbonPeriod;
+use DateTimeInterface;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\I18n\LocalHelper;
 
 class DateProvider
 {
-    /**
-     * @var LocalHelper
-     */
-    private $localHelper;
-    /**
-     * @var CarbonFactory
-     */
-    private $carbonFactory;
+    private LocalHelper $localHelper;
+    private CarbonFactory $carbonFactory;
 
     public function __construct(LocalHelper $localHelper, CarbonFactory $carbonFactory)
     {
@@ -60,7 +55,7 @@ class DateProvider
         return range(1, CarbonInterface::HOURS_PER_DAY);
     }
 
-    public function daysOfMonth(\DateTimeInterface $date): CarbonPeriod
+    public function daysOfMonth(DateTimeInterface $date): CarbonPeriod
     {
         $carbon = $this->carbonFactory->instance($date);
 
@@ -74,7 +69,7 @@ class DateProvider
      *
      * @return CarbonPeriod[]
      */
-    public function weeksOfMonth(\DateTimeInterface $date): array
+    public function weeksOfMonth(DateTimeInterface $date): array
     {
         $weeks = [];
         $firstDayMonth = $this->carbonFactory->instance($date)->firstOfMonth();

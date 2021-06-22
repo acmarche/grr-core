@@ -11,7 +11,7 @@ class CompanyNameSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::COMPANY;
+    public const NAME = SettingConstants::COMPANY;
 
     public function name(): string
     {

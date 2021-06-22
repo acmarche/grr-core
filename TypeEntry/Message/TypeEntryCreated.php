@@ -4,10 +4,7 @@ namespace Grr\Core\TypeEntry\Message;
 
 final class TypeEntryCreated
 {
-    /**
-     * @var int
-     */
-    private $typeEntryId;
+    private int $typeEntryId;
 
     public function __construct(int $typeEntryId)
     {

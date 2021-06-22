@@ -4,10 +4,7 @@ namespace Grr\Core\Entry\Message;
 
 final class EntryInitialized
 {
-    /**
-     * @var int|null
-     */
-    private $entryId;
+    private ?int $entryId;
 
     public function __construct(?int $entryId)
     {

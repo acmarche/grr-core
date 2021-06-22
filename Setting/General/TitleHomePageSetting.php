@@ -11,7 +11,7 @@ class TitleHomePageSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::TITLE_HOME_PAGE;
+    public const NAME = SettingConstants::TITLE_HOME_PAGE;
 
     public function label(): string
     {

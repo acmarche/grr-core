@@ -4,10 +4,7 @@ namespace Grr\Core\Room\Message;
 
 final class RoomCreated
 {
-    /**
-     * @var int
-     */
-    private $roomId;
+    private int $roomId;
 
     public function __construct(int $roomId)
     {

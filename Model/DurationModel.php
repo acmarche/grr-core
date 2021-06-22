@@ -4,17 +4,15 @@ namespace Grr\Core\Model;
 
 class DurationModel
 {
-    const UNIT_TIME_MINUTES = 1;
-    const UNIT_TIME_HOURS = 2;
-    const UNIT_TIME_DAYS = 3;
-    const UNIT_TIME_WEEKS = 4;
+    public const UNIT_TIME_MINUTES = 1;
+    public const UNIT_TIME_HOURS = 2;
+    public const UNIT_TIME_DAYS = 3;
+    public const UNIT_TIME_WEEKS = 4;
 
     /**
      * Unité de temps.
-     *
-     * @var int
      */
-    private $unit;
+    private int $unit;
 
     /**
      * Le temps en flottant.
@@ -23,10 +21,7 @@ class DurationModel
      */
     private $time;
 
-    /**
-     * @var bool
-     */
-    private $full_day;
+    private bool $full_day;
 
     /**
      * Encodage de la date de fin de l'entry.

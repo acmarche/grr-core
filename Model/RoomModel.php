@@ -8,10 +8,7 @@ use Grr\Core\Contrat\Entity\RoomInterface;
 
 class RoomModel
 {
-    /**
-     * @var RoomInterface
-     */
-    protected $room;
+    protected RoomInterface $room;
 
     /**
      * @var ArrayCollection|DataDay[]

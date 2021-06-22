@@ -9,14 +9,8 @@ use Grr\Core\Contrat\Entity\PeriodicityInterface;
 
 class Weekly
 {
-    /**
-     * @var \Carbon\Carbon|mixed
-     */
-    public $entry_start;
-    /**
-     * @var \Carbon\Carbon|mixed
-     */
-    public $periodicity_end;
+    public ?Carbon $entry_start = null;
+    public ?Carbon $periodicity_end = null;
 
     public function getDaysByEntry(EntryInterface $entry)
     {
@@ -57,9 +51,7 @@ class Weekly
          *
          * @return bool
          */
-        $filterDayOfWeek = function ($date) use ($days): bool {
-            return in_array($date->dayOfWeekIso, $days, true);
-        };
+        $filterDayOfWeek = fn ($date): bool => in_array($date->dayOfWeekIso, $days, true);
 
         /**
          * Carbon::class
@@ -77,9 +69,7 @@ class Weekly
          *
          * @return bool
          */
-        $filterWeek = function ($date) use ($repeat_week): bool {
-            return 0 === $date->weekOfYear % $repeat_week;
-        };
+        $filterWeek = fn ($date): bool => 0 === $date->weekOfYear % $repeat_week;
 
         $period->excludeStartDate();
         $period->addFilter($filterDayOfWeek);

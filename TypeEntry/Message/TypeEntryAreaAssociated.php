@@ -4,10 +4,7 @@ namespace Grr\Core\TypeEntry\Message;
 
 final class TypeEntryAreaAssociated
 {
-    /**
-     * @var int
-     */
-    private $areaId;
+    private int $areaId;
 
     public function __construct(int $areaId)
     {

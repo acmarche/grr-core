@@ -11,6 +11,7 @@
 namespace Grr\Core\Authorization\Entity;
 
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 
 trait AuthorizationsFieldTrait
@@ -18,9 +19,9 @@ trait AuthorizationsFieldTrait
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="area", orphanRemoval=true)
      *
-     * @var AuthorizationInterface[]|\Doctrine\Common\Collections\Collection
+     * @var AuthorizationInterface[]|Collection
      */
-    private $authorizations;
+    private iterable $authorizations;
 
     /**
      * @return Collection|AuthorizationInterface[]

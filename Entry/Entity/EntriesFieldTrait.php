@@ -19,9 +19,9 @@ trait EntriesFieldTrait
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="room", cascade={"remove"})
      *
-     * @var EntryInterface[]|\Doctrine\Common\Collections\Collection
+     * @var EntryInterface[]|Collection
      */
-    private $entries;
+    private iterable $entries;
 
     /**
      * @return Collection|EntryInterface[]

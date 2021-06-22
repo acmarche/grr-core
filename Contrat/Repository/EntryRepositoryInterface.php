@@ -4,6 +4,7 @@ namespace Grr\Core\Contrat\Repository;
 
 use Carbon\CarbonInterface;
 use DateTimeInterface;
+use Doctrine\ORM\NonUniqueResultException;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Contrat\Entity\PeriodicityInterface;
@@ -48,7 +49,7 @@ interface EntryRepositoryInterface
      *
      * @return mixed
      *
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function getBaseEntryForPeriodicity(PeriodicityInterface $periodicity);
 

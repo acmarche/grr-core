@@ -11,7 +11,7 @@ class FullDaySetting
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::FULL_DAY;
+    public const NAME = SettingConstants::FULL_DAY;
 
     public function label(): string
     {
@@ -42,7 +42,7 @@ class FullDaySetting
         return false;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,

@@ -2,6 +2,7 @@
 
 namespace Grr\Core\Entry\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,6 +17,7 @@ use Grr\Core\Periodicity\Entity\PeriodicityFieldTrait;
 use Grr\Core\Room\Entity\RoomFieldTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Type;
 
 /**
  * Entry.
@@ -29,116 +31,116 @@ trait EntryTrait
     use PeriodicityFieldTrait;
 
     /**
-     * @var \DateTimeInterface
+     * @var DateTimeInterface
      *
      * @Assert\Type("DateTime")
      * @Assert\LessThan(propertyPath="endTime", message="entry.constraint.start_smaller_end")
      * @ORM\Column(type="datetime", nullable=false)
      */
-    private $startTime;
+    private DateTimeInterface $startTime;
 
     /**
-     * @var \DateTimeInterface
+     * @var DateTimeInterface
      * @Assert\Type("DateTime")
      * @ORM\Column(type="datetime", nullable=false)
      */
-    private $endTime;
+    private DateTimeInterface $endTime;
 
     /**
      * @var string|null
      *
      * @ORM\Column(type="string", length=100, nullable=false)
      */
-    private $createdBy;
+    private string $createdBy;
 
     /**
      * @var string|null
      *
      * @ORM\Column(type="string", length=100, nullable=true)
      */
-    private $reservedFor;
+    private ?string $reservedFor;
 
     /**
      * @var string|null
      *
      * @ORM\Column(type="text", length=65535, nullable=true)
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=1, nullable=true)
      */
-    private $statutEntry;
+    private ?string $statutEntry;
 
     /**
      * @var int
      *
      * @ORM\Column(type="integer", nullable=false)
      */
-    private $optionReservation;
+    private int $optionReservation;
 
     /**
      * @var string|null
      *
      * @ORM\Column(type="text", length=65535, nullable=true)
      */
-    private $overloadDesc;
+    private ?string $overloadDesc;
 
     /**
      * @var bool|null
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $moderate;
+    private bool $moderate;
 
     /**
      * @var bool|null
      *
      * @ORM\Column(type="boolean", options={"default"=0})
      */
-    private $private;
+    private bool $private;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private $jours;
+    private bool $jours;
 
     /**
      * @var TypeEntryInterface|null
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface", inversedBy="entries")
      * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
      */
-    private $type;
+    private ?TypeEntryInterface $type;
 
     /**
      * Util lors de l'ajout d'un Entry.
      *
      * @var AreaInterface|null
      */
-    private $area;
+    private ?AreaInterface $area;
 
     /**
      * @var DurationModel
      */
-    private $duration;
+    private DurationModel $duration;
 
     /**
      * Pour l'affichage, TimeSlot présents.
      *
      * @var ArrayCollection|TimeSlot[]
      */
-    private $locations = [];
+    private iterable $locations = [];
 
     /**
      * Pour l'affichage par jour, nbre de cellules occupees.
      *
      * @var int
      */
-    private $cellules;
+    private int $cellules;
 
     public function __construct()
     {
@@ -210,22 +212,22 @@ trait EntryTrait
         $this->locations = $locations;
     }
 
-    public function getStartTime(): ?\DateTimeInterface
+    public function getStartTime(): ?DateTimeInterface
     {
         return $this->startTime;
     }
 
-    public function setStartTime(\DateTimeInterface $dateTime): void
+    public function setStartTime(DateTimeInterface $dateTime): void
     {
         $this->startTime = $dateTime;
     }
 
-    public function getEndTime(): ?\DateTimeInterface
+    public function getEndTime(): ?DateTimeInterface
     {
         return $this->endTime;
     }
 
-    public function setEndTime(\DateTimeInterface $dateTime): void
+    public function setEndTime(DateTimeInterface $dateTime): void
     {
         $this->endTime = $dateTime;
     }

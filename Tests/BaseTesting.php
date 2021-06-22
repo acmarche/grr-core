@@ -10,9 +10,9 @@
 
 namespace Grr\Core\Tests;
 
+use DateTime;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\EntityManager;
-use Fidry\AliceDataFixtures\LoaderInterface;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Contrat\Entity\PeriodicityInterface;
@@ -36,34 +36,13 @@ class BaseTesting extends WebTestCase
      * @var EntityManager
      */
     protected $entityManager;
-    /**
-     * @var LoaderInterface
-     */
-    protected $loader;
-    /**
-     * @var NativeLoader
-     */
-    protected $loaderSimple;
-    /**
-     * @var string
-     */
-    protected $pathFixtures;
-    /**
-     * @var KernelInterface
-     */
-    protected $kernel2;
-    /**
-     * @var KernelBrowser
-     */
-    protected $administrator;
-    /**
-     * @var KernelBrowser
-     */
-    protected $bob;
-    /**
-     * @var KernelBrowser
-     */
-    protected $brenda;
+    protected ?object $loader = null;
+    protected NativeLoader $loaderSimple;
+    protected string $pathFixtures;
+    protected ?KernelInterface $kernel2 = null;
+    protected KernelBrowser $administrator;
+    protected KernelBrowser $bob;
+    protected KernelBrowser $brenda;
 
     /**
      * {@inheritdoc}
@@ -76,7 +55,7 @@ class BaseTesting extends WebTestCase
             ->get('doctrine')
             ->getManager();
 
-        $this->pathFixtures = $this->kernel2->getProjectDir().'/src/Grr/GrrBundle/src/Fixtures/';
+        $this->pathFixtures = $this->kernel2->getProjectDir() . '/src/Grr/GrrBundle/src/Fixtures/';
         $this->loader = $this->kernel2->getContainer()->get('fidry_alice_data_fixtures.loader.doctrine');
 
         $loader = new NativeLoader();
@@ -136,7 +115,7 @@ class BaseTesting extends WebTestCase
 
     protected function getPeriodicity(int $type, string $endTime): ?PeriodicityInterface
     {
-        $dateTime = \DateTime::createFromFormat('Y-m-d', $endTime);
+        $dateTime = DateTime::createFromFormat('Y-m-d', $endTime);
 
         return $this->entityManager
             ->getRepository(PeriodicityInterface::class)

@@ -16,17 +16,12 @@ use Exception;
 use Grr\Core\Contrat\Front\ViewInterface;
 use Grr\GrrBundle\Area\Repository\AreaRepository;
 use Grr\GrrBundle\Entry\Repository\EntryRepository;
+use RuntimeException;
 
 class FeatureContext extends RawMinkContext
 {
-    /**
-     * @var EntryRepository
-     */
-    private $entryRepository;
-    /**
-     * @var AreaRepository
-     */
-    private $areaRepository;
+    private EntryRepository $entryRepository;
+    private AreaRepository $areaRepository;
 
     public function __construct(EntryRepository $entryRepository, AreaRepository $areaRepository)
     {
@@ -41,7 +36,7 @@ class FeatureContext extends RawMinkContext
         $profile = $driver->getClient()->getProfile();
         var_dump($profile);
         if (false === $profile) {
-            throw new \RuntimeException('The profiler is disabled. Activate it by setting '.'framework.profiler.only_exceptions to false in '.'your config');
+            throw new RuntimeException('The profiler is disabled. Activate it by setting ' . 'framework.profiler.only_exceptions to false in ' . 'your config');
         }
 
         return $profile;
@@ -151,7 +146,7 @@ class FeatureContext extends RawMinkContext
      */
     public function clickLinkWeek(): void
     {
-        $link = 's'.Carbon::today()->week;
+        $link = 's' . Carbon::today()->week;
         $link = $this->fixStepArgument($link);
         $this->getSession()->getPage()->clickLink($link);
     }
@@ -179,7 +174,7 @@ class FeatureContext extends RawMinkContext
         $sContent = $this->getSession()->getPage()->getText();
         $iFound = substr_count($sContent, $sText);
         if ($iExpected != $iFound) {
-            throw new Exception('Found '.$iFound.' occurences of "'.$sText.'" when expecting '.$iExpected);
+            throw new Exception('Found ' . $iFound . ' occurences of "' . $sText . '" when expecting ' . $iExpected);
         }
     }
 
@@ -189,7 +184,7 @@ class FeatureContext extends RawMinkContext
     public function iAmOnThePageShowEntry(string $name): void
     {
         $entry = $this->entryRepository->findOneBy(['name' => $name]);
-        $path = '/fr/front/entry/'.$entry->getId();
+        $path = '/fr/front/entry/' . $entry->getId();
         $this->visitPath($path);
     }
 
@@ -199,7 +194,7 @@ class FeatureContext extends RawMinkContext
     public function iAmOnThePageMonthView(string $date, string $areaName): void
     {
         $area = $this->areaRepository->findOneBy(['name' => $areaName]);
-        $path = '/fr/front/area/'.$area->getId().'/date/'.$date.'/view/'.ViewInterface::VIEW_MONTHLY.'/room';
+        $path = '/fr/front/area/' . $area->getId() . '/date/' . $date . '/view/' . ViewInterface::VIEW_MONTHLY . '/room';
         $this->visitPath($path);
     }
 

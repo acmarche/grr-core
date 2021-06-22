@@ -19,15 +19,12 @@ use Symfony\Component\Ldap\LdapInterface;
 
 class LdapAuth implements LdapInterface
 {
-    /**
-     * @var AdapterInterface
-     */
-    private $adapter;
+    private AdapterInterface $adapter;
 
     /**
      * @var string[]
      */
-    private static $adapterMap = [
+    private static array $adapterMap = [
         'ext_ldap' => 'Symfony\Component\Ldap\Adapter\ExtLdap\Adapter',
     ];
 

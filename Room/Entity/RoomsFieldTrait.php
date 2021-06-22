@@ -12,6 +12,7 @@ namespace Grr\Core\Room\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\RoomInterface;
 
 trait RoomsFieldTrait
@@ -21,7 +22,7 @@ trait RoomsFieldTrait
      *
      * @var ArrayCollection
      */
-    private $rooms;
+    private iterable $rooms;
 
     /**
      * @return Collection|RoomInterface[]

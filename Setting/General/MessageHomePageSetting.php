@@ -11,7 +11,7 @@ class MessageHomePageSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::MESSAGE_HOME_PAGE;
+    public const NAME = SettingConstants::MESSAGE_HOME_PAGE;
 
     public function label(): string
     {
@@ -44,7 +44,8 @@ class MessageHomePageSetting implements SettingGeneralInterface
 
     public function addFieldForm(FormInterface $form)
     {
-        $form->add(self::NAME,
+        $form->add(
+            self::NAME,
             TextareaType::class,
             [
                 'required' => $this->isRequired(),

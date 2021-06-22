@@ -13,10 +13,7 @@ use Doctrine\ORM\QueryBuilder;
 
 class QueryHelper
 {
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
+    private QueryBuilder $queryBuilder;
 
     public function __construct(QueryBuilder $queryBuilder)
     {

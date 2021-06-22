@@ -11,7 +11,7 @@ class SendAlwaysEmailToCreatorSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::SEND_ALWAYS_MAIL_TO_CREATOR;
+    public const NAME = SettingConstants::SEND_ALWAYS_MAIL_TO_CREATOR;
 
     public function label(): string
     {

@@ -20,9 +20,9 @@ trait TypesEntryFieldTrait
      * @ORM\ManyToMany(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface")
      * @ORM\JoinTable(name="area_entry_type")
      *
-     * @var TypeEntryInterface[]|\Doctrine\Common\Collections\Collection
+     * @var TypeEntryInterface[]|Collection
      */
-    private $typesEntry;
+    private iterable $typesEntry;
 
     /**
      * @return Collection|TypeEntryInterface[]

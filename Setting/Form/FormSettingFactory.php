@@ -6,21 +6,13 @@ use Grr\Core\Setting\Repository\SettingProvider;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
+use Traversable;
 
 class FormSettingFactory
 {
-    /**
-     * @var SettingProvider
-     */
-    private $settingProvider;
-    /**
-     * @var FormFactoryInterface
-     */
-    private $formFactory;
-    /**
-     * @var ContainerInterface
-     */
-    private $criteria;
+    private SettingProvider $settingProvider;
+    private FormFactoryInterface $formFactory;
+    private ContainerInterface $criteria;
 
     public function __construct(
         SettingProvider $settingProvider,
@@ -51,7 +43,7 @@ class FormSettingFactory
         return $form;
     }
 
-    private function loadValues(\Traversable $settings): array
+    private function loadValues(Traversable $settings): array
     {
         $data = [];
 
@@ -62,7 +54,7 @@ class FormSettingFactory
         return $data;
     }
 
-    private function sort(\Traversable $settings)
+    private function sort(Traversable $settings): array
     {
         $ordered = iterator_to_array($settings);
         usort(

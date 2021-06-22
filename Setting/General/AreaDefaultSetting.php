@@ -13,12 +13,9 @@ class AreaDefaultSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::AREA_DEFAULT;
+    public const NAME = SettingConstants::AREA_DEFAULT;
 
-    /**
-     * @var AreaRepositoryInterface
-     */
-    private $areaRepository;
+    private AreaRepositoryInterface $areaRepository;
 
     public function __construct(AreaRepositoryInterface $areaRepository)
     {

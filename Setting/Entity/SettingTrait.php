@@ -17,23 +17,23 @@ trait SettingTrait
      *
      * @ORM\Column(type="string", length=32, nullable=false, unique=true)
      */
-    private $name;
+    private string $name;
 
     /**
      * @var string
      *
      * @ORM\Column(type="text", nullable=false)
      */
-    private $value;
+    private string $value;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private $required;
+    private bool $required;
 
-    public function __construct(string $name, $value)
+    public function __construct(string $name, string $value)
     {
         $this->name = $name;
         $this->value = $value;

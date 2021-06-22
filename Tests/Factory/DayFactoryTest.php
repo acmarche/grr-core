@@ -23,10 +23,7 @@ use Symfony\Component\Security\Core\Security;
 
 class DayFactoryTest extends BaseTesting
 {
-    /**
-     * @var DataDayFactory
-     */
-    private $dayFactory;
+    private DataDayFactory $dayFactory;
 
     protected function setUp(): void
     {

@@ -11,7 +11,7 @@ class NbCalendarSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::NB_CALENDAR;
+    public const NAME = SettingConstants::NB_CALENDAR;
 
     public function label(): string
     {

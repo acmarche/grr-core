@@ -9,15 +9,12 @@ use Grr\Core\Contrat\Entity\EntryInterface;
 
 class DataDay
 {
-    /**
-     * @var CarbonInterface
-     */
-    protected $day;
+    protected CarbonInterface $day;
 
     /**
      * @var ArrayCollection|EntryInterface[]
      */
-    protected $entries;
+    protected Collection $entries;
 
     public function __construct(CarbonInterface $day)
     {

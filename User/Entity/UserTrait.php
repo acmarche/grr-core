@@ -2,6 +2,7 @@
 
 namespace Grr\Core\User\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +14,7 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Doctrine\Traits\RolesTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 trait UserTrait
 {
@@ -23,75 +25,58 @@ trait UserTrait
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     *
-     * @var string
      */
-    private $username;
+    private string $username;
 
     /**
-     * @var string
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    private string $email;
 
     /**
      * @ORM\Column(type="json")
-     *
-     * @var mixed[]
      */
-    private $roles = [];
+    private array $roles = [];
 
     /**
-     * @var string|null The hashed password
      * @ORM\Column(type="string", nullable=true)
      */
-    private $password;
+    private ?string $password;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
-     *
-     * @var string|null
      */
-    private $first_name;
+    private ?string $first_name;
 
     /**
      * @ORM\Column(type="boolean")
-     *
-     * @var bool
      */
-    private $isEnabled;
+    private bool $isEnabled;
     /**
      * @ORM\Column(type="string", nullable=true)
-     *
-     * @var string
      */
-    private $languageDefault;
+    private ?string $languageDefault;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface")
-     *
-     * @var AreaInterface
      */
-    private $area;
+    private AreaInterface $area;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface")
      *
-     * @var RoomInterface
      */
-    private $room;
+    private RoomInterface $room;
 
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="user", orphanRemoval=true)
-     *
-     * @var AuthorizationInterface[]
      */
-    private $authorizations;
+    private iterable $authorizations;
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
         $this->isEnabled = true;
         $this->authorizations = new ArrayCollection();
     }

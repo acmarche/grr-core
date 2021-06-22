@@ -11,7 +11,7 @@ class TechnicalSupportEmailSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::TECHNICAL_SUPPORT_EMAIL;
+    public const NAME = SettingConstants::TECHNICAL_SUPPORT_EMAIL;
 
     public function label(): string
     {

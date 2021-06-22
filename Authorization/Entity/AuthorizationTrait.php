@@ -21,7 +21,7 @@ trait AuthorizationTrait
      *
      * @var UserInterface
      */
-    private $user;
+    private UserInterface $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface", inversedBy="authorizations")
@@ -29,7 +29,7 @@ trait AuthorizationTrait
      *
      * @var AreaInterface|null
      */
-    private $area;
+    private ?AreaInterface $area;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", inversedBy="authorizations")
@@ -37,19 +37,19 @@ trait AuthorizationTrait
      *
      * @var RoomInterface|null
      */
-    private $room;
+    private ?RoomInterface $room;
 
     /**
      * @var bool
      * @ORM\Column(type="boolean")
      */
-    private $isAreaAdministrator;
+    private bool $isAreaAdministrator;
 
     /**
      * @var bool
      * @ORM\Column(type="boolean")
      */
-    private $isResourceAdministrator;
+    private bool $isResourceAdministrator;
 
     public function __construct()
     {

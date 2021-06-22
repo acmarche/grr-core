@@ -9,18 +9,9 @@ use Symfony\Component\Security\Core\Security;
 
 class LocalHelper
 {
-    /**
-     * @var ParameterBagInterface
-     */
-    private $parameterBag;
-    /**
-     * @var RequestStack
-     */
-    private $requestStack;
-    /**
-     * @var Security
-     */
-    private $security;
+    private ParameterBagInterface $parameterBag;
+    private RequestStack $requestStack;
+    private Security $security;
 
     public function __construct(ParameterBagInterface $parameterBag, Security $security, RequestStack $requestStack)
     {

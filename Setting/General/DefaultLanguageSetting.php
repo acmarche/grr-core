@@ -11,7 +11,7 @@ class DefaultLanguageSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::DEFAULT_LANGUAGE;
+    public const NAME = SettingConstants::DEFAULT_LANGUAGE;
 
     public function label(): string
     {

@@ -27,41 +27,41 @@ trait AreaTrait
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $orderDisplay;
+    private int $orderDisplay;
 
     /**
      * @var int
      * @Assert\LessThan(propertyPath="endTime", message="area.constraint.start_smaller_end")
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $startTime;
+    private int $startTime;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $endTime;
+    private int $endTime;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $weekStart;
+    private int $weekStart;
 
     /**
      * @var bool
      *
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private $is24HourFormat;
+    private bool $is24HourFormat;
     /**
      * @var array
      *
      * @ORM\Column(type="array", nullable=false)
      */
-    private $daysOfWeekToDisplay;
+    private array $daysOfWeekToDisplay;
 
     /**
      * Intervalle de temps.
@@ -70,7 +70,7 @@ trait AreaTrait
      *
      * @ORM\Column(type="integer", nullable=false)
      */
-    private $timeInterval;
+    private int $timeInterval;
 
     /**
      * Durée maximum qu'un utilisateur peut réserver.
@@ -79,7 +79,7 @@ trait AreaTrait
      *
      * @ORM\Column(type="integer", nullable=false)
      */
-    private $durationMaximumEntry;
+    private int $durationMaximumEntry;
 
     /**
      * Durée par défaut d'une réservation.
@@ -88,27 +88,27 @@ trait AreaTrait
      *
      * @ORM\Column(type="integer", nullable=false)
      */
-    private $durationDefaultEntry;
+    private int $durationDefaultEntry;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $minutesToAddToEndTime;
+    private int $minutesToAddToEndTime;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $maxBooking;
+    private int $maxBooking;
 
     /**
      * @var bool
      * @ORM\Column(type="boolean")
      */
-    private $isRestricted;
+    private bool $isRestricted;
 
     public function __construct()
     {

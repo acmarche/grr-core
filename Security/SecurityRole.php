@@ -10,23 +10,23 @@ class SecurityRole
      * Role minimal pour être authentifié.
      * Simple visiteur.
      */
-    const ROLE_GRR = 'ROLE_GRR';
+    public const ROLE_GRR = 'ROLE_GRR';
     /**
      * Role utilisateur actif.
      */
-    const ROLE_GRR_ACTIVE_USER = 'ROLE_GRR_ACTIVE_USER';
+    public const ROLE_GRR_ACTIVE_USER = 'ROLE_GRR_ACTIVE_USER';
     /**
      * Gestionnaire des utilisateurs.
      */
-    const ROLE_GRR_MANAGER_USER = 'ROLE_GRR_MANAGER_USER';
+    public const ROLE_GRR_MANAGER_USER = 'ROLE_GRR_MANAGER_USER';
     /**
      * Administrateur de grr.
      */
-    const ROLE_GRR_ADMINISTRATOR = 'ROLE_GRR_ADMINISTRATOR';
+    public const ROLE_GRR_ADMINISTRATOR = 'ROLE_GRR_ADMINISTRATOR';
     /**
      * Developpeur de grr.
      */
-    const ROLE_GRR_DEVELOPER = 'ROLE_GRR_DEVELOPER';
+    public const ROLE_GRR_DEVELOPER = 'ROLE_GRR_DEVELOPER';
     /**
      * @return mixed[]|bool
      */

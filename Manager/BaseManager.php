@@ -14,10 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 abstract class BaseManager
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    protected $entityManager;
+    protected EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

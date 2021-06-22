@@ -3,7 +3,9 @@
 namespace Grr\Core\TypeEntry\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Entry\Entity\EntriesFieldTrait;
@@ -19,37 +21,38 @@ trait TypeEntryTrait
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $orderDisplay;
+    private int $orderDisplay;
 
     /**
      * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    private $color;
+    private ?string $color;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=2, nullable=false, unique=true)
      */
-    private $letter;
+    private string $letter;
 
     /**
      * @var int
      *
      * @ORM\Column(type="smallint", nullable=false)
      */
-    private $available;
+    private int $available;
 
     /**
      * Override mappedBy.
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
      *
-     * @var \Grr\Core\Contrat\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
+     * @var EntryInterface[]|Collection
      */
-    private $entries;
+    private iterable $entries;
 
     public function __construct()
     {

@@ -15,7 +15,6 @@ use Knp\Snappy\Pdf;
 use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
-use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
@@ -23,18 +22,9 @@ use Twig\Environment;
 
 class GrrMailer
 {
-    /**
-     * @var Mailer
-     */
-    private $mailer;
-    /**
-     * @var Environment
-     */
-    private $environment;
-    /**
-     * @var Pdf
-     */
-    private $pdf;
+    private MailerInterface $mailer;
+    private Environment $environment;
+    private Pdf $pdf;
 
     public function __construct(MailerInterface $mailer, Environment $environment, Pdf $pdf)
     {

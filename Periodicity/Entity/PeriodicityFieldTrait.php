@@ -24,7 +24,7 @@ trait PeriodicityFieldTrait
      *
      * @var PeriodicityInterface|null
      */
-    private $periodicity;
+    private ?PeriodicityInterface $periodicity;
 
     public function getPeriodicity(): ?PeriodicityInterface
     {

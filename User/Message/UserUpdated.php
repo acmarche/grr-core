@@ -4,10 +4,7 @@ namespace Grr\Core\User\Message;
 
 final class UserUpdated
 {
-    /**
-     * @var int
-     */
-    private $userId;
+    private int $userId;
 
     public function __construct(int $userId)
     {

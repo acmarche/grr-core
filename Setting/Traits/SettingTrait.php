@@ -7,14 +7,8 @@ use Twig\Environment;
 
 trait SettingTrait
 {
-    /**
-     * @var SettingRepositoryInterface
-     */
-    protected $settingRepository;
-    /**
-     * @var Environment
-     */
-    protected $environment;
+    protected SettingRepositoryInterface $settingRepository;
+    protected Environment $environment;
 
     /**
      * @required

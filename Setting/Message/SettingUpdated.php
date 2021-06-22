@@ -4,10 +4,7 @@ namespace Grr\Core\Setting\Message;
 
 final class SettingUpdated
 {
-    /**
-     * @var array
-     */
-    private $settingsId;
+    private array $settingsId;
 
     public function __construct(array $settingsId)
     {

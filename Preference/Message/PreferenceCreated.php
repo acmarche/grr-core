@@ -4,10 +4,7 @@ namespace Grr\Core\Preference\Message;
 
 final class PreferenceCreated
 {
-    /**
-     * @var int
-     */
-    private $preferenceId;
+    private int $preferenceId;
 
     public function __construct(int $preferenceId)
     {

@@ -4,10 +4,7 @@ namespace Grr\Core\Area\Message;
 
 final class AreaCreated
 {
-    /**
-     * @var int
-     */
-    private $areaId;
+    private int $areaId;
 
     public function __construct(int $areaId)
     {

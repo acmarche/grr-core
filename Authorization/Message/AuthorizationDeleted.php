@@ -4,10 +4,7 @@ namespace Grr\Core\Authorization\Message;
 
 final class AuthorizationDeleted
 {
-    /**
-     * @var int
-     */
-    private $authorizationId;
+    private int $authorizationId;
 
     public function __construct(int $authorizationId)
     {

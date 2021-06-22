@@ -2,13 +2,16 @@
 
 namespace Grr\Core\Periodicity\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Doctrine\Traits\IdEntityTrait;
 use Grr\Core\Entry\Entity\EntriesFieldTrait;
 use Grr\Core\Periodicity\PeriodicityConstant;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Type;
 
 trait PeriodicityTrait
 {
@@ -19,9 +22,9 @@ trait PeriodicityTrait
      * @ORM\Column(type="date")
      * @Assert\Type("DateTime")
      *
-     * @var \DateTimeInterface
+     * @var DateTimeInterface
      */
-    private $endTime;
+    private DateTimeInterface $endTime;
 
     /**
      * Every month, every day, every...
@@ -29,17 +32,18 @@ trait PeriodicityTrait
      * @see PeriodicityConstant::getTypesPeriodicite
      *
      * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      *
      * @var int
      */
-    private $type;
+    private int $type;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      *
      * @var int|null
      */
-    private $weekRepeat;
+    private ?int $weekRepeat;
 
     /**
      * Monday, tuesday, wednesday...
@@ -49,23 +53,24 @@ trait PeriodicityTrait
      * @var int[]
      * @ORM\Column(type="array", nullable=true)
      */
-    private $weekDays;
+    private array $weekDays;
 
     /**
      * Override mappedBy.
      *
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
+     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
      *
-     * @var \Grr\Core\Contrat\Entity\EntryInterface[]|\Doctrine\Common\Collections\Collection
+     * @var EntryInterface[]|Collection
      */
-    private $entries;
+    private iterable $entries;
 
     /**
      * Use for validator form.
      *
      * @var EntryInterface|null
      */
-    private $entryReference;
+    private ?EntryInterface $entryReference;
 
     public function __construct(?EntryInterface $entry = null)
     {
@@ -85,12 +90,12 @@ trait PeriodicityTrait
         $this->entryReference = $entry;
     }
 
-    public function getEndTime(): ?\DateTimeInterface
+    public function getEndTime(): ?DateTimeInterface
     {
         return $this->endTime;
     }
 
-    public function setEndTime(\DateTimeInterface $dateTime): void
+    public function setEndTime(DateTimeInterface $dateTime): void
     {
         $this->endTime = $dateTime;
     }

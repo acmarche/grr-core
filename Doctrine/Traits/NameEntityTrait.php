@@ -16,11 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait NameEntityTrait
 {
     /**
-     * @var string
      * @Assert\NotBlank
      * @ORM\Column(type="string", length=80, nullable=false)
      */
-    private $name;
+    private ?string $name;
 
     public function getName(): ?string
     {

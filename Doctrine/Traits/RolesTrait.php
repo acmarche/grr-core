@@ -6,10 +6,7 @@ use Grr\Core\Security\SecurityRole;
 
 trait RolesTrait
 {
-    /**
-     * @var array
-     */
-    private $roles = [];
+    private array $roles = [];
 
     public function getRoles(): ?array
     {

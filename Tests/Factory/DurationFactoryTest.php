@@ -14,22 +14,10 @@ use Grr\GrrBundle\Room\Factory\RoomFactory;
 
 class DurationFactoryTest extends BaseTesting
 {
-    /**
-     * @var DurationFactory
-     */
-    private $durationFactory;
-    /**
-     * @var EntryFactory
-     */
-    private $entryFactory;
-    /**
-     * @var AreaFactory
-     */
-    private $areaFactory;
-    /**
-     * @var RoomFactory
-     */
-    private $roomFactory;
+    private DurationFactory $durationFactory;
+    private EntryFactory $entryFactory;
+    private AreaFactory $areaFactory;
+    private RoomFactory $roomFactory;
 
     protected function setUp(): void
     {
@@ -63,15 +51,15 @@ class DurationFactoryTest extends BaseTesting
         $room = $this->roomFactory->createNew($area);
         $room->setName('Salle1');
 
-        $entry = $this->entryFactory->initEntryForNew($area, $room, $year, $month, $day, $hour, $minute);
+        $entry = $this->entryFactory->initEntryForNew($area, $room, $year, $month, $day);
         $durationModel = $this->durationFactory->createByEntry($entry);
 
         $this->assertInstanceOf(DurationModel::class, $durationModel);
     }
 
     /**
-     * @param \DateTimeInterface $start
-     * @param \DateTimeInterface $end
+     * @param DateTimeInterface $start
+     * @param DateTimeInterface $end
      */
     public function testCreateByDates(): void
     {
@@ -132,7 +120,7 @@ class DurationFactoryTest extends BaseTesting
     }
 
     /**
-     * @return float[][]|\DateTime[][]|bool[][]
+     * @return float[][]|DateTime[][]|bool[][]
      */
     public function getDataForMinutes(): array
     {
@@ -153,7 +141,7 @@ class DurationFactoryTest extends BaseTesting
     }
 
     /**
-     * @return float[][]|\DateTime[][]|bool[][]
+     * @return float[][]|DateTime[][]|bool[][]
      */
     public function getDataForHours(): array
     {
@@ -179,7 +167,7 @@ class DurationFactoryTest extends BaseTesting
     }
 
     /**
-     * @return float[][]|\DateTime[][]|bool[][]
+     * @return float[][]|DateTime[][]|bool[][]
      */
     public function getDataForDays(): array
     {
@@ -200,7 +188,7 @@ class DurationFactoryTest extends BaseTesting
     }
 
     /**
-     * @return float[][]|\DateTime[][]|bool[][]
+     * @return float[][]|DateTime[][]|bool[][]
      */
     public function getDataForWeeks(): array
     {

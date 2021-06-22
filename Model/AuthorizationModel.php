@@ -9,10 +9,7 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 
 class AuthorizationModel
 {
-    /**
-     * @var AreaInterface|null
-     */
-    protected $area;
+    protected ?AreaInterface $area = null;
 
     /**
      * @var RoomInterface[]|array|ArrayCollection
@@ -24,10 +21,7 @@ class AuthorizationModel
      */
     protected $users;
 
-    /**
-     * @var int|null
-     */
-    private $role;
+    private ?int $role = null;
 
     public function __construct()
     {

@@ -11,7 +11,7 @@ class WebmasterEmailSetting implements SettingGeneralInterface
 {
     use SettingTrait;
 
-    const NAME = SettingConstants::WEBMASTER_EMAIL;
+    public const NAME = SettingConstants::WEBMASTER_EMAIL;
 
     public function label(): string
     {
