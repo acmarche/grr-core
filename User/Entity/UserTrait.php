@@ -60,13 +60,13 @@ trait UserTrait
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface")
      */
-    private AreaInterface $area;
+    private ?AreaInterface $area = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface")
      *
      */
-    private RoomInterface $room;
+    private ?RoomInterface $room= null;
 
     /**
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="user", orphanRemoval=true)
