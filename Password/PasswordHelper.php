@@ -11,19 +11,19 @@
 namespace Grr\Core\Password;
 
 use Grr\Core\Contrat\Entity\Security\UserInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class PasswordHelper
 {
-    private UserPasswordEncoderInterface $userPasswordEncoder;
+    private UserPasswordHasherInterface $userPasswordEncoder;
 
-    public function __construct(UserPasswordEncoderInterface $userPasswordEncoder)
+    public function __construct(UserPasswordHasherInterface $userPasswordEncoder)
     {
         $this->userPasswordEncoder = $userPasswordEncoder;
     }
 
     public function encodePassword(UserInterface $user, string $clearPassword): string
     {
-        return $this->userPasswordEncoder->encodePassword($user, $clearPassword);
+        return $this->userPasswordEncoder->hashPassword($user, $clearPassword);
     }
 }
