@@ -25,134 +25,96 @@ trait RoomTrait
     use EntriesFieldTrait;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=60, nullable=true)
      */
     private ?string $description;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="integer", nullable=false)
      */
     private int $capacity;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $maximumBooking;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean")
      */
     private bool $statutRoom;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(name="show_fic_room", type="boolean", nullable=false)
      */
     private bool $showFicRoom;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="picture_room", type="string", length=50, nullable=true)
      */
     private ?string $pictureRoom;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="comment_room", type="text", length=65535, nullable=true)
      */
     private ?string $commentRoom;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(name="show_comment", type="boolean", nullable=false)
      */
     private bool $showComment;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="delais_max_resa_room", type="smallint", nullable=false)
      */
     private int $delaisMaxResaRoom;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="delais_min_resa_room", type="smallint", nullable=false)
      */
     private int $delaisMinResaRoom;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean", nullable=false)
      */
     private bool $allowActionInPast;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $orderDisplay;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="delais_option_reservation", type="smallint", nullable=false)
      */
     private int $delaisOptionReservation;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean", nullable=false)
      */
     private bool $dontAllowModify;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="type_affichage_reser", type="smallint", nullable=false)
      */
     private int $typeAffichageReser;
 
     /**
-     * @var bool|null
-     *
      * @ORM\Column(name="moderate", type="boolean", nullable=true)
      */
     private bool $moderate;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="qui_peut_reserver_pour", type="string", length=1, nullable=false)
      */
     private string $quiPeutReserverPour;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean", nullable=false)
      */
     private bool $activeRessourceEmpruntee;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $ruleToAdd;
@@ -160,7 +122,6 @@ trait RoomTrait
     /**
      * Override pour mappedBy.
      *
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
      * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
      *
      * @var AuthorizationInterface[]|Collection

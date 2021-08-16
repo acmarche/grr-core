@@ -26,7 +26,7 @@ trait EntriesFieldTrait
     /**
      * @return Collection|EntryInterface[]
      */
-    public function getEntries(): Collection
+    public function getEntries(): iterable
     {
         return $this->entries;
     }

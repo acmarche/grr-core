@@ -63,13 +63,13 @@ interface AreaInterface
 
     public function setIsRestricted(bool $isRestricted): void;
 
-    public function getAuthorizations(): Collection;
+    public function getAuthorizations(): iterable;
 
     public function addAuthorization(AuthorizationInterface $authorization): void;
 
     public function removeAuthorization(AuthorizationInterface $authorization): void;
 
-    public function getTypesEntry(): Collection;
+    public function getTypesEntry(): iterable;
 
     public function addTypeEntry(TypeEntryInterface $typeEntry): void;
 
@@ -81,7 +81,7 @@ interface AreaInterface
 
     public function setName(string $name): void;
 
-    public function getRooms(): Collection;
+    public function getRooms(): iterable;
 
     public function addRoom(RoomInterface $room): void;
 

@@ -19,13 +19,13 @@ interface RoomInterface
 
     public function setArea(?AreaInterface $area): void;
 
-    public function getAuthorizations(): Collection;
+    public function getAuthorizations(): iterable;
 
     public function addAuthorization(AuthorizationInterface $authorization): void;
 
     public function removeAuthorization(AuthorizationInterface $authorization): void;
 
-    public function getEntries(): Collection;
+    public function getEntries(): iterable;
 
     public function addEntry(EntryInterface $entry): void;
 

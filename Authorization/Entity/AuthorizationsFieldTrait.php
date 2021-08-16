@@ -26,7 +26,7 @@ trait AuthorizationsFieldTrait
     /**
      * @return Collection|AuthorizationInterface[]
      */
-    public function getAuthorizations(): Collection
+    public function getAuthorizations(): iterable
     {
         return $this->authorizations;
     }

@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\Collection;
 
 interface TypeEntryInterface
 {
-    public function getEntries(): Collection;
+    public function getEntries(): iterable;
 
     public function addEntry(EntryInterface $entry): void;
 

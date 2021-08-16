@@ -59,7 +59,7 @@ interface UserInterface
 
     public function setIsEnabled(bool $is_enabled): void;
 
-    public function getAuthorizations(): Collection;
+    public function getAuthorizations(): iterable;
 
     public function addAuthorization(AuthorizationInterface $authorization): void;
 

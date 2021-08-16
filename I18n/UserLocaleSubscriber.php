@@ -10,6 +10,7 @@
 
 //https://symfony.com/doc/current/session/locale_sticky_session.html
 //https://symfony.com/doc/current/translation/locale.html
+//todo s'inspirer de https://github.com/symfony/demo/blob/main/src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php
 
 namespace Grr\Core\I18n;
 
