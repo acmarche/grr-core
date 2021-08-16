@@ -17,7 +17,7 @@ trait IdEntityTrait
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private int $id;
+    private ?int $id;
 
     public function getId(): ?int
     {

@@ -23,89 +23,64 @@ trait AreaTrait
     use TypesEntryFieldTrait;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $orderDisplay;
 
     /**
-     * @var int
      * @Assert\LessThan(propertyPath="endTime", message="area.constraint.start_smaller_end")
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $startTime;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $endTime;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $weekStart;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean", nullable=false)
      */
     private bool $is24HourFormat;
     /**
-     * @var array
-     *
      * @ORM\Column(type="array", nullable=false)
      */
     private array $daysOfWeekToDisplay;
 
     /**
      * Intervalle de temps.
-     *
-     * @var int
-     *
      * @ORM\Column(type="integer", nullable=false)
      */
     private int $timeInterval;
 
     /**
      * Durée maximum qu'un utilisateur peut réserver.
-     *
-     * @var int
-     *
      * @ORM\Column(type="integer", nullable=false)
      */
     private int $durationMaximumEntry;
 
     /**
      * Durée par défaut d'une réservation.
-     *
-     * @var int
-     *
      * @ORM\Column(type="integer", nullable=false)
      */
     private int $durationDefaultEntry;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $minutesToAddToEndTime;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="smallint", nullable=false)
      */
     private int $maxBooking;
 
     /**
-     * @var bool
      * @ORM\Column(type="boolean")
      */
     private bool $isRestricted;

@@ -102,7 +102,7 @@ trait RoomTrait
     /**
      * @ORM\Column(name="moderate", type="boolean", nullable=true)
      */
-    private bool $moderate;
+    private ?bool $moderate;
 
     /**
      * @ORM\Column(name="qui_peut_reserver_pour", type="string", length=1, nullable=false)
@@ -138,6 +138,7 @@ trait RoomTrait
         $this->delaisMaxResaRoom = 0;
         $this->delaisMinResaRoom = 0;
         $this->allowActionInPast = false;
+        $this->moderate = false;
         $this->orderDisplay = 0;
         $this->delaisOptionReservation = 0;
         $this->dontAllowModify = false;

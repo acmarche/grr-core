@@ -31,8 +31,6 @@ trait EntryTrait
     use PeriodicityFieldTrait;
 
     /**
-     * @var DateTimeInterface
-     *
      * @Assert\Type("DateTime")
      * @Assert\LessThan(propertyPath="endTime", message="entry.constraint.start_smaller_end")
      * @ORM\Column(type="datetime", nullable=false)
@@ -40,77 +38,57 @@ trait EntryTrait
     private DateTimeInterface $startTime;
 
     /**
-     * @var DateTimeInterface
      * @Assert\Type("DateTime")
      * @ORM\Column(type="datetime", nullable=false)
      */
     private DateTimeInterface $endTime;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", length=100, nullable=false)
      */
     private string $createdBy;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     private ?string $reservedFor;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="text", length=65535, nullable=true)
      */
     private ?string $description;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=1, nullable=true)
      */
     private ?string $statutEntry;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="integer", nullable=false)
      */
     private int $optionReservation;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="text", length=65535, nullable=true)
      */
     private ?string $overloadDesc;
 
     /**
-     * @var bool|null
-     *
      * @ORM\Column(type="boolean", nullable=true)
      */
     private bool $moderate;
 
     /**
-     * @var bool|null
-     *
      * @ORM\Column(type="boolean", options={"default"=0})
      */
     private bool $private;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean", nullable=false)
      */
     private bool $jours;
 
     /**
-     * @var TypeEntryInterface|null
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface", inversedBy="entries")
      * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
      */
@@ -123,9 +101,6 @@ trait EntryTrait
      */
     private ?AreaInterface $area;
 
-    /**
-     * @var DurationModel
-     */
     private DurationModel $duration;
 
     /**
@@ -137,8 +112,6 @@ trait EntryTrait
 
     /**
      * Pour l'affichage par jour, nbre de cellules occupees.
-     *
-     * @var int
      */
     private int $cellules;
 
