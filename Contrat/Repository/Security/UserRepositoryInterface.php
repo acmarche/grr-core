@@ -12,4 +12,9 @@ namespace Grr\Core\Contrat\Repository\Security;
 
 interface UserRepositoryInterface
 {
+    public function persist(object $entity);
+
+    public function flush();
+
+    public function remove(object $entity);
 }
