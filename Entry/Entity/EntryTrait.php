@@ -92,7 +92,7 @@ trait EntryTrait
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface", inversedBy="entries")
      * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
      */
-    private ?TypeEntryInterface $type;
+    private ?TypeEntryInterface $type = null;
 
     /**
      * Util lors de l'ajout d'un Entry.

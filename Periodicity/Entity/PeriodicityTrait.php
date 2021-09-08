@@ -21,8 +21,6 @@ trait PeriodicityTrait
     /**
      * @ORM\Column(type="date")
      * @Assert\Type("DateTime")
-     *
-     * @var DateTimeInterface
      */
     private DateTimeInterface $endTime;
 
@@ -33,15 +31,12 @@ trait PeriodicityTrait
      *
      * @ORM\Column(type="integer", nullable=false)
      * @ORM\Column(type="integer", nullable=false)
-     *
-     * @var int
      */
-    private int $type;
+    private ?int $type;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      *
-     * @var int|null
      */
     private ?int $weekRepeat;
 
@@ -67,8 +62,6 @@ trait PeriodicityTrait
 
     /**
      * Use for validator form.
-     *
-     * @var EntryInterface|null
      */
     private ?EntryInterface $entryReference;
 
@@ -100,12 +93,12 @@ trait PeriodicityTrait
         $this->endTime = $dateTime;
     }
 
-    public function getType(): int
+    public function getType(): ?int
     {
         return $this->type;
     }
 
-    public function setType(int $type): void
+    public function setType(?int $type): void
     {
         $this->type = $type;
     }
