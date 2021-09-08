@@ -46,12 +46,12 @@ trait EntryTrait
     /**
      * @ORM\Column(type="string", length=100, nullable=false)
      */
-    private string $createdBy;
+    private ?string $createdBy = null;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      */
-    private ?string $reservedFor;
+    private ?string $reservedFor = null;
 
     /**
      * @ORM\Column(type="text", length=65535, nullable=true)
@@ -154,9 +154,6 @@ trait EntryTrait
         return $this->duration;
     }
 
-    /**
-     * @return EntryInterface
-     */
     public function setDuration(?DurationModel $durationModel): void
     {
         $this->duration = $durationModel;

@@ -18,35 +18,27 @@ trait AuthorizationTrait
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\Security\UserInterface", inversedBy="authorizations")
      * @ORM\JoinColumn(nullable=false)
-     *
-     * @var UserInterface
      */
     private UserInterface $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface", inversedBy="authorizations")
      * @ORM\JoinColumn(nullable=true)
-     *
-     * @var AreaInterface|null
      */
     private ?AreaInterface $area;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", inversedBy="authorizations")
      * @ORM\JoinColumn(nullable=true)
-     *
-     * @var RoomInterface|null
      */
     private ?RoomInterface $room;
 
     /**
-     * @var bool
      * @ORM\Column(type="boolean")
      */
     private bool $isAreaAdministrator;
 
     /**
-     * @var bool
      * @ORM\Column(type="boolean")
      */
     private bool $isResourceAdministrator;

@@ -17,7 +17,7 @@ trait IdEntityTrait
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private ?int $id;
+    private ?int $id = null;//null a cause EntryRepository line 114
 
     public function getId(): ?int
     {

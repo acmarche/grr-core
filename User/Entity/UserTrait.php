@@ -99,14 +99,6 @@ trait UserTrait
     /**
      * @see UserInterface
      */
-    public function getSalt(): void
-    {
-        // not needed for apps that do not check user passwords
-    }
-
-    /**
-     * @see UserInterface
-     */
     public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
