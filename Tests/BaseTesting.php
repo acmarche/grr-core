@@ -21,9 +21,6 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Grr\Core\Contrat\Entity\TypeEntryInterface;
 use Grr\Core\Faker\CarbonFakerProvider;
 use Grr\GrrBundle\Authorization\Helper\AuthorizationHelper;
-use Grr\GrrBundle\Entity\Area;
-use Grr\GrrBundle\Entity\Room;
-use Grr\GrrBundle\Entity\Security\Authorization;
 use Grr\GrrBundle\User\Repository\UserRepository;
 use Nelmio\Alice\Loader\NativeLoader;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -52,7 +49,7 @@ class BaseTesting extends WebTestCase
             ->get('doctrine')
             ->getManager();
 
-        $this->pathFixtures = $this->kernel2->getProjectDir() . '/src/Grr/GrrBundle/src/Fixtures/';
+        $this->pathFixtures = $this->kernel2->getProjectDir().'/src/Grr/GrrBundle/src/Fixtures/';
         $this->loader = $this->kernel2->getContainer()->get('fidry_alice_data_fixtures.loader.doctrine');
 
         $loader = new NativeLoader();
@@ -142,11 +139,7 @@ class BaseTesting extends WebTestCase
 
     protected function initSecurityHelper(): AuthorizationHelper
     {
-        return new AuthorizationHelper(
-            $this->entityManager->getRepository(Authorization::class),
-            $this->entityManager->getRepository(Area::class),
-            $this->entityManager->getRepository(Room::class)
-        );
+        return self::getContainer()->get(AuthorizationHelper::class);
     }
 
     /**
