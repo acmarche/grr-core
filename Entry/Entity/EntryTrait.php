@@ -56,12 +56,12 @@ trait EntryTrait
     /**
      * @ORM\Column(type="text", length=65535, nullable=true)
      */
-    private ?string $description;
+    private ?string $description = null;
 
     /**
      * @ORM\Column(type="string", length=1, nullable=true)
      */
-    private ?string $statutEntry;
+    private ?string $statutEntry = null;
 
     /**
      * @ORM\Column(type="integer", nullable=false)
@@ -71,22 +71,22 @@ trait EntryTrait
     /**
      * @ORM\Column(type="text", length=65535, nullable=true)
      */
-    private ?string $overloadDesc;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private bool $moderate;
-
-    /**
-     * @ORM\Column(type="boolean", options={"default"=0})
-     */
-    private bool $private;
+    private ?string $overloadDesc= null;
 
     /**
      * @ORM\Column(type="boolean", nullable=false)
      */
-    private bool $jours;
+    private bool $moderate ;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private bool $private ;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private bool $jours = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface", inversedBy="entries")
