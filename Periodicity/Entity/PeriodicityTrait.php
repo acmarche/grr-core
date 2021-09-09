@@ -38,7 +38,7 @@ trait PeriodicityTrait
      * @ORM\Column(type="integer", nullable=true)
      *
      */
-    private ?int $weekRepeat;
+    private ?int $weekRepeat = null;
 
     /**
      * Monday, tuesday, wednesday...
