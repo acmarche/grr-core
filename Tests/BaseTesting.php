@@ -32,10 +32,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class BaseTesting extends WebTestCase
 {
-    /**
-     * @var EntityManager
-     */
-    protected $entityManager;
+    protected ?EntityManager $entityManager = null;
     protected ?object $loader = null;
     protected NativeLoader $loaderSimple;
     protected string $pathFixtures;
@@ -91,7 +88,7 @@ class BaseTesting extends WebTestCase
     {
         static::ensureKernelShutdown();
         $client = static::createClient();
-        $userRepository = static::$container->get(UserRepository::class);
+        $userRepository = static::getContainer()->get(UserRepository::class);
         $testUser = $userRepository->loadByUserNameOrEmail($username);
 
         $client->loginUser($testUser);
