@@ -28,14 +28,17 @@ class SecurityRole
      */
     public const ROLE_GRR_DEVELOPER = 'ROLE_GRR_DEVELOPER';
     /**
-     * @return mixed[]|bool
+     * Developpeur de grr.
      */
+    public const ROLE_GRR_BOKING = 'ROLE_GRR_BOKING';
+
     public const ROLES = [
         //self::ROLE_GRR => 'Visiteur',
         self::ROLE_GRR_ACTIVE_USER => 'Utilisateur actif',
         self::ROLE_GRR_MANAGER_USER => 'Gestionnaire des utilisateurs',
         self::ROLE_GRR_ADMINISTRATOR => 'Administrateur de Grr',
         self::ROLE_GRR_DEVELOPER => 'Developpeur de Grr',
+        self::ROLE_GRR_BOKING => 'Réservation depuis esquare.be',
     ];
 
     public static function niceName(array $roles): array
