@@ -11,10 +11,9 @@ use Traversable;
 class FormSettingFactory
 {
     public function __construct(
-        private SettingProvider      $settingProvider,
+        private SettingProvider $settingProvider,
         private FormFactoryInterface $formFactory
-    )
-    {
+    ) {
     }
 
     public function generate(): FormInterface
