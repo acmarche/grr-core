@@ -79,7 +79,7 @@ class DateProvider
         return $weeks;
     }
 
-    public function daysOfWeek(CarbonInterface $date): static|string
+    public function daysOfWeek(CarbonInterface $date): CarbonPeriod
     {
         $firstDayOfWeek = $date->copy()->startOfWeek()->toMutable()->toDateString();
         $lastDayOffWeek = $date->endOfWeek()->toDateString(); //+6
