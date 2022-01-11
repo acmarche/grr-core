@@ -38,9 +38,9 @@ interface AuthorizationInterface
 
     public function getId(): ?int;
 
-    public function getCreatedAt(): DateTimeInterface;
+    public function getCreatedAt(): ?DateTimeInterface;
 
-    public function getUpdatedAt(): DateTimeInterface;
+    public function getUpdatedAt(): ?DateTimeInterface;
 
     public function setCreatedAt(DateTimeInterface $createdAt): void;
 

@@ -15,32 +15,22 @@ trait AuthorizationTrait
     use IdEntityTrait;
     use TimestampableTrait;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\Security\UserInterface", inversedBy="authorizations")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: UserInterface::class, inversedBy: 'authorizations')]
+    #[ORM\JoinColumn(nullable: false)]
     private UserInterface $user;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface", inversedBy="authorizations")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private ?AreaInterface $area;
+    #[ORM\ManyToOne(targetEntity: AreaInterface::class, inversedBy: 'authorizations')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?AreaInterface $area = null;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", inversedBy="authorizations")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private ?RoomInterface $room;
+    #[ORM\ManyToOne(targetEntity: RoomInterface::class, inversedBy: 'authorizations')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?RoomInterface $room = null;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private bool $isAreaAdministrator;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private bool $isResourceAdministrator;
 
     public function __construct()

@@ -54,5 +54,4 @@ interface EntryRepositoryInterface
     public function getBaseEntryForPeriodicity(PeriodicityInterface $periodicity);
 
     public function findPeriodicityEntry(EntryInterface $entry): ?EntryInterface;
-
 }

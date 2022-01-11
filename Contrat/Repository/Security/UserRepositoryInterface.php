@@ -12,5 +12,4 @@ namespace Grr\Core\Contrat\Repository\Security;
 
 interface UserRepositoryInterface
 {
-
 }

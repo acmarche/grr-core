@@ -8,8 +8,6 @@ use Grr\Core\Contrat\Entity\RoomInterface;
 
 class RoomModel
 {
-    protected RoomInterface $room;
-
     /**
      * @var ArrayCollection|DataDay[]
      */
@@ -17,11 +15,11 @@ class RoomModel
     /**
      * @var ArrayCollection|EntryInterface[]
      */
-    private $entries;
+    private array|ArrayCollection $entries;
 
-    public function __construct(RoomInterface $room)
-    {
-        $this->room = $room;
+    public function __construct(
+        protected RoomInterface $room
+    ) {
         $this->data_days = new ArrayCollection();
         $this->entries = new ArrayCollection();
     }
@@ -33,7 +31,7 @@ class RoomModel
 
     public function addDataDay(DataDay $day): void
     {
-        if (!$this->data_days->contains($day)) {
+        if (! $this->data_days->contains($day)) {
             $this->data_days[] = $day;
         }
     }
@@ -41,7 +39,7 @@ class RoomModel
     /**
      * @return DataDay[]|ArrayCollection
      */
-    public function getDataDays()
+    public function getDataDays(): array|ArrayCollection
     {
         return $this->data_days;
     }
@@ -49,7 +47,7 @@ class RoomModel
     /**
      * @return EntryInterface[]|ArrayCollection
      */
-    public function getEntries()
+    public function getEntries(): array|ArrayCollection
     {
         return $this->entries;
     }

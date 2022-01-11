@@ -32,12 +32,12 @@ class TimeSlotsProviderTest extends BaseTesting
         $area = $this->initArea($hourBegin, $hourEnd, $resolution);
 
         $day = Carbon::today();
-        $day->hour = $hourBegin;
-        $day->minute = $minute;
+        $day->setHour($hourBegin);
+        $day->setMinute($minute);
 
         $timeSlotProvicer = $this->initTimeSlotProvider();
         $modelsTimeSlot = $timeSlotProvicer->getTimeSlotsByAreaAndDaySelected($area, $day);
-        self::assertGreaterThan(0, count($modelsTimeSlot));
+        self::assertGreaterThan(0, is_countable($modelsTimeSlot) ? \count($modelsTimeSlot) : 0);
 
         foreach ($modelsTimeSlot as $modelTimeSlot) {
             self::assertSame($modelTimeSlot->getBegin()->hour, $day->hour);
@@ -58,8 +58,8 @@ class TimeSlotsProviderTest extends BaseTesting
         $timeSlotProvicer = $this->initTimeSlotProvider();
         $timesSlot = $timeSlotProvicer->getTimeSlots($day, $hourBegin, $hourEnd, $resolution);
 
-        $day->hour = $hourBegin;
-        $day->minute = $minute;
+        $day->setHour($hourBegin);
+        $day->setMinute($minute);
 
         foreach ($timesSlot as $timeSlot) {
             self::assertSame($timeSlot->hour, $day->hour);
@@ -106,7 +106,8 @@ class TimeSlotsProviderTest extends BaseTesting
                 'hourBegin' => 10,
                 'hourEnd' => 20,
                 'resolution' => 15,
-                'minute' => 0, //todo if != 0
+                'minute' => 0,
+                //todo if != 0
             ],
         ];
     }

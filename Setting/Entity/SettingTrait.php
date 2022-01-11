@@ -14,23 +14,20 @@ trait SettingTrait
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=32, nullable=false, unique=true)
      */
+    #[ORM\Column(type: 'string', length: 32, nullable: false, unique: true)]
     private string $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text", nullable=false)
      */
+    #[ORM\Column(type: 'text', nullable: false)]
     private string $value;
 
     /**
      * @var bool
-     *
-     * @ORM\Column(type="boolean", nullable=false)
      */
+    #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $required;
 
     public function __construct(string $name, string $value)

@@ -18,11 +18,9 @@ use Doctrine\ORM\Mapping\ClassMetadataInfo;
  */
 class TablePrefix implements EventSubscriber
 {
-    protected string $prefix;
-
-    public function __construct(string $prefix = 'grr_')
-    {
-        $this->prefix = $prefix;
+    public function __construct(
+        protected string $prefix = 'grr_'
+    ) {
     }
 
     /**
@@ -39,11 +37,11 @@ class TablePrefix implements EventSubscriber
     {
         $classMetadata = $loadClassMetadataEventArgs->getClassMetadata();
 
-        if (!$classMetadata->isInheritanceTypeSingleTable() || $classMetadata->getName(
+        if (! $classMetadata->isInheritanceTypeSingleTable() || $classMetadata->getName(
             ) === $classMetadata->rootEntityName) {
             $classMetadata->setPrimaryTable(
                 [
-                    'name' => $this->prefix . $classMetadata->getTableName(),
+                    'name' => $this->prefix.$classMetadata->getTableName(),
                 ]
             );
         }
@@ -51,7 +49,7 @@ class TablePrefix implements EventSubscriber
         foreach ($classMetadata->getAssociationMappings() as $fieldName => $mapping) {
             if (ClassMetadataInfo::MANY_TO_MANY == $mapping['type'] && $mapping['isOwningSide']) {
                 $mappedTableName = $mapping['joinTable']['name'];
-                $classMetadata->associationMappings[$fieldName]['joinTable']['name'] = $this->prefix . $mappedTableName;
+                $classMetadata->associationMappings[$fieldName]['joinTable']['name'] = $this->prefix.$mappedTableName;
             }
         }
     }

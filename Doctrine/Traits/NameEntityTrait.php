@@ -15,11 +15,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 trait NameEntityTrait
 {
-    /**
-     * @Assert\NotBlank
-     * @ORM\Column(type="string", length=80, nullable=false)
-     */
-    private ?string $name;
+    #[Assert\NotBlank]
+    #[ORM\Column(type: 'string', length: 80, nullable: false)]
+    private ?string $name = null;
 
     public function getName(): ?string
     {

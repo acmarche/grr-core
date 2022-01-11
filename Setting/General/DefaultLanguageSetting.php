@@ -42,7 +42,7 @@ class DefaultLanguageSetting implements SettingGeneralInterface
         return false;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,
@@ -51,7 +51,9 @@ class DefaultLanguageSetting implements SettingGeneralInterface
                 'required' => $this->isRequired(),
                 'label' => $this->label(),
                 'help' => $this->help(),
-                'choices' => ['fr' => 'fr'],
+                'choices' => [
+                    'fr' => 'fr',
+                ],
             ]
         );
     }

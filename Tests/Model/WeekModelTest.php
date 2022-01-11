@@ -18,7 +18,7 @@ class WeekModelTest extends BaseTesting
         $this->assertSame('2019-08-19', $week->getFirstDay()->toDateString());
         $this->assertSame('2019-08-25', $week->getLastDay()->toDateString());
         foreach ($week->getCalendarDays() as $day) {
-            $this->assertTrue(in_array($day->toDateString(), $this->getDays()));
+            $this->assertTrue(\in_array($day->toDateString(), $this->getDays()));
         }
     }
 

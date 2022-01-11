@@ -18,10 +18,9 @@ use Grr\Core\Contrat\Entity\RoomInterface;
 trait RoomsFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", mappedBy="area")
-     *
      * @var ArrayCollection
      */
+    #[ORM\OneToMany(targetEntity: RoomInterface::class, mappedBy: 'area')]
     private iterable $rooms;
 
     /**
@@ -34,7 +33,7 @@ trait RoomsFieldTrait
 
     public function addRoom(RoomInterface $room): void
     {
-        if (!$this->rooms->contains($room)) {
+        if (! $this->rooms->contains($room)) {
             $this->rooms[] = $room;
             $room->setArea($this);
         }

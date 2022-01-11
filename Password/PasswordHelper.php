@@ -15,11 +15,9 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class PasswordHelper
 {
-    private UserPasswordHasherInterface $userPasswordEncoder;
-
-    public function __construct(UserPasswordHasherInterface $userPasswordEncoder)
-    {
-        $this->userPasswordEncoder = $userPasswordEncoder;
+    public function __construct(
+        private UserPasswordHasherInterface $userPasswordEncoder
+    ) {
     }
 
     public function encodePassword(UserInterface $user, string $clearPassword): string

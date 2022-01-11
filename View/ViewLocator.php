@@ -9,15 +9,10 @@ use Traversable;
 
 class ViewLocator
 {
-    private Traversable $renders;
-    private ServiceLocator $serviceLocator;
-
     public function __construct(
-        Traversable $renders,
-        ServiceLocator $serviceLocator
+        private Traversable $renders,
+        private ServiceLocator $serviceLocator
     ) {
-        $this->renders = $renders;
-        $this->serviceLocator = $serviceLocator;
     }
 
     public function loadAllInterface(): Traversable
@@ -33,6 +28,6 @@ class ViewLocator
         if ($this->serviceLocator->get($key)) {
             return $this->serviceLocator->get($key);
         }
-        throw new Exception('No class found for this vue ' . $key);
+        throw new Exception('No class found for this vue '.$key);
     }
 }

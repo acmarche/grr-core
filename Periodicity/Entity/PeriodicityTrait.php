@@ -2,6 +2,7 @@
 
 namespace Grr\Core\Periodicity\Entity;
 
+use DateTime;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -18,26 +19,20 @@ trait PeriodicityTrait
     use IdEntityTrait;
     use EntriesFieldTrait;
 
-    /**
-     * @ORM\Column(type="date")
-     * @Assert\Type("DateTime")
-     */
+    #[ORM\Column(type: 'date')]
+    #[Assert\Type(type: DateTime::class)]
     private DateTimeInterface $endTime;
 
     /**
      * Every month, every day, every...
      *
      * @see PeriodicityConstant::getTypesPeriodicite
-     *
-     * @ORM\Column(type="integer", nullable=false)
-     * @ORM\Column(type="integer", nullable=false)
      */
-    private ?int $type;
+    #[ORM\Column(type: 'integer', nullable: false)]
+    #[ORM\Column(type: 'integer', nullable: false)]
+    private ?int $type = null;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     *
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $weekRepeat = null;
 
     /**
@@ -46,24 +41,23 @@ trait PeriodicityTrait
      * @see DateProvider::weekDaysName();
      *
      * @var int[]
-     * @ORM\Column(type="array", nullable=true)
      */
+    #[ORM\Column(type: 'array', nullable: true)]
     private array $weekDays;
 
     /**
      * Override mappedBy.
      *
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="periodicity")
-     *
      * @var EntryInterface[]|Collection
      */
+    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'periodicity')]
+    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'periodicity')]
     private iterable $entries;
 
     /**
      * Use for validator form.
      */
-    private ?EntryInterface $entryReference;
+    private ?EntryInterface $entryReference = null;
 
     public function __construct(?EntryInterface $entry = null)
     {

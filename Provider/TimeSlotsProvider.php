@@ -12,11 +12,9 @@ use Grr\Core\Model\TimeSlot;
 
 class TimeSlotsProvider
 {
-    private CarbonFactory $carbonFactory;
-
-    public function __construct(CarbonFactory $carbonFactory)
-    {
-        $this->carbonFactory = $carbonFactory;
+    public function __construct(
+        private CarbonFactory $carbonFactory
+    ) {
     }
 
     /**

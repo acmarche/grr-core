@@ -17,10 +17,9 @@ use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 trait AuthorizationsFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="area", orphanRemoval=true)
-     *
      * @var AuthorizationInterface[]|Collection
      */
+    #[ORM\OneToMany(targetEntity: AuthorizationInterface::class, mappedBy: 'area', orphanRemoval: true)]
     private iterable $authorizations;
 
     /**
@@ -33,7 +32,7 @@ trait AuthorizationsFieldTrait
 
     public function addAuthorization(AuthorizationInterface $authorization): void
     {
-        if (!$this->authorizations->contains($authorization)) {
+        if (! $this->authorizations->contains($authorization)) {
             $this->authorizations[] = $authorization;
             $authorization->setArea($this);
         }

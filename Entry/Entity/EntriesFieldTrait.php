@@ -17,10 +17,9 @@ use Grr\Core\Contrat\Entity\EntryInterface;
 trait EntriesFieldTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="room", cascade={"remove"})
-     *
      * @var EntryInterface[]|Collection
      */
+    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'room', cascade: ['remove'])]
     private iterable $entries;
 
     /**
@@ -33,7 +32,7 @@ trait EntriesFieldTrait
 
     public function addEntry(EntryInterface $entry): void
     {
-        if (!$this->entries->contains($entry)) {
+        if (! $this->entries->contains($entry)) {
             $this->entries[] = $entry;
             $entry->setRoom($this);
         }

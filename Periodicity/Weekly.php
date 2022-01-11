@@ -4,19 +4,28 @@ namespace Grr\Core\Periodicity;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
 use Grr\Core\Contrat\Entity\PeriodicityInterface;
 
 class Weekly
 {
-    public ?Carbon $entry_start = null;
-    public ?Carbon $periodicity_end = null;
+    /**
+     * @var DateTime|DateTimeImmutable|null
+     */
+    public ?DateTimeInterface $entry_start = null;
+    /**
+     * @var DateTime|DateTimeImmutable|null
+     */
+    public ?DateTimeInterface $periodicity_end = null;
 
     public function getDaysByEntry(EntryInterface $entry)
     {
         $periodicity = $entry->getPeriodicity();
 
-        if (null === $periodicity) {
+        if (! $periodicity instanceof PeriodicityInterface) {
             return [];
         }
 
@@ -33,6 +42,8 @@ class Weekly
 
     protected function forEveryWeek(PeriodicityInterface $periodicity): CarbonPeriod
     {
+        $days = null;
+        $repeat_week = null;
         /**
          * monday, tuesday, wednesday.
          *
@@ -51,7 +62,7 @@ class Weekly
          *
          * @return bool
          */
-        $filterDayOfWeek = fn ($date): bool => in_array($date->dayOfWeekIso, $days, true);
+        $filterDayOfWeek = fn ($date): bool => \in_array($date->dayOfWeekIso, $days, true);
 
         /**
          * Carbon::class

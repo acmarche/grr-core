@@ -42,16 +42,16 @@ class MessageHomeSetting implements SettingGeneralInterface
         return false;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,
             TextareaType::class,
             [
-            'required' => $this->isRequired(),
-            'label' => $this->label(),
-            'help' => $this->help(),
-        ]
+                'required' => $this->isRequired(),
+                'label' => $this->label(),
+                'help' => $this->help(),
+            ]
         );
     }
 

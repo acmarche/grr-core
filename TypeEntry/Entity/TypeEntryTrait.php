@@ -18,40 +18,35 @@ trait TypeEntryTrait
 
     /**
      * @var int
-     *
-     * @ORM\Column(type="smallint", nullable=false)
      */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $orderDisplay;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(type="string", nullable=true)
      */
-    private ?string $color;
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $color = null;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=2, nullable=false, unique=true)
      */
+    #[ORM\Column(type: 'string', length: 2, nullable: false, unique: true)]
     private string $letter;
 
     /**
      * @var int
-     *
-     * @ORM\Column(type="smallint", nullable=false)
      */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $available;
 
     /**
      * Override mappedBy.
      *
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\EntryInterface", mappedBy="type")
-     *
      * @var EntryInterface[]|Collection
      */
+    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'type')]
+    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'type')]
     private iterable $entries;
 
     public function __construct()

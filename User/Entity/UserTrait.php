@@ -14,7 +14,6 @@ use Grr\Core\Doctrine\Traits\NameEntityTrait;
 use Grr\Core\Doctrine\Traits\RolesTrait;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 trait UserTrait
 {
@@ -23,54 +22,33 @@ trait UserTrait
     use NameEntityTrait;
     use RolesTrait;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     */
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $username;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     */
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $email;
 
-    /**
-     * @ORM\Column(type="json")
-     */
+    #[ORM\Column(type: 'json')]
     private array $roles = [];
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private ?string $password;
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $password = null;
 
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    private ?string $first_name;
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    private ?string $first_name = null;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private bool $isEnabled;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private ?string $languageDefault;
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $languageDefault = null;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\AreaInterface")
-     */
+    #[ORM\ManyToOne(targetEntity: AreaInterface::class)]
     private ?AreaInterface $area = null;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface")
-     *
-     */
-    private ?RoomInterface $room= null;
+    #[ORM\ManyToOne(targetEntity: RoomInterface::class)]
+    private ?RoomInterface $room = null;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="user", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: AuthorizationInterface::class, mappedBy: 'user', orphanRemoval: true)]
     private iterable $authorizations;
 
     public function __construct()
@@ -155,7 +133,7 @@ trait UserTrait
 
     public function addAuthorization(AuthorizationInterface $authorization): void
     {
-        if (!$this->authorizations->contains($authorization)) {
+        if (! $this->authorizations->contains($authorization)) {
             $this->authorizations[] = $authorization;
             $authorization->setUser($this);
         }

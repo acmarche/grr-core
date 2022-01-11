@@ -17,11 +17,9 @@ use Symfony\Component\Routing\RouterInterface;
 
 class FrontRouterHelper
 {
-    private RouterInterface $router;
-
-    public function __construct(RouterInterface $router)
-    {
-        $this->router = $router;
+    public function __construct(
+        private RouterInterface $router
+    ) {
     }
 
     public function generateMonthView(EntryInterface $entry, bool $withRoom = false): string
@@ -31,7 +29,11 @@ class FrontRouterHelper
 
         $date = Carbon::instance($entry->getStartTime());
 
-        $params = ['area' => $area->getId(), 'date' => $date, 'view' => ViewInterface::VIEW_MONTHLY];
+        $params = [
+            'area' => $area->getId(),
+            'date' => $date,
+            'view' => ViewInterface::VIEW_MONTHLY,
+        ];
 
         if ($withRoom) {
             $params['room'] = $room->getId();

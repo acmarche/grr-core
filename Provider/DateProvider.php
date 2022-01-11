@@ -11,13 +11,10 @@ use Grr\Core\I18n\LocalHelper;
 
 class DateProvider
 {
-    private LocalHelper $localHelper;
-    private CarbonFactory $carbonFactory;
-
-    public function __construct(LocalHelper $localHelper, CarbonFactory $carbonFactory)
-    {
-        $this->localHelper = $localHelper;
-        $this->carbonFactory = $carbonFactory;
+    public function __construct(
+        private LocalHelper $localHelper,
+        private CarbonFactory $carbonFactory
+    ) {
     }
 
     /**
@@ -82,7 +79,7 @@ class DateProvider
         return $weeks;
     }
 
-    public function daysOfWeek(CarbonInterface $date): CarbonPeriod
+    public function daysOfWeek(CarbonInterface $date): static|string
     {
         $firstDayOfWeek = $date->copy()->startOfWeek()->toMutable()->toDateString();
         $lastDayOffWeek = $date->endOfWeek()->toDateString(); //+6

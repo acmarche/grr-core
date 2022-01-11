@@ -23,7 +23,7 @@ class NbCalendarSetting implements SettingGeneralInterface
         return 'help.setting.nbcalendar';
     }
 
-    public function value(): int
+    public function value(): bool|int
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
             return (bool) $setting->getValue();
@@ -42,7 +42,7 @@ class NbCalendarSetting implements SettingGeneralInterface
         return true;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,

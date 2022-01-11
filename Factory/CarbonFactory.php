@@ -10,11 +10,9 @@ use Grr\Core\I18n\LocalHelper;
 
 class CarbonFactory
 {
-    private LocalHelper $localHelper;
-
-    public function __construct(LocalHelper $localHelper)
-    {
-        $this->localHelper = $localHelper;
+    public function __construct(
+        private LocalHelper $localHelper
+    ) {
     }
 
     public function today(): CarbonInterface
@@ -34,7 +32,7 @@ class CarbonFactory
         return $dateCreated->toImmutable();
     }
 
-    public function setLocale(CarbonInterface $date): CarbonInterface
+    public function setLocale(CarbonInterface $date): CarbonInterface|string
     {
         return $date->locale($this->localHelper->getDefaultLocal());
     }

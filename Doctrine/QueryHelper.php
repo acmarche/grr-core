@@ -13,11 +13,9 @@ use Doctrine\ORM\QueryBuilder;
 
 class QueryHelper
 {
-    private QueryBuilder $queryBuilder;
-
-    public function __construct(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
+    public function __construct(
+        private QueryBuilder $queryBuilder
+    ) {
     }
 
     public function addConstraint(DateTimeInterface $dateTime): void

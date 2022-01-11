@@ -6,29 +6,27 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Service\Attribute\Required;
 
 trait LocalHelperTrait
 {
     /**
      * @var ParameterBagInterface
-     * @required
      */
+    #[Required]
     public $parameterBag;
     /**
      * @var RequestStack
-     * @required
      */
+    #[Required]
     public $requestStack;
     /**
      * @var Security
-     * @required
      */
+    #[Required]
     public $security;
 
-    /**
-     * @required
-     */
+    #[Required]
     public function setParameterBag(ParameterBagInterface $parameterBag)
     {
         $this->parameterBag = $parameterBag;

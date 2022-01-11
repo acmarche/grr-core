@@ -2,6 +2,7 @@
 
 namespace Grr\Core\Entry\Entity;
 
+use DateTime;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -30,76 +31,50 @@ trait EntryTrait
     use RoomFieldTrait;
     use PeriodicityFieldTrait;
 
-    /**
-     * @Assert\Type("DateTime")
-     * @Assert\LessThan(propertyPath="endTime", message="entry.constraint.start_smaller_end")
-     * @ORM\Column(type="datetime", nullable=false)
-     */
+    #[Assert\Type(type: DateTime::class)]
+    #[Assert\LessThan(propertyPath: 'endTime', message: 'entry.constraint.start_smaller_end')]
+    #[ORM\Column(type: 'datetime', nullable: false)]
     private DateTimeInterface $startTime;
 
-    /**
-     * @Assert\Type("DateTime")
-     * @ORM\Column(type="datetime", nullable=false)
-     */
+    #[Assert\Type(type: DateTime::class)]
+    #[ORM\Column(type: 'datetime', nullable: false)]
     private DateTimeInterface $endTime;
 
-    /**
-     * @ORM\Column(type="string", length=100, nullable=false)
-     */
+    #[ORM\Column(type: 'string', length: 100, nullable: false)]
     private ?string $createdBy = null;
 
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
     private ?string $reservedFor = null;
 
-    /**
-     * @ORM\Column(type="text", length=65535, nullable=true)
-     */
+    #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $description = null;
 
-    /**
-     * @ORM\Column(type="string", length=1, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 1, nullable: true)]
     private ?string $statutEntry = null;
 
-    /**
-     * @ORM\Column(type="integer", nullable=false)
-     */
+    #[ORM\Column(type: 'integer', nullable: false)]
     private int $optionReservation;
 
-    /**
-     * @ORM\Column(type="text", length=65535, nullable=true)
-     */
-    private ?string $overloadDesc= null;
+    #[ORM\Column(type: 'text', length: 65535, nullable: true)]
+    private ?string $overloadDesc = null;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
-    private bool $moderate ;
+    #[ORM\Column(type: 'boolean', nullable: false)]
+    private bool $moderate;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
-    private bool $private ;
+    #[ORM\Column(type: 'boolean', nullable: false)]
+    private bool $private;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
+    #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $jours = false;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface", inversedBy="entries")
-     * @ORM\JoinColumn(onDelete="SET NULL", nullable=true)
-     */
+    #[ORM\ManyToOne(targetEntity: TypeEntryInterface::class, inversedBy: 'entries')]
+    #[ORM\JoinColumn(onDelete: 'SET NULL', nullable: true)]
     private ?TypeEntryInterface $type = null;
 
     /**
      * Util lors de l'ajout d'un Entry.
-     *
-     * @var AreaInterface|null
      */
-    private ?AreaInterface $area;
+    private ?AreaInterface $area = null;
 
     private DurationModel $duration;
 
@@ -144,7 +119,7 @@ trait EntryTrait
 
     public function addLocation(array $location): void
     {
-        if (!$this->locations->contains($location)) {
+        if (! $this->locations->contains($location)) {
             $this->locations[] = $location;
         }
     }

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Carbon\CarbonPeriod;
 use DateTime;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Exception;
 use Grr\Core\Contrat\Entity\EntryInterface;
@@ -13,30 +14,30 @@ use Grr\Core\Contrat\Entity\PeriodicityInterface;
 
 class PeriodicityDaysProvider
 {
-    private ?Carbon $periodicity_end = null;
-    private ?Carbon $entry_start = null;
-
     /**
-     * @return array|CarbonPeriod
+     * @var DateTime|DateTimeImmutable|null
      */
-    public function getDaysByEntry(EntryInterface $entry)
+    private ?\DateTimeInterface $periodicity_end = null;
+    /**
+     * @var DateTime|DateTimeImmutable|null
+     */
+    private ?\DateTimeInterface $entry_start = null;
+
+    public function getDaysByEntry(EntryInterface $entry): array|CarbonPeriod
     {
         $periodicity = $entry->getPeriodicity();
 
-        if (null === $periodicity) {
+        if (! $periodicity instanceof PeriodicityInterface) {
             return [];
         }
 
         return $this->getDaysByPeriodicity($periodicity, $entry->getStartTime());
     }
 
-    /**
-     * @return CarbonPeriod|mixed[]
-     */
     public function getDaysByPeriodicity(
         PeriodicityInterface $periodicity,
         DateTimeInterface $dateTime
-    ) {
+    ): array|CarbonPeriod {
         $typePeriodicity = $periodicity->getType();
 
         $this->entry_start = Carbon::instance($dateTime);
@@ -143,7 +144,7 @@ class PeriodicityDaysProvider
          *
          * @return bool
          */
-        $filterDayOfWeek = fn ($date): bool => in_array($date->dayOfWeekIso, $days, true);
+        $filterDayOfWeek = fn ($date): bool => \in_array($date->dayOfWeekIso, $days, true);
 
         /**
          * Carbon::class

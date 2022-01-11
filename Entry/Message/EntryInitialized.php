@@ -4,11 +4,9 @@ namespace Grr\Core\Entry\Message;
 
 final class EntryInitialized
 {
-    private ?int $entryId;
-
-    public function __construct(?int $entryId)
-    {
-        $this->entryId = $entryId;
+    public function __construct(
+        private ?int $entryId
+    ) {
     }
 
     public function getEntryId(): ?int

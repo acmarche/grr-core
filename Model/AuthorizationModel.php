@@ -57,7 +57,7 @@ class AuthorizationModel
 
     public function addRoom(RoomInterface $room): void
     {
-        if (!$this->rooms->contains($room)) {
+        if (! $this->rooms->contains($room)) {
             $this->rooms[] = $room;
         }
     }

@@ -9,16 +9,14 @@ use Grr\Core\Contrat\Entity\EntryInterface;
 
 class DataDay
 {
-    protected CarbonInterface $day;
-
     /**
      * @var ArrayCollection|EntryInterface[]
      */
     protected Collection $entries;
 
-    public function __construct(CarbonInterface $day)
-    {
-        $this->day = $day;
+    public function __construct(
+        protected CarbonInterface $day
+    ) {
         $this->entries = new ArrayCollection();
     }
 
@@ -38,14 +36,14 @@ class DataDay
     /**
      * @param EntryInterface[]|ArrayCollection $entries
      */
-    public function setEntries($entries): void
+    public function setEntries(array|ArrayCollection $entries): void
     {
         $this->entries = $entries;
     }
 
     public function addEntry(EntryInterface $entry): void
     {
-        if (!$this->entries->contains($entry)) {
+        if (! $this->entries->contains($entry)) {
             $this->entries[] = $entry;
         }
     }

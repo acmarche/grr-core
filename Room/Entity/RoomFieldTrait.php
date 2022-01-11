@@ -17,10 +17,10 @@ trait RoomFieldTrait
 {
     /**
      * @var RoomInterface
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\RoomInterface", inversedBy="entries")
-     * @ORM\JoinColumn(nullable=false)
      */
-    private ?RoomInterface $room;
+    #[ORM\ManyToOne(targetEntity: RoomInterface::class, inversedBy: 'entries')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?RoomInterface $room = null;
 
     public function getRoom(): ?RoomInterface
     {

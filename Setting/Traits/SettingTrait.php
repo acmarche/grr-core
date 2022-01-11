@@ -3,6 +3,7 @@
 namespace Grr\Core\Setting\Traits;
 
 use Grr\Core\Contrat\Repository\SettingRepositoryInterface;
+use Symfony\Contracts\Service\Attribute\Required;
 use Twig\Environment;
 
 trait SettingTrait
@@ -10,9 +11,7 @@ trait SettingTrait
     protected SettingRepositoryInterface $settingRepository;
     protected Environment $environment;
 
-    /**
-     * @required
-     */
+    #[Required]
     public function injectServices(SettingRepositoryInterface $settingRepository, Environment $environment)
     {
         $this->settingRepository = $settingRepository;

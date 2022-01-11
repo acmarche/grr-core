@@ -22,15 +22,11 @@ use Twig\Environment;
 
 class GrrMailer
 {
-    private MailerInterface $mailer;
-    private Environment $environment;
-    private Pdf $pdf;
-
-    public function __construct(MailerInterface $mailer, Environment $environment, Pdf $pdf)
-    {
-        $this->mailer = $mailer;
-        $this->environment = $environment;
-        $this->pdf = $pdf;
+    public function __construct(
+        private MailerInterface $mailer,
+        private Environment $environment,
+        private Pdf $pdf
+    ) {
     }
 
     public function sendWelcome(string $email): TemplatedEmail
@@ -80,7 +76,7 @@ class GrrMailer
     {
         try {
             $this->mailer->send($email);
-        } catch (TransportExceptionInterface $e) {
+        } catch (TransportExceptionInterface) {
         }
     }
 
@@ -100,7 +96,7 @@ EOF
             ->action('More info2?', 'https://example.com/');
         try {
             $this->mailer->send($notificationEmail);
-        } catch (TransportExceptionInterface $e) {
+        } catch (TransportExceptionInterface) {
         }
     }
 }

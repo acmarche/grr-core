@@ -42,7 +42,7 @@ class WebmasterEmailSetting implements SettingGeneralInterface
         return true;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,

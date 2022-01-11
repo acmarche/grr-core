@@ -10,8 +10,6 @@
 
 namespace Grr\Core\Contrat\Entity;
 
-use Doctrine\Common\Collections\Collection;
-
 interface TypeEntryInterface
 {
     public function getEntries(): iterable;

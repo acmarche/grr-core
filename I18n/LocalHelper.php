@@ -6,22 +6,22 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Contracts\Translation\LocaleAwareInterface;
 
 class LocalHelper
 {
-    private ParameterBagInterface $parameterBag;
-    private RequestStack $requestStack;
-    private Security $security;
-
-    public function __construct(ParameterBagInterface $parameterBag, Security $security, RequestStack $requestStack)
-    {
-        $this->parameterBag = $parameterBag;
-        $this->security = $security;
-        $this->requestStack = $requestStack;
+    public function __construct(
+        private ParameterBagInterface $parameterBag,
+        private Security $security,
+        private RequestStack $requestStack,
+        private LocaleAwareInterface $localeAware
+    ) {
     }
 
     public function getDefaultLocal(): string
     {
+        //todo test
+        $this->localeAware->getLocale();
         /**
          * User preference.
          *
@@ -34,7 +34,7 @@ class LocalHelper
         /**
          * Url.
          */
-        $request = $this->requestStack->getMasterRequest();
+        $request = $this->requestStack->getMainRequest();
         if (null !== $request) {
             return $request->getLocale();
         }

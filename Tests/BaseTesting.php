@@ -97,14 +97,18 @@ class BaseTesting extends WebTestCase
     {
         return $this->entityManager
             ->getRepository(AreaInterface::class)
-            ->findOneBy(['name' => $name]);
+            ->findOneBy([
+                'name' => $name,
+            ]);
     }
 
     protected function getRoom(string $roomName): ?RoomInterface
     {
         return $this->entityManager
             ->getRepository(RoomInterface::class)
-            ->findOneBy(['name' => $roomName]);
+            ->findOneBy([
+                'name' => $roomName,
+            ]);
     }
 
     protected function getPeriodicity(int $type, string $endTime): ?PeriodicityInterface
@@ -113,28 +117,37 @@ class BaseTesting extends WebTestCase
 
         return $this->entityManager
             ->getRepository(PeriodicityInterface::class)
-            ->findOneBy(['type' => $type, 'endTime' => $dateTime]);
+            ->findOneBy([
+                'type' => $type,
+                'endTime' => $dateTime,
+            ]);
     }
 
     protected function getEntry(string $name): ?EntryInterface
     {
         return $this->entityManager
             ->getRepository(EntryInterface::class)
-            ->findOneBy(['name' => $name]);
+            ->findOneBy([
+                'name' => $name,
+            ]);
     }
 
     protected function getUser(string $email): ?UserInterface
     {
         return $this->entityManager
             ->getRepository(UserInterface::class)
-            ->findOneBy(['email' => $email]);
+            ->findOneBy([
+                'email' => $email,
+            ]);
     }
 
     protected function getTypeEntry(string $name): ?TypeEntryInterface
     {
         return $this->entityManager
             ->getRepository(TypeEntryInterface::class)
-            ->findOneBy(['name' => $name]);
+            ->findOneBy([
+                'name' => $name,
+            ]);
     }
 
     protected function initSecurityHelper(): AuthorizationHelper

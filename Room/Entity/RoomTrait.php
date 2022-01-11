@@ -24,108 +24,69 @@ trait RoomTrait
     use AuthorizationsFieldTrait;
     use EntriesFieldTrait;
 
-    /**
-     * @ORM\Column(type="string", length=60, nullable=true)
-     */
-    private ?string $description;
+    #[ORM\Column(type: 'string', length: 60, nullable: true)]
+    private ?string $description = null;
 
-    /**
-     * @ORM\Column(type="integer", nullable=false)
-     */
+    #[ORM\Column(type: 'integer', nullable: false)]
     private int $capacity;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $maximumBooking;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private bool $statutRoom;
 
-    /**
-     * @ORM\Column(name="show_fic_room", type="boolean", nullable=false)
-     */
+    #[ORM\Column(name: 'show_fic_room', type: 'boolean', nullable: false)]
     private bool $showFicRoom;
 
-    /**
-     * @ORM\Column(name="picture_room", type="string", length=50, nullable=true)
-     */
-    private ?string $pictureRoom;
+    #[ORM\Column(name: 'picture_room', type: 'string', length: 50, nullable: true)]
+    private ?string $pictureRoom = null;
 
-    /**
-     * @ORM\Column(name="comment_room", type="text", length=65535, nullable=true)
-     */
-    private ?string $commentRoom;
+    #[ORM\Column(name: 'comment_room', type: 'text', length: 65535, nullable: true)]
+    private ?string $commentRoom = null;
 
-    /**
-     * @ORM\Column(name="show_comment", type="boolean", nullable=false)
-     */
+    #[ORM\Column(name: 'show_comment', type: 'boolean', nullable: false)]
     private bool $showComment;
 
-    /**
-     * @ORM\Column(name="delais_max_resa_room", type="smallint", nullable=false)
-     */
+    #[ORM\Column(name: 'delais_max_resa_room', type: 'smallint', nullable: false)]
     private int $delaisMaxResaRoom;
 
-    /**
-     * @ORM\Column(name="delais_min_resa_room", type="smallint", nullable=false)
-     */
+    #[ORM\Column(name: 'delais_min_resa_room', type: 'smallint', nullable: false)]
     private int $delaisMinResaRoom;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
+    #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $allowActionInPast;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $orderDisplay;
 
-    /**
-     * @ORM\Column(name="delais_option_reservation", type="smallint", nullable=false)
-     */
+    #[ORM\Column(name: 'delais_option_reservation', type: 'smallint', nullable: false)]
     private int $delaisOptionReservation;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
+    #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $dontAllowModify;
 
-    /**
-     * @ORM\Column(name="type_affichage_reser", type="smallint", nullable=false)
-     */
+    #[ORM\Column(name: 'type_affichage_reser', type: 'smallint', nullable: false)]
     private int $typeAffichageReser;
 
-    /**
-     * @ORM\Column(name="moderate", type="boolean", nullable=true)
-     */
-    private ?bool $moderate;
+    #[ORM\Column(name: 'moderate', type: 'boolean', nullable: true)]
+    private ?bool $moderate = null;
 
-    /**
-     * @ORM\Column(name="qui_peut_reserver_pour", type="string", length=1, nullable=false)
-     */
+    #[ORM\Column(name: 'qui_peut_reserver_pour', type: 'string', length: 1, nullable: false)]
     private string $quiPeutReserverPour;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
+    #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $activeRessourceEmpruntee;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $ruleToAdd;
 
     /**
      * Override pour mappedBy.
      *
-     * @ORM\OneToMany(targetEntity="Grr\Core\Contrat\Entity\Security\AuthorizationInterface", mappedBy="room", orphanRemoval=true)
-     *
      * @var AuthorizationInterface[]|Collection
      */
+    #[ORM\OneToMany(targetEntity: AuthorizationInterface::class, mappedBy: 'room', orphanRemoval: true)]
     private iterable $authorizations;
 
     public function __construct(AreaInterface $area)

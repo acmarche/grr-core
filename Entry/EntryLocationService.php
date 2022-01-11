@@ -9,11 +9,9 @@ use Grr\Core\Provider\TimeSlotsProvider;
 
 class EntryLocationService
 {
-    private TimeSlotsProvider $timeSlotsProvider;
-
-    public function __construct(TimeSlotsProvider $timeSlotsProvider)
-    {
-        $this->timeSlotsProvider = $timeSlotsProvider;
+    public function __construct(
+        private TimeSlotsProvider $timeSlotsProvider
+    ) {
     }
 
     /**

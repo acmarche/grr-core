@@ -19,15 +19,12 @@ use Symfony\Component\HttpKernel\KernelInterface;
  */
 final class SymfonyContext implements Context
 {
-    private KernelInterface $kernel;
-
     private ?Response $response = null;
-    private EntryRepository $entryRepository;
 
-    public function __construct(KernelInterface $kernel, EntryRepository $entryRepository)
-    {
-        $this->kernel = $kernel;
-        $this->entryRepository = $entryRepository;
+    public function __construct(
+        private KernelInterface $kernel,
+        private EntryRepository $entryRepository
+    ) {
     }
 
     /**
@@ -58,7 +55,7 @@ final class SymfonyContext implements Context
             throw new RuntimeException('No response received');
         }
 
-        if (!$this->response->isRedirection()) {
+        if (! $this->response->isRedirection()) {
             throw new RuntimeException('Response is not redirect');
         }
     }

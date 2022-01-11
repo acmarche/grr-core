@@ -19,7 +19,7 @@ class DurationModel
      *
      * @var float;
      */
-    private $time;
+    private float $time;
 
     private bool $full_day;
 

@@ -95,9 +95,9 @@ interface EntryInterface
 
     public function setRoom(?RoomInterface $room): void;
 
-    public function getCreatedAt(): DateTimeInterface;
+    public function getCreatedAt(): ?DateTimeInterface;
 
-    public function getUpdatedAt(): DateTimeInterface;
+    public function getUpdatedAt(): ?DateTimeInterface;
 
     public function setCreatedAt(DateTimeInterface $createdAt): void;
 

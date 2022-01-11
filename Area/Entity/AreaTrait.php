@@ -22,67 +22,49 @@ trait AreaTrait
     use AuthorizationsFieldTrait;
     use TypesEntryFieldTrait;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $orderDisplay;
 
-    /**
-     * @Assert\LessThan(propertyPath="endTime", message="area.constraint.start_smaller_end")
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[Assert\LessThan(propertyPath: 'endTime', message: 'area.constraint.start_smaller_end')]
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $startTime;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $endTime;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $weekStart;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=false)
-     */
+    #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $is24HourFormat;
-    /**
-     * @ORM\Column(type="array", nullable=false)
-     */
+    #[ORM\Column(type: 'array', nullable: false)]
     private array $daysOfWeekToDisplay;
 
     /**
      * Intervalle de temps.
-     * @ORM\Column(type="integer", nullable=false)
      */
+    #[ORM\Column(type: 'integer', nullable: false)]
     private int $timeInterval;
 
     /**
      * Durée maximum qu'un utilisateur peut réserver.
-     * @ORM\Column(type="integer", nullable=false)
      */
+    #[ORM\Column(type: 'integer', nullable: false)]
     private int $durationMaximumEntry;
 
     /**
      * Durée par défaut d'une réservation.
-     * @ORM\Column(type="integer", nullable=false)
      */
+    #[ORM\Column(type: 'integer', nullable: false)]
     private int $durationDefaultEntry;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $minutesToAddToEndTime;
 
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
+    #[ORM\Column(type: 'smallint', nullable: false)]
     private int $maxBooking;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private bool $isRestricted;
 
     public function __construct()

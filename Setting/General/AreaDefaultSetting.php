@@ -15,11 +15,9 @@ class AreaDefaultSetting implements SettingGeneralInterface
 
     public const NAME = SettingConstants::AREA_DEFAULT;
 
-    private AreaRepositoryInterface $areaRepository;
-
-    public function __construct(AreaRepositoryInterface $areaRepository)
-    {
-        $this->areaRepository = $areaRepository;
+    public function __construct(
+        private AreaRepositoryInterface $areaRepository
+    ) {
     }
 
     public function label(): string
@@ -62,7 +60,7 @@ class AreaDefaultSetting implements SettingGeneralInterface
         return false;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,

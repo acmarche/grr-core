@@ -46,7 +46,7 @@ class CreateUserCommandTest extends BaseTesting
     {
         $files =
             [
-                $this->pathFixtures . 'area.yaml',
+                $this->pathFixtures.'area.yaml',
             ];
 
         $this->loader->load($files);

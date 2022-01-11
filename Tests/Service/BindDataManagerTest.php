@@ -153,11 +153,11 @@ class BindDataManagerTest extends BaseTesting
     {
         $files =
             [
-                $this->pathFixtures . 'area.yaml',
-                $this->pathFixtures . 'room.yaml',
-                $this->pathFixtures . 'entry_type.yaml',
-                $this->pathFixtures . 'periodicity.yaml',
-                $this->pathFixtures . 'entry_with_periodicity.yaml',
+                $this->pathFixtures.'area.yaml',
+                $this->pathFixtures.'room.yaml',
+                $this->pathFixtures.'entry_type.yaml',
+                $this->pathFixtures.'periodicity.yaml',
+                $this->pathFixtures.'entry_with_periodicity.yaml',
             ];
 
         $this->loader->load($files);

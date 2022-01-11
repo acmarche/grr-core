@@ -4,24 +4,18 @@ namespace Grr\Core\Setting\Form;
 
 use Grr\Core\Setting\Repository\SettingProvider;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Traversable;
 
 class FormSettingFactory
 {
-    private SettingProvider $settingProvider;
-    private FormFactoryInterface $formFactory;
-    private ContainerInterface $criteria;
-
     public function __construct(
-        SettingProvider $settingProvider,
-        FormFactoryInterface $formFactory,
-        ContainerInterface $criteria
+        private SettingProvider $settingProvider,
+        private FormFactoryInterface $formFactory,
+        private ContainerInterface $criteria
     ) {
-        $this->settingProvider = $settingProvider;
-        $this->formFactory = $formFactory;
-        $this->criteria = $criteria;
     }
 
     public function generate(): FormInterface
@@ -32,7 +26,7 @@ class FormSettingFactory
 
         $form = $this->formFactory->createNamedBuilder(
             'setting',
-            'Symfony\Component\Form\Extension\Core\Type\FormType',
+            FormType::class,
             $data
         )->getForm();
 

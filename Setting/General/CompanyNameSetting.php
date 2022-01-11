@@ -47,7 +47,7 @@ class CompanyNameSetting implements SettingGeneralInterface
         return false;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,

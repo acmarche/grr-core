@@ -11,7 +11,6 @@
 namespace Grr\Core\Contrat\Entity\Security;
 
 use DateTimeInterface;
-use Doctrine\Common\Collections\Collection;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\RoomInterface;
 
@@ -23,9 +22,9 @@ interface UserInterface
 
     public function setName(string $name): void;
 
-    public function getCreatedAt(): DateTimeInterface;
+    public function getCreatedAt(): ?DateTimeInterface;
 
-    public function getUpdatedAt(): DateTimeInterface;
+    public function getUpdatedAt(): ?DateTimeInterface;
 
     public function setCreatedAt(DateTimeInterface $createdAt): void;
 

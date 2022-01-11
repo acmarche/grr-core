@@ -10,7 +10,6 @@
 
 namespace Grr\Core\Contrat\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Grr\Core\Contrat\Entity\Security\AuthorizationInterface;
 
 interface AreaInterface

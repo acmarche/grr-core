@@ -17,11 +17,10 @@ use Grr\Core\Contrat\Entity\TypeEntryInterface;
 trait TypesEntryFieldTrait
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Grr\Core\Contrat\Entity\TypeEntryInterface")
-     * @ORM\JoinTable(name="area_entry_type")
-     *
      * @var TypeEntryInterface[]|Collection
      */
+    #[ORM\ManyToMany(targetEntity: TypeEntryInterface::class)]
+    #[ORM\JoinTable(name: 'area_entry_type')]
     private iterable $typesEntry;
 
     /**
@@ -34,7 +33,7 @@ trait TypesEntryFieldTrait
 
     public function addTypeEntry(TypeEntryInterface $typeEntry): void
     {
-        if (!$this->typesEntry->contains($typeEntry)) {
+        if (! $this->typesEntry->contains($typeEntry)) {
             $this->typesEntry[] = $typeEntry;
         }
     }

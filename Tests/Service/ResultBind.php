@@ -38,7 +38,12 @@ class ResultBind
      */
     public static function getCountEntriesFoMonthWithRoom(int $day): int
     {
-        $result = [2 => 1, 3 => 1, 4 => 1, 5 => 1];
+        $result = [
+            2 => 1,
+            3 => 1,
+            4 => 1,
+            5 => 1,
+        ];
 
         return $result[$day] ?? 0;
     }
@@ -49,7 +54,13 @@ class ResultBind
      */
     public static function getCountEntriesFoMonthWithOutRoom(int $day): int
     {
-        $result = [2 => 1, 3 => 2, 4 => 2, 5 => 2, 6 => 1];
+        $result = [
+            2 => 1,
+            3 => 2,
+            4 => 2,
+            5 => 2,
+            6 => 1,
+        ];
 
         return $result[$day] ?? 0;
     }
@@ -82,7 +93,10 @@ class ResultBind
 
     public static function getCountEntriesForWeekWithMonth(int $day): int
     {
-        $result = [2 => 1, 3 => 1];
+        $result = [
+            2 => 1,
+            3 => 1,
+        ];
 
         return $result[$day] ?? 0;
     }

@@ -13,8 +13,6 @@ namespace Grr\Core\Tests\Service;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use DateTime;
-use DateTimeImmutable;
-use DateTimeInterface;
 use Grr\Core\Entry\EntryLocationService;
 use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\I18n\LocalHelper;
@@ -112,12 +110,10 @@ class EntryLocationServiceTest extends BaseTesting
 
     /**
      * @dataProvider getDataMultipleDays
-     * @param DateTime|DateTimeImmutable $dateStart
-     * @param DateTime|DateTimeImmutable $dateEnd
      */
     public function testMultipleDaysSetLocations(
-        DateTimeInterface $dateStart,
-        DateTimeInterface $dateEnd,
+        \DateTime|\DateTimeImmutable $dateStart,
+        \DateTime|\DateTimeImmutable $dateEnd,
         array $countLocations
     ): void {
         $duration = 30;
@@ -207,11 +203,11 @@ class EntryLocationServiceTest extends BaseTesting
     {
         $files =
             [
-                $this->pathFixtures . 'area.yaml',
-                $this->pathFixtures . 'room.yaml',
-                $this->pathFixtures . 'entry_type.yaml',
-                $this->pathFixtures . 'periodicity.yaml',
-                $this->pathFixtures . 'entry_with_periodicity.yaml',
+                $this->pathFixtures.'area.yaml',
+                $this->pathFixtures.'room.yaml',
+                $this->pathFixtures.'entry_type.yaml',
+                $this->pathFixtures.'periodicity.yaml',
+                $this->pathFixtures.'entry_with_periodicity.yaml',
             ];
 
         $this->loader->load($files);

@@ -26,12 +26,12 @@ class BeginBookingSetting implements SettingGeneralInterface
         return 'help.setting.begin_booking';
     }
 
-    public function value(): DateTimeInterface
+    public function value(): bool|\DateTime|\DateTimeInterface
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
             try {
                 return DateTime::createFromFormat('Y-m-d', $setting->getValue());
-            } catch (Exception $exception) {
+            } catch (Exception) {
                 return $this->defaultValue();
             }
         }
@@ -39,7 +39,7 @@ class BeginBookingSetting implements SettingGeneralInterface
         return $this->defaultValue();
     }
 
-    public function defaultValue(): DateTimeInterface
+    public function defaultValue(): \DateTime
     {
         return new DateTime();
     }
@@ -58,7 +58,7 @@ class BeginBookingSetting implements SettingGeneralInterface
         return true;
     }
 
-    public function addFieldForm(FormInterface $form)
+    public function addFieldForm(FormInterface $form): void
     {
         $form->add(
             self::NAME,

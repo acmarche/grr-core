@@ -17,14 +17,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait PeriodicityFieldTrait
 {
     /**
-     * @Assert\Type("Grr\Core\Contrat\Entity\PeriodicityInterface")
-     * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Grr\Core\Contrat\Entity\PeriodicityInterface", inversedBy="entries", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     *
      * @var PeriodicityInterface|null
      */
-    private ?PeriodicityInterface $periodicity;
+    #[Assert\Type(type: PeriodicityInterface::class)]
+    #[Assert\Valid]
+    #[ORM\ManyToOne(targetEntity: PeriodicityInterface::class, inversedBy: 'entries', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    private ?PeriodicityInterface $periodicity = null;
 
     public function getPeriodicity(): ?PeriodicityInterface
     {

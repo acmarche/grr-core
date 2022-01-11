@@ -13,18 +13,11 @@ use Traversable;
 
 class SettingProvider
 {
-    private Traversable $settings;
-    private AreaRepositoryInterface $areaRepository;
-    private ServiceLocator $serviceLocator;
-
     public function __construct(
-        Traversable $settings,
-        ServiceLocator $serviceLocator,
-        AreaRepositoryInterface $areaRepository
+        private Traversable $settings,
+        private ServiceLocator $serviceLocator,
+        private AreaRepositoryInterface $areaRepository
     ) {
-        $this->settings = $settings;
-        $this->areaRepository = $areaRepository;
-        $this->serviceLocator = $serviceLocator;
     }
 
     public function loadAllInterface(): Traversable
@@ -65,9 +58,6 @@ class SettingProvider
         return $data;
     }
 
-    /**
-     *
-     */
     public function getDefaultArea(): ?AreaInterface
     {
         $interface = $this->loadInterfaceByKey(AreaDefaultSetting::NAME);
@@ -76,7 +66,9 @@ class SettingProvider
             return $area;
         }
 
-        return $this->areaRepository->findOneBy([], ['id' => 'ASC']);
+        return $this->areaRepository->findOneBy([], [
+            'id' => 'ASC',
+        ]);
     }
 
     /**

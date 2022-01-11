@@ -12,13 +12,10 @@ use Carbon\CarbonInterface;
 
 class TimeSlot
 {
-    protected CarbonInterface $begin;
-    protected CarbonInterface $end;
-
-    public function __construct(CarbonInterface $begin, CarbonInterface $end)
-    {
-        $this->begin = $begin;
-        $this->end = $end;
+    public function __construct(
+        protected CarbonInterface $begin,
+        protected CarbonInterface $end
+    ) {
     }
 
     public function getBegin(): CarbonInterface

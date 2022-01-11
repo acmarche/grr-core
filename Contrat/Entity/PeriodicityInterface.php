@@ -11,7 +11,6 @@
 namespace Grr\Core\Contrat\Entity;
 
 use DateTimeInterface;
-use Doctrine\Common\Collections\Collection;
 
 interface PeriodicityInterface
 {
