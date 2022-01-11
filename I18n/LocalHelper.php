@@ -6,22 +6,18 @@ use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Contracts\Translation\LocaleAwareInterface;
 
 class LocalHelper
 {
     public function __construct(
         private ParameterBagInterface $parameterBag,
         private Security $security,
-        private RequestStack $requestStack,
-        private LocaleAwareInterface $localeAware
+        private RequestStack $requestStack
     ) {
     }
 
     public function getDefaultLocal(): string
     {
-        //todo test
-        $this->localeAware->getLocale();
         /**
          * User preference.
          *

@@ -3,7 +3,6 @@
 namespace Grr\Core\Setting\Form;
 
 use Grr\Core\Setting\Repository\SettingProvider;
-use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -12,10 +11,10 @@ use Traversable;
 class FormSettingFactory
 {
     public function __construct(
-        private SettingProvider $settingProvider,
-        private FormFactoryInterface $formFactory,
-        private ContainerInterface $criteria
-    ) {
+        private SettingProvider      $settingProvider,
+        private FormFactoryInterface $formFactory
+    )
+    {
     }
 
     public function generate(): FormInterface

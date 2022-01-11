@@ -46,7 +46,6 @@ trait TypeEntryTrait
      * @var EntryInterface[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'type')]
-    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'type')]
     private iterable $entries;
 
     public function __construct()

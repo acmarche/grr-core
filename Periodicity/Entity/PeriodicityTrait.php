@@ -29,7 +29,6 @@ trait PeriodicityTrait
      * @see PeriodicityConstant::getTypesPeriodicite
      */
     #[ORM\Column(type: 'integer', nullable: false)]
-    #[ORM\Column(type: 'integer', nullable: false)]
     private ?int $type = null;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -50,7 +49,6 @@ trait PeriodicityTrait
      *
      * @var EntryInterface[]|Collection
      */
-    #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'periodicity')]
     #[ORM\OneToMany(targetEntity: EntryInterface::class, mappedBy: 'periodicity')]
     private iterable $entries;
 
