@@ -19,7 +19,7 @@ use Grr\Core\Model\Day;
 use Grr\Core\Tests\BaseTesting;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class DayFactoryTest extends BaseTesting
 {

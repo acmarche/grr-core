@@ -23,7 +23,7 @@ use Grr\GrrBundle\Entity\Entry;
 use Grr\GrrBundle\Entity\Room;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class EntryLocationServiceTest extends BaseTesting
 {

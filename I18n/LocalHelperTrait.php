@@ -5,7 +5,7 @@ namespace Grr\Core\I18n;
 use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Contracts\Service\Attribute\Required;
 
 trait LocalHelperTrait

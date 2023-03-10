@@ -23,7 +23,7 @@ use Grr\GrrBundle\Entity\Room;
 use Grr\GrrBundle\Entry\Binder\BindDataManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class BindDataManagerTest extends BaseTesting
 {
