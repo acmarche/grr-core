@@ -37,6 +37,7 @@ trait AreaTrait
 
     #[ORM\Column(type: 'boolean', nullable: false)]
     private bool $is24HourFormat;
+
     #[ORM\Column(type: 'array', nullable: false)]
     private array $daysOfWeekToDisplay;
 

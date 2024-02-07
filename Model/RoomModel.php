@@ -12,6 +12,7 @@ class RoomModel
      * @var ArrayCollection|DataDay[]
      */
     protected $data_days;
+
     /**
      * @var ArrayCollection|EntryInterface[]
      */
@@ -52,7 +53,7 @@ class RoomModel
         return $this->entries;
     }
 
-    public function setEntries($entries): void
+    public function setEntries(ArrayCollection|array $entries): void
     {
         $this->entries = $entries;
     }

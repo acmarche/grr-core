@@ -27,7 +27,7 @@ trait RolesTrait
     public function removeRole(string $role): void
     {
         if (\in_array($role, $this->roles, true)) {
-            $index = array_search($role, $this->roles);
+            $index = array_search($role, $this->roles, true);
             unset($this->roles[$index]);
         }
     }

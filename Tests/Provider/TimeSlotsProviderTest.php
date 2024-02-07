@@ -75,6 +75,7 @@ class TimeSlotsProviderTest extends BaseTesting
 
         $area = new Area();
         $area->setTimeInterval($resolution);
+
         $room = new Room($area);
 
         $entry = new Entry();

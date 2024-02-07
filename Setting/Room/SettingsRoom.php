@@ -5,28 +5,41 @@ namespace Grr\Core\Setting\Room;
 class SettingsRoom
 {
     public const DISPLAY_TYPE_FORM_RESERVATION_DURATION = 0;
+
     public const DISPLAY_TYPE_FORM_RESERVATION_DATE_END = 1;
 
     /**
      * qui peux réserver pour.
      */
     public const BOOKING_FOR_NONE = 1;
+
     public const BOOKING_FOR_EVERY_BODY = 5;
+
     public const BOOKING_FOR_ROOM_MANAGER = 3;
+
     public const BOOKING_FOR_ADMINISTRATOR_RESTRICTED = 4;
 
     /**
      * Qui peut ajouter une entrée.
      */
     public const  CAN_ADD_NO_RULE = 0;
+
     public const  CAN_ADD_EVERY_BODY = 1;
+
     public const  CAN_ADD_EVERY_CONNECTED = 2;
+
     public const  CAN_ADD_EVERY_USER_ACTIVE = 3;
+
     public const  CAN_ADD_EVERY_ROOM_ADMINISTRATOR = 4;
+
     public const  CAN_ADD_EVERY_ROOM_MANAGER = 5;
+
     public const  CAN_ADD_EVERY_AREA_ADMINISTRATOR = 6;
+
     public const  CAN_ADD_EVERY_AREA_MANAGER = 7;
+
     public const  CAN_ADD_EVERY_GRR_ADMINISTRATOR_SITE = 8;
+
     public const  CAN_ADD_EVERY_GRR_ADMINISTRATOR = 9;
 
     /**

@@ -59,6 +59,7 @@ class EntryLocationService
                 if ($entryTimeSlot->format('H:i') === $endTimeSlot->format('H:i')) {
                     return false;
                 }
+
                 /*
                  * 2019-08-08 09:00 compris entre 2019-08-08 09:00 et 2019-08-08 09:30
                  * si l'heure de début de l'entrée est égale à l'heure de fin de la tranche horaire

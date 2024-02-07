@@ -9,10 +9,11 @@ use Twig\Environment;
 trait SettingTrait
 {
     protected SettingRepositoryInterface $settingRepository;
+
     protected Environment $environment;
 
     #[Required]
-    public function injectServices(SettingRepositoryInterface $settingRepository, Environment $environment)
+    public function injectServices(SettingRepositoryInterface $settingRepository, Environment $environment): void
     {
         $this->settingRepository = $settingRepository;
         $this->environment = $environment;

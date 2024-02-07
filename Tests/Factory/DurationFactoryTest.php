@@ -15,8 +15,11 @@ use Grr\GrrBundle\Room\Factory\RoomFactory;
 class DurationFactoryTest extends BaseTesting
 {
     private DurationFactory $durationFactory;
+
     private EntryFactory $entryFactory;
+
     private AreaFactory $areaFactory;
+
     private RoomFactory $roomFactory;
 
     protected function setUp(): void
@@ -48,6 +51,7 @@ class DurationFactoryTest extends BaseTesting
     ): void {
         $area = $this->areaFactory->createNew();
         $area->setName('Area1');
+
         $room = $this->roomFactory->createNew($area);
         $room->setName('Salle1');
 

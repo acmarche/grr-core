@@ -40,9 +40,10 @@ final class SymfonyContext implements Context
      */
     public function theResponseShouldBeReceived(): void
     {
-        if (null === $this->response) {
+        if (!$this->response instanceof Response) {
             throw new RuntimeException('No response received');
         }
+
 //        var_dump($this->response->getContent());
     }
 
@@ -51,7 +52,7 @@ final class SymfonyContext implements Context
      */
     public function iShouldSee($arg1): void
     {
-        if (null === $this->response) {
+        if (!$this->response instanceof Response) {
             throw new RuntimeException('No response received');
         }
 

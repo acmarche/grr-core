@@ -51,7 +51,7 @@ class FormSettingFactory
         $ordered = iterator_to_array($settings);
         usort(
             $ordered,
-            fn($a, $b) => $a->displayOrder() <=> $b->displayOrder()
+            static fn($a, $b): int => $a->displayOrder() <=> $b->displayOrder()
         );
 
         return $ordered;

@@ -16,6 +16,7 @@ class Weekly
      * @var DateTime|DateTimeImmutable|null
      */
     public ?DateTimeInterface $entry_start = null;
+
     /**
      * @var DateTime|DateTimeImmutable|null
      */
@@ -62,7 +63,7 @@ class Weekly
          *
          * @return bool
          */
-        $filterDayOfWeek = fn ($date): bool => \in_array($date->dayOfWeekIso, $days, true);
+        $filterDayOfWeek = static fn($date): bool => \in_array($date->dayOfWeekIso, $days, true);
 
         /**
          * Carbon::class
@@ -80,7 +81,7 @@ class Weekly
          *
          * @return bool
          */
-        $filterWeek = fn ($date): bool => 0 === $date->weekOfYear % $repeat_week;
+        $filterWeek = static fn($date): bool => 0 === $date->weekOfYear % $repeat_week;
 
         $period->excludeStartDate();
         $period->addFilter($filterDayOfWeek);

@@ -55,15 +55,18 @@ class DurationFactory
             $durationModel->setUnit(DurationModel::UNIT_TIME_MINUTES);
             $durationModel->setTime($minutes);
         }
+
         if ($hours > 0) {
             $durationModel->setUnit(DurationModel::UNIT_TIME_HOURS);
             $hour = TimeService::convertMinutesToHour($hours, $minutes);
             $durationModel->setTime($hour);
         }
+
         if ($days > 0) {
             $durationModel->setUnit(DurationModel::UNIT_TIME_DAYS);
             $durationModel->setTime($days);
         }
+
         if ($weeks > 0) {
             $durationModel->setUnit(DurationModel::UNIT_TIME_WEEKS);
             $durationModel->setTime($weeks);

@@ -2,6 +2,7 @@
 
 namespace Grr\Core\I18n;
 
+use Symfony\Component\HttpFoundation\Request;
 use Grr\Core\Contrat\Entity\Security\UserInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -27,11 +28,12 @@ class LocalHelper
         if ($user && $user->getLanguageDefault()) {
             return $user->getLanguageDefault();
         }
+
         /**
          * Url.
          */
         $request = $this->requestStack->getMainRequest();
-        if (null !== $request) {
+        if ($request instanceof Request) {
             return $request->getLocale();
         }
 

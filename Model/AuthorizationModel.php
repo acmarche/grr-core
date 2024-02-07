@@ -19,13 +19,12 @@ class AuthorizationModel
     /**
      * @var UserInterface[]|array
      */
-    protected $users;
+    protected $users = [];
 
     private ?int $role = null;
 
     public function __construct()
     {
-        $this->users = [];
         $this->rooms = new ArrayCollection();
     }
 

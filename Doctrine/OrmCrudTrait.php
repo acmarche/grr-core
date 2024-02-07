@@ -11,17 +11,17 @@ trait OrmCrudTrait
      */
     protected $_em;
 
-    public function persist(object $entity)
+    public function persist(object $entity): void
     {
         $this->_em->persist($entity);
     }
 
-    public function flush()
+    public function flush(): void
     {
         $this->_em->flush();
     }
 
-    public function remove(object $entity)
+    public function remove(object $entity): void
     {
         $this->_em->remove($entity);
     }

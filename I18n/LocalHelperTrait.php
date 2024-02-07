@@ -15,11 +15,13 @@ trait LocalHelperTrait
      */
     #[Required]
     public $parameterBag;
+
     /**
      * @var RequestStack
      */
     #[Required]
     public $requestStack;
+
     /**
      * @var Security
      */
@@ -27,7 +29,7 @@ trait LocalHelperTrait
     public $security;
 
     #[Required]
-    public function setParameterBag(ParameterBagInterface $parameterBag)
+    public function setParameterBag(ParameterBagInterface $parameterBag): void
     {
         $this->parameterBag = $parameterBag;
     }
@@ -45,6 +47,7 @@ trait LocalHelperTrait
         if ($user && $user->getLanguageDefault()) {
             return $user->getLanguageDefault();
         }
+
         /**
          * Url.
          */

@@ -11,22 +11,27 @@ class SecurityRole
      * Simple visiteur.
      */
     public const ROLE_GRR = 'ROLE_GRR';
+
     /**
      * Role utilisateur actif.
      */
     public const ROLE_GRR_ACTIVE_USER = 'ROLE_GRR_ACTIVE_USER';
+
     /**
      * Gestionnaire des utilisateurs.
      */
     public const ROLE_GRR_MANAGER_USER = 'ROLE_GRR_MANAGER_USER';
+
     /**
      * Administrateur de grr.
      */
     public const ROLE_GRR_ADMINISTRATOR = 'ROLE_GRR_ADMINISTRATOR';
+
     /**
      * Developpeur de grr.
      */
     public const ROLE_GRR_DEVELOPER = 'ROLE_GRR_DEVELOPER';
+
     /**
      * Developpeur de grr.
      */

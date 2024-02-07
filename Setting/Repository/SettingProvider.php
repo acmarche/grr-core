@@ -33,6 +33,7 @@ class SettingProvider
         if ($this->serviceLocator->get($key)) {
             return $this->serviceLocator->get($key);
         }
+
         throw new Exception('Aucune class trouvée pour gérer cette option');
     }
 

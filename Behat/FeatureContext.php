@@ -33,7 +33,7 @@ class FeatureContext //extends RawMinkContext
         $profile = $driver->getClient()->getProfile();
         var_dump($profile);
         if (false === $profile) {
-            throw new RuntimeException('The profiler is disabled. Activate it by setting '.'framework.profiler.only_exceptions to false in '.'your config');
+            throw new RuntimeException('The profiler is disabled. Activate it by setting framework.profiler.only_exceptions to false in '.'your config');
         }
 
         return $profile;
@@ -48,7 +48,7 @@ class FeatureContext //extends RawMinkContext
         //var_dump($this->getSession()->getPage()->getContent());
         $this->fillField('username', 'grr@domain.be');
         $this->fillField('password', 'homer');
-        $this->pressButton('S\'identifier');
+        $this->pressButton("S'identifier");
     }
 
     /**
@@ -61,7 +61,7 @@ class FeatureContext //extends RawMinkContext
         $this->visitPath('/fr/login');
         $this->fillField('username', $username);
         $this->fillField('password', 'homer');
-        $this->pressButton('S\'identifier');
+        $this->pressButton("S'identifier");
     }
 
     /**
@@ -166,7 +166,7 @@ class FeatureContext //extends RawMinkContext
      *
      * @throws Exception
      */
-    public function iShouldSeeTextSoManyTimes($sText, $iExpected): void
+    public function iShouldSeeTextSoManyTimes(string $sText, string $iExpected): void
     {
         $sContent = $this->getSession()->getPage()->getText();
         $iFound = substr_count((string) $sContent, (string) $sText);
@@ -204,7 +204,7 @@ class FeatureContext //extends RawMinkContext
         $this->getSession()->getPage()->fillField($field, $value);
     }
 
-    private function pressButton($button): void
+    private function pressButton(string $button): void
     {
         $button = $this->fixStepArgument($button);
         $this->getSession()->getPage()->pressButton($button);

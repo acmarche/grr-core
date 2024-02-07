@@ -28,6 +28,7 @@ class ViewLocator
         if ($this->serviceLocator->get($key)) {
             return $this->serviceLocator->get($key);
         }
+
         throw new Exception('No class found for this vue '.$key);
     }
 }

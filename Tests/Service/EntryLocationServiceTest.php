@@ -157,6 +157,7 @@ class EntryLocationServiceTest extends BaseTesting
                 //  self::assertTrue($startEntry->greaterThanOrEqualTo($begin) || $startEntry->lessThanOrEqualTo($end));
                 //  self::assertTrue($begin->lessThanOrEqualTo($endEntry));
             }
+
             ++$i;
         }
     }

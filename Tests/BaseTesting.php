@@ -30,12 +30,19 @@ use Symfony\Component\HttpKernel\KernelInterface;
 class BaseTesting extends WebTestCase
 {
     protected ?EntityManager $entityManager = null;
+
     protected ?object $loader = null;
+
     protected NativeLoader $loaderSimple;
+
     protected string $pathFixtures;
+
     protected ?KernelInterface $kernel2 = null;
+
     protected KernelBrowser $administrator;
+
     protected KernelBrowser $bob;
+
     protected KernelBrowser $brenda;
 
     /**
@@ -53,6 +60,7 @@ class BaseTesting extends WebTestCase
         $this->loader = $this->kernel2->getContainer()->get('fidry_alice_data_fixtures.loader.doctrine');
 
         $loader = new NativeLoader();
+
         $faker = $loader->getFakerGenerator();
         $faker->addProvider(CarbonFakerProvider::class);
 

@@ -17,7 +17,7 @@ use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
  */
 class XxContext
 {
-    private $currentUser;
+    private ?\App\Entity\Security\User $currentUser = null;
 
     /**
      * Initializes context.
@@ -47,6 +47,7 @@ class XxContext
     {
         $loader = new ContainerAwareLoader($this->getContainer());
         $loader->loadFromDirectory(__DIR__.'/../../src/AppBundle/DataFixtures');
+
         $executor = new ORMExecutor($this->getEntityManager());
         $executor->execute($loader->getFixtures(), true);
     }
@@ -197,6 +198,7 @@ class XxContext
         fwrite(STDOUT, "\033[s    \033[93m[Breakpoint] Press \033[1;93m[RETURN]\033[0;93m to continue...\033[0m");
         while ('' == fgets(STDIN, 1024)) {
         }
+
         fwrite(STDOUT, "\033[u");
 
         return;
@@ -231,7 +233,7 @@ class XxContext
             $product->setPrice(random_int(10, 1000));
             $product->setDescription('lorem');
 
-            if (null !== $author) {
+            if ($author instanceof User) {
                 $product->setAuthor($author);
             }
 

@@ -39,6 +39,7 @@ trait UserTrait
 
     #[ORM\Column(type: 'boolean')]
     private bool $isEnabled;
+
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $languageDefault = null;
 

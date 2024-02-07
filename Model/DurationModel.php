@@ -5,23 +5,26 @@ namespace Grr\Core\Model;
 class DurationModel
 {
     public const UNIT_TIME_MINUTES = 1;
+
     public const UNIT_TIME_HOURS = 2;
+
     public const UNIT_TIME_DAYS = 3;
+
     public const UNIT_TIME_WEEKS = 4;
 
     /**
      * Unité de temps.
      */
-    private int $unit;
+    private int $unit = self::UNIT_TIME_MINUTES;
 
     /**
      * Le temps en flottant.
      *
      * @var float;
      */
-    private float $time;
+    private float $time = 0;
 
-    private bool $full_day;
+    private bool $full_day = false;
 
     /**
      * Encodage de la date de fin de l'entry.
@@ -40,9 +43,6 @@ class DurationModel
 
     public function __construct()
     {
-        $this->full_day = false;
-        $this->time = 0;
-        $this->unit = self::UNIT_TIME_MINUTES;
     }
 
     public function getUnit(): int
