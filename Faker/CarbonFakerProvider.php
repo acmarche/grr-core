@@ -25,7 +25,7 @@ class CarbonFakerProvider extends BaseProvider
     /**
      * @return DateTime|DateTimeImmutable
      */
-    public function carbonDateTime(int $year, int $month, int $day, int $hour, int $minute): \DateTime
+    public function carbonDateTime(int $year, int $month, int $day, int $hour, int $minute): DateTime
     {
         return Carbon::create($year, $month, $day, $hour, $minute)->toDateTime();
     }
@@ -33,7 +33,7 @@ class CarbonFakerProvider extends BaseProvider
     /**
      * @return DateTime|DateTimeImmutable
      */
-    public function carbonDate(int $year, int $month, int $day): \DateTime
+    public function carbonDate(int $year, int $month, int $day): DateTime
     {
         return Carbon::createFromDate($year, $month, $day)->toDateTime();
     }

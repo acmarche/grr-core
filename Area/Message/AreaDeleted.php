@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Area\Message;
 
-final class AreaDeleted
+final readonly class AreaDeleted
 {
     public function __construct(
         private int $areaId

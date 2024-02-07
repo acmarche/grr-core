@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Entry\Message;
 
-final class EntryUpdated
+final readonly class EntryUpdated
 {
     public function __construct(
         private int $entryId

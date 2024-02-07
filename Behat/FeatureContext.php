@@ -21,8 +21,8 @@ use RuntimeException;
 class FeatureContext //extends RawMinkContext
 {
     public function __construct(
-        private EntryRepository $entryRepository,
-        private AreaRepository $areaRepository
+        private readonly EntryRepository $entryRepository,
+        private readonly AreaRepository $areaRepository
     ) {
     }
 
@@ -169,7 +169,7 @@ class FeatureContext //extends RawMinkContext
     public function iShouldSeeTextSoManyTimes($sText, $iExpected): void
     {
         $sContent = $this->getSession()->getPage()->getText();
-        $iFound = substr_count($sContent, $sText);
+        $iFound = substr_count((string) $sContent, (string) $sText);
         if ($iExpected != $iFound) {
             throw new Exception('Found '.$iFound.' occurences of "'.$sText.'" when expecting '.$iExpected);
         }
@@ -212,6 +212,6 @@ class FeatureContext //extends RawMinkContext
 
     protected function fixStepArgument($argument): array|string
     {
-        return str_replace('\\"', '"', $argument);
+        return str_replace('\\"', '"', (string) $argument);
     }
 }

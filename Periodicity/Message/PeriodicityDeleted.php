@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Periodicity\Message;
 
-final class PeriodicityDeleted
+final readonly class PeriodicityDeleted
 {
     public function __construct(
         private int $periodicityId

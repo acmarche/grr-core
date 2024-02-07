@@ -18,7 +18,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 class PropertyUtil
 {
     public function __construct(
-        private EntityManagerInterface $entityManager
+        private readonly EntityManagerInterface $entityManager
     ) {
     }
 

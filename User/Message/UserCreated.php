@@ -2,7 +2,7 @@
 
 namespace Grr\Core\User\Message;
 
-final class UserCreated
+final readonly class UserCreated
 {
     public function __construct(
         private int $userId

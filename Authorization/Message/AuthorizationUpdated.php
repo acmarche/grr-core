@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Authorization\Message;
 
-final class AuthorizationUpdated
+final readonly class AuthorizationUpdated
 {
     public function __construct(
         private int $authorizationId

@@ -17,11 +17,11 @@ class PeriodicityDaysProvider
     /**
      * @var DateTime|DateTimeImmutable|null
      */
-    private ?\DateTimeInterface $periodicity_end = null;
+    private ?DateTimeInterface $periodicity_end = null;
     /**
      * @var DateTime|DateTimeImmutable|null
      */
-    private ?\DateTimeInterface $entry_start = null;
+    private ?DateTimeInterface $entry_start = null;
 
     public function getDaysByEntry(EntryInterface $entry): array|CarbonPeriod
     {

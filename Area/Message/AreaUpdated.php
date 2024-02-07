@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Area\Message;
 
-final class AreaUpdated
+final readonly class AreaUpdated
 {
     public function __construct(
         private int $areaId

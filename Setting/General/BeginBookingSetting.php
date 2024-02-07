@@ -26,7 +26,7 @@ class BeginBookingSetting implements SettingGeneralInterface
         return 'help.setting.begin_booking';
     }
 
-    public function value(): bool|\DateTime|\DateTimeInterface
+    public function value(): bool|DateTime|DateTimeInterface
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
             try {
@@ -39,7 +39,7 @@ class BeginBookingSetting implements SettingGeneralInterface
         return $this->defaultValue();
     }
 
-    public function defaultValue(): \DateTime
+    public function defaultValue(): DateTime
     {
         return new DateTime();
     }

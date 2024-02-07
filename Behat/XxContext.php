@@ -27,7 +27,7 @@ class XxContext
      * context constructor through behat.yml.
      */
     public function __construct(
-        private EntityManagerInterface $entityManager
+        private readonly EntityManagerInterface $entityManager
     ) {
     }
 

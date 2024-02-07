@@ -12,8 +12,8 @@ use Grr\Core\I18n\LocalHelper;
 class DateProvider
 {
     public function __construct(
-        private LocalHelper $localHelper,
-        private CarbonFactory $carbonFactory
+        private readonly LocalHelper $localHelper,
+        private readonly CarbonFactory $carbonFactory
     ) {
     }
 

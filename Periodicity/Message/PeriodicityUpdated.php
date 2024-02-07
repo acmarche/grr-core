@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Periodicity\Message;
 
-final class PeriodicityUpdated
+final readonly class PeriodicityUpdated
 {
     public function __construct(
         private ?int $periodicityId

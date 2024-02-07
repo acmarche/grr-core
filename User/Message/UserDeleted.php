@@ -2,7 +2,7 @@
 
 namespace Grr\Core\User\Message;
 
-final class UserDeleted
+final readonly class UserDeleted
 {
     public function __construct(
         private int $userId

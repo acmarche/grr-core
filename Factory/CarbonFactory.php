@@ -11,7 +11,7 @@ use Grr\Core\I18n\LocalHelper;
 class CarbonFactory
 {
     public function __construct(
-        private LocalHelper $localHelper
+        private readonly LocalHelper $localHelper
     ) {
     }
 

@@ -11,8 +11,8 @@ use Traversable;
 class FormSettingFactory
 {
     public function __construct(
-        private SettingProvider $settingProvider,
-        private FormFactoryInterface $formFactory
+        private readonly SettingProvider $settingProvider,
+        private readonly FormFactoryInterface $formFactory
     ) {
     }
 
@@ -51,13 +51,7 @@ class FormSettingFactory
         $ordered = iterator_to_array($settings);
         usort(
             $ordered,
-            function ($a, $b) {
-                if ($a->displayOrder() == $b->displayOrder()) {
-                    return 0;
-                }
-
-                return $a->displayOrder() < $b->displayOrder() ? -1 : 1;
-            }
+            fn($a, $b) => $a->displayOrder() <=> $b->displayOrder()
         );
 
         return $ordered;

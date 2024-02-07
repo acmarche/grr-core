@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Setting\Message;
 
-final class SettingDeleted
+final readonly class SettingDeleted
 {
     public function __construct(
         private array $settingsId

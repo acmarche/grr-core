@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Preference\Message;
 
-final class PreferenceDeleted
+final readonly class PreferenceDeleted
 {
     public function __construct(
         private int $preferenceId

@@ -2,7 +2,7 @@
 
 namespace Grr\Core\TypeEntry\Message;
 
-final class TypeEntryAreaAssociated
+final readonly class TypeEntryAreaAssociated
 {
     public function __construct(
         private int $areaId

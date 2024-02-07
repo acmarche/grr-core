@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Room\Message;
 
-final class RoomUpdated
+final readonly class RoomUpdated
 {
     public function __construct(
         private int $roomId

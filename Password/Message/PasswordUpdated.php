@@ -2,7 +2,7 @@
 
 namespace Grr\Core\Password\Message;
 
-final class PasswordUpdated
+final readonly class PasswordUpdated
 {
     public function __construct(
         private int $userId

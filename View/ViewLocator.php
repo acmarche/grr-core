@@ -10,8 +10,8 @@ use Traversable;
 class ViewLocator
 {
     public function __construct(
-        private Traversable $renders,
-        private ServiceLocator $serviceLocator
+        private readonly Traversable $renders,
+        private readonly ServiceLocator $serviceLocator
     ) {
     }
 

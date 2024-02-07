@@ -14,7 +14,7 @@ use Doctrine\ORM\QueryBuilder;
 class QueryHelper
 {
     public function __construct(
-        private QueryBuilder $queryBuilder
+        private readonly QueryBuilder $queryBuilder
     ) {
     }
 

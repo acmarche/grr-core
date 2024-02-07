@@ -10,9 +10,9 @@ use Symfony\Bundle\SecurityBundle\Security;
 class LocalHelper
 {
     public function __construct(
-        private ParameterBagInterface $parameterBag,
-        private Security $security,
-        private RequestStack $requestStack
+        private readonly ParameterBagInterface $parameterBag,
+        private readonly Security $security,
+        private readonly RequestStack $requestStack
     ) {
     }
 

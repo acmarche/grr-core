@@ -22,8 +22,8 @@ final class SymfonyContext implements Context
     private ?Response $response = null;
 
     public function __construct(
-        private KernelInterface $kernel,
-        private EntryRepository $entryRepository
+        private readonly KernelInterface $kernel,
+        private readonly EntryRepository $entryRepository
     ) {
     }
 

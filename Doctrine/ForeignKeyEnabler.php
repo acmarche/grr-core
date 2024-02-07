@@ -23,8 +23,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 class ForeignKeyEnabler //implements EventSubscriber
 {
     public function __construct(
-        private EntityManagerInterface $entityManager,
-        private ParameterBagInterface $parameterBag
+        private readonly EntityManagerInterface $entityManager,
+        private readonly ParameterBagInterface $parameterBag
     ) {
     }
 

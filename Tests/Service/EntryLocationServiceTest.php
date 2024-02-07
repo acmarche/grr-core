@@ -10,6 +10,7 @@
 
 namespace Grr\Core\Tests\Service;
 
+use DateTimeImmutable;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use DateTime;
@@ -112,8 +113,8 @@ class EntryLocationServiceTest extends BaseTesting
      * @dataProvider getDataMultipleDays
      */
     public function testMultipleDaysSetLocations(
-        \DateTime|\DateTimeImmutable $dateStart,
-        \DateTime|\DateTimeImmutable $dateEnd,
+        DateTime|DateTimeImmutable $dateStart,
+        DateTime|DateTimeImmutable $dateEnd,
         array $countLocations
     ): void {
         $duration = 30;

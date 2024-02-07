@@ -14,9 +14,9 @@ use Traversable;
 class SettingProvider
 {
     public function __construct(
-        private Traversable $settings,
-        private ServiceLocator $serviceLocator,
-        private AreaRepositoryInterface $areaRepository
+        private readonly Traversable $settings,
+        private readonly ServiceLocator $serviceLocator,
+        private readonly AreaRepositoryInterface $areaRepository
     ) {
     }
 

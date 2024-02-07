@@ -13,7 +13,7 @@ use Grr\Core\Model\TimeSlot;
 class TimeSlotsProvider
 {
     public function __construct(
-        private CarbonFactory $carbonFactory
+        private readonly CarbonFactory $carbonFactory
     ) {
     }
 

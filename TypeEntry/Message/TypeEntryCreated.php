@@ -2,7 +2,7 @@
 
 namespace Grr\Core\TypeEntry\Message;
 
-final class TypeEntryCreated
+final readonly class TypeEntryCreated
 {
     public function __construct(
         private int $typeEntryId

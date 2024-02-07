@@ -23,9 +23,9 @@ use Twig\Environment;
 class GrrMailer
 {
     public function __construct(
-        private MailerInterface $mailer,
-        private Environment $environment,
-        private Pdf $pdf
+        private readonly MailerInterface $mailer,
+        private readonly Environment $environment,
+        private readonly Pdf $pdf
     ) {
     }
 

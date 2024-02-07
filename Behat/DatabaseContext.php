@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class DatabaseContext implements Context
 {
     private ?object $loader = null;
-    private string $pathFixtures;
+    private readonly string $pathFixtures;
 
     public function __construct(ContainerInterface $container)
     {
