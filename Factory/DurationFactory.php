@@ -47,7 +47,7 @@ class DurationFactory
         $endTime = Carbon::instance($endDateTime);
 
         $minutes = $startTime->diffInMinutes($endTime);
-        $hours = $startTime->diffInRealHours($endTime);
+        $hours = $startTime->diffInHours($endTime);
         $days = $startTime->diffInDays($endTime);
         $weeks = $startTime->diffInWeeks($endTime);
 
@@ -56,18 +56,18 @@ class DurationFactory
             $durationModel->setTime($minutes);
         }
 
-        if ($hours > 0) {
+        if ($hours >= 1) {
             $durationModel->setUnit(DurationModel::UNIT_TIME_HOURS);
             $hour = TimeService::convertMinutesToHour($hours, $minutes);
             $durationModel->setTime($hour);
         }
 
-        if ($days > 0) {
+        if ($days >= 1) {
             $durationModel->setUnit(DurationModel::UNIT_TIME_DAYS);
             $durationModel->setTime($days);
         }
 
-        if ($weeks > 0) {
+        if ($weeks >= 1) {
             $durationModel->setUnit(DurationModel::UNIT_TIME_WEEKS);
             $durationModel->setTime($weeks);
         }
