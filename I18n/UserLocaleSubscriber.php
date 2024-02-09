@@ -22,10 +22,6 @@ use Symfony\Component\Security\Http\SecurityEvents;
 
 class UserLocaleSubscriber implements EventSubscriberInterface
 {
-    public function construct(SessionInterface $session): void
-    {
-    }
-
     public function __construct(RequestContext $requestContext)
     {
         $requestContext->getParameter('_locale');
