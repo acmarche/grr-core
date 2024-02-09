@@ -20,9 +20,6 @@ use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Type;
 
-/**
- * Entry.
- */
 trait EntryTrait
 {
     use IdEntityTrait;
