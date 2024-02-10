@@ -31,7 +31,7 @@ class FrontRouterHelper
 
         $params = [
             'area' => $area->getId(),
-            'date' => $date,
+            'date' => $date->format('Y-m-d'),
             'view' => ViewInterface::VIEW_MONTHLY,
         ];
 

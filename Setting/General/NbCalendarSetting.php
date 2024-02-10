@@ -23,10 +23,10 @@ class NbCalendarSetting implements SettingGeneralInterface
         return 'help.setting.nbcalendar';
     }
 
-    public function value(): bool|int
+    public function value(): int
     {
         if ($setting = $this->settingRepository->getSettingByName(self::NAME)) {
-            return (bool) $setting->getValue();
+            return  $setting->getValue();
         }
 
         return $this->defaultValue();
