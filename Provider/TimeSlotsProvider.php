@@ -7,16 +7,10 @@ use Carbon\CarbonInterface;
 use Carbon\CarbonPeriod;
 use Grr\Core\Contrat\Entity\AreaInterface;
 use Grr\Core\Contrat\Entity\EntryInterface;
-use Grr\Core\Factory\CarbonFactory;
 use Grr\Core\Model\TimeSlot;
 
 class TimeSlotsProvider
 {
-    public function __construct(
-        private readonly CarbonFactory $carbonFactory
-    ) {
-    }
-
     /**
      * Crée les tranches d'heures sous forme d'objet.
      *
@@ -55,6 +49,7 @@ class TimeSlotsProvider
         int $hourEnd,
         int $timeInterval
     ): CarbonPeriod {
+        $dateSelected->minute(0);//force
         $dateBegin = $dateSelected->copy();
         $dateEnd = $dateSelected->copy();
 
